@@ -1,0 +1,47 @@
+.m-t-15 {
+            margin-top: 15px;
+        }
+        .h-150{
+            height: 150px;
+        }
+        .mr-ml-0{
+            margin-left: 0px;
+            margin-right: 0px;
+            max-width: 1345px;
+        }
+		.fon1{
+			background: #6fa7c4;
+			color: snow;
+		}
+		.fon2{
+			background: #3d194c;
+            background-size: cover;
+            font-weight: 800;
+            color: snow;
+		}
+        .fon2>h1, .fon3>h1, .fon1>h1{
+            font-size: 50px;
+            font-weight: 800;
+        }
+        .fon2>.lead, .fon1>.lead, .fon3>.lead{
+            font-size: 30px;
+            font-weight: 800;
+        }
+        .fon2>.sub_href{
+            font-size: 24px;
+            font-weight: 800;
+        }
+		.fon3{
+			background: #7a2351;
+			color: snow;
+		}
+        .text-style1{
+            font-family: Comic Sans MS, Comic Sans, cursive;
+        }
+        .text-style2{
+            font-family: Comic Sans MS, Comic Sans, cursive;
+            color: #1f3354;
+        }
+        .text-style3{
+            font-family: Luminari, fantasy;
+        }

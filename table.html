@@ -1,0 +1,103 @@
+﻿	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Таблиця для нагадування</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/my_style.css">
+		<style>
+		.sticky {
+			border-radius: 15px 15px 0px 0px;
+			position: sticky;
+			top: 0;
+			min-height: 80px;
+			background: lightblue;
+			text-align: center;
+			font-size: 20px;
+		}
+		#name, #date, #task {
+			border-radius: 6px;
+			width: 30%;
+			heigth: 50px;
+		}
+		#name{
+			margin-left: 15px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="sticky">
+				Add new task.
+				<form>
+				<input id="name" type="text" name="name" placeholder='Name'>
+				<input id="date" type="date" name="date" placeholder='Date'>
+				<input id="task" type="text" name="task" placeholder='Task'>
+				<div id="save" class="btn btn-secondary w-80">Save</div>
+				</form>
+			</div>
+		
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>№</th>
+						<th>Date</th>
+						<th>Name</th>
+						<th>Task</th>
+					</tr>
+				</thead>
+
+				<tbody id="my_tbody">
+					
+				</tbody>
+			</table>
+		</div>
+
+		<script>
+		
+		var length;
+        // Відображення данних з бд
+		function show(){
+         $.get("db_tasks.php", function (data) {
+			data = JSON.parse(data);
+			console.log(data);
+            i = 0;
+			n = i + 1;
+                while(data[i]){
+				num = i + 1;
+				//витягуємо значення таблиці 
+                $('#my_tbody').append(
+                    '<tr id="task'+data[i].id+'">'+
+                    '<td class="one">'+num+'</td>'+
+					'<td class="date">'+data[i].date+'</td>'+
+                    '<td class="name">'+data[i].name+'</td>'+
+                    '<td class="task">'+data[i].task+'</td>'+
+                    '</tr>'
+                )
+                i++;
+				length = i + 1;
+            }	
+        });
+		}
+		show();
+		
+		$(function(){
+			// Функція надсилання данних на бд з форми
+			$('#save').click(function() {
+				if($('#name').val() !== '' && $('#date').val() !== '' && $('#task').val() !== ''){
+					var form_data = {Id: length, name: $('#name').val(), date: $('#date').val(), task: $('#task').val()};
+					$.post("post.php", form_data, function (data) {
+						console.log(data);
+						show();
+					})
+				}
+			});
+		})	
+		</script>
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	</body>
+	</html>
