@@ -1,0 +1,96 @@
+﻿	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Індекс зорової людини</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/my_style.css">
+
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/my_style.css">
+
+	</head>
+	<body>
+		<div class="container text-style1">
+			<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">My site</a>
+
+				<div class="collapse navbar-collapse text-style1" id="navbarTogglerDemo03">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="list.html">List</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="events.html">Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="places.html">Places</a>
+						</li>
+					</ul>
+
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+					</form>
+				</div>
+			</nav>
+		</div>
+
+	   
+		<br>
+		<br>
+		<div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Name</th>
+                    <th>Start</th>
+                </tr>
+            </thead>
+
+            <tbody id="my_tbody">
+                
+            </tbody>
+        </table>
+    </div>
+
+		<script>
+		/* Функція надсилання данних на бд з форми
+        $('#ok').click(function() {
+            var form_data = {post_time: $('#post_time').val(), deadline: $('#deadline').val(), description: $('#description').val()};
+            $.post("test.php", form_data, function (data) {
+                console.log(data);
+            })
+        });
+        */
+
+        // Відображення данних з бд
+         $.getJSON("https://api.gastroli.ua/v2/events/filter?locale=uk&public_key=3638eeb29dff9f8bb81f72e805769df0&filter%5Bcity_id%5D=1&limit=24&offset=24", function (data) {
+			console.log(data, data.events.length);
+           		i = 0;
+                while(data.events[i]){
+                	console.log(data.events[i]);
+                $('#my_tbody').append(
+                    '<tr>'+
+                    '<td>'+(i+1)+'</td>'+
+                    '<td>'+data.events[i].name+'</td>'+
+                    '<td>'+data.events[i].event_start.substring(0, 10)+'</td>'
+                   /* '<td><button type="button" class="btn btn-info w-100">Show on wiki</button><td>'+
+                    '<td><button type="button" class="btn btn-secondary w-80">Edit</button><td>'+
+                    '<td><button type="button" class="btn btn-danger w-80">Delete</button><td>'+
+                    '</tr>'*/
+                )
+                i++;
+            }
+        });
+		</script>		
+
+	</body>
+	</html>
