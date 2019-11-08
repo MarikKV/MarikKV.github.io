@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/resume_style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -48,19 +49,35 @@
 		</ul>
 	</p>
 	
-	<p>
-		<img style='width: 90%' src='images/signUp.png'><br></br>
-		<img style='width: 90%' src='images/signIn.png'><br></br>
-		<img style='width: 90%' src='images/header.png'><br></br>
-		<img style='width: 90%' src='images/my_tasks.png'><br></br>
-		<img style='width: 90%' src='images/shared_tasks.png'><br></br>
-		<img style='width: 90%' src='images/create_task.png'><br></br>
-		<img style='width: 90%' src='images/edit_task.png'><br></br>
+	<p class='bg_lgray'>
+		<img class='foto fl' src='images/signUp.png'>
+		<img class='foto fl' src='images/signIn.png'>
+		<img class='foto fl' src='images/header.png'>
+		<img class='foto fl' src='images/my_tasks.png'>
+		<img class='foto fl' src='images/shared_tasks.png'>
+		<img class='foto fl' src='images/create_task.png'>
+		<img class='foto' src='images/edit_task.png'>
 	</p>
 	<p><a href="https://github.com/MarikKV/events_lviv.git">Посилання на Git</a></p>
 	
 
 </div>
 </div>
+<script>
+	$('.foto').click(function(){
+		if($(this).attr('class') == 'foto fl'){
+			$(this).removeClass( "foto fl" ).addClass( "foto_big fl" );
+		}
+		else if($(this).attr('class') == 'foto'){
+			$(this).removeClass( "foto" ).addClass( "foto_big" );
+		}
+		else if($(this).attr('class') == 'foto_big'){
+			$(this).removeClass( "foto_big" ).addClass( "foto" );
+		}
+		else{
+			$(this).removeClass( "foto_big fl" ).addClass( "foto fl" );
+		}	
+	})
+</script>
 </body>
 </html>
