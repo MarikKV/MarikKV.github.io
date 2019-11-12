@@ -1,0 +1,32 @@
+.articles-article>h1{
+    font-size: 18pt;
+    font-family: Tahoma;
+}
+.articles-article>p{
+    font-size: 14pt;
+    font-family: 'Times New Roman';
+    color: #8d8d8d;
+}
+.articles-images{
+    width: 100%;
+    height: 55px;
+}
+.article-images-block{
+    width: 25%;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 9px;
+}
+.article-images-block>img{
+    float: left;
+    width: 44px;
+}
+.article-images-block-text{
+    float: left;
+    padding-left: 10px;
+}
+.article-images-block-text>p{
+    font-style: italic;
+    font-size: 12pt;
+    margin-top: 0px;
+}
