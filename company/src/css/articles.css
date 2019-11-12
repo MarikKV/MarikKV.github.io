@@ -8,6 +8,7 @@
     color: #8d8d8d;
 }
 .articles-images{
+    margin: 30px 0;
     display: flex;
     height: 44px;
     justify-content: space-around;
@@ -29,4 +30,18 @@
 .article-images-block-text>p{
     font-style: italic;
     font-size: 12pt;
+}
+@media screen and (max-width: 550px){
+    .articles-images{
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        justify-content: center;
+        align-items: center;
+    }
+    .article-images-block{
+        width: 50%;
+        height: 44px;
+        margin-top: 15px;
+    }
 }

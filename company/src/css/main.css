@@ -4,5 +4,5 @@ body{
 }
 .container{
     margin: 0 auto;
-    width: 840px;
+    max-width: 840px;
 }

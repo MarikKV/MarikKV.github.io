@@ -4,10 +4,11 @@
     box-sizing: border-box;
     padding: 20px 30px;
     display: flex;
+    flex-direction: row;
+
 }
 .main-block-foto, .main-block-info{
     display: flex;
-    flex-direction: row;
     width: 50%;
     height: 100%; 
 }
@@ -44,4 +45,18 @@
     background-color: #cc5850;
     color: rgb(243, 243, 207);
     cursor: pointer;
+}
+@media screen and (max-width: 840px){
+    .main-block{
+        height: 540px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-block-foto, .main-block-info{
+        height: 50%;
+        width: 400px;
+        margin: 0;
+        margin-top: 10px;
+    }
 }
