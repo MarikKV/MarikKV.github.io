@@ -55,8 +55,25 @@
     }
     .main-block-foto, .main-block-info{
         height: 50%;
-        width: 400px;
+        width: 482px;
         margin: 0;
         margin-top: 10px;
+    }
+}
+@media screen and (max-width: 482px){
+    .header-logo{
+        width: 0px;
+        visibility: hidden;
+    }
+    .main-block{
+        height: 550px;
+    }
+    .main-block-foto, .main-block-info{
+        height: 50%;
+        width: 241px;
+    }
+    .main-block-foto{
+        margin-top: -150px;
+        height: 133px;
     }
 }
