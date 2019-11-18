@@ -30,14 +30,9 @@
                         <a class="nav-link" href="events.html">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="places.html">Places</a>
+                        <a class="nav-link" href="places.html">Detail info</a>
                     </li>
                 </ul>
-
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for..." aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
     </div>
@@ -99,7 +94,7 @@
             //carousel
                 i = 0;
                 while(data.events[i] && i <=2){
-                console.log(data.events[i]);
+                //console.log(data.events[i]);
                 
                 $('.carousel-item:eq('+i+')').append(
                     '<img src="'+data.events[i].promo_favorite_image_url+
@@ -114,7 +109,7 @@
             //after carousel
                 j = 3;
                 while(data.events[j] && j <=8){
-                    console.log(data.events[j],'2');
+                    console.log(data.events[j]);
 
                     $('.col-sm-12').append(
                         '<div class="jumbotron fon2">'+
@@ -125,9 +120,6 @@
                             data.events[j].event_start.substring(11, 16)+'<br>'+
                             data.events[j].event_start.substring(0, 10)+
                         '</p><br>'+
-                        '<div class="lead">'+
-                           '<a class="btn btn-primary btn-lg" href="https://gastroli.ua/%D0%9B%D1%8C%D0%B2%D1%96%D0%B2" role="button">Learn more</a>'+
-                        '<//div>'+
                         '</div>'
                     )
                     j++;
