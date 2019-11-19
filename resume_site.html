@@ -15,28 +15,28 @@
 <nav class="navbar navbar-expand-sm bg-light">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">Про мене</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="resume_site.html">Приклад сайтів</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="resume_games.html">Приклад ігор на js</a>
-    </li>
+		<a class="nav-link" href="index.html">About me</a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link" href="resume_site.html">Portfolio</a>
+	  </li>
+	  <li class="nav-item">
+		<a class="nav-link" href="resume_games.html">Games(Phaser3)</a>
+	  </li>
   </ul>
 </nav>
 <br>
 
 <div class="container-fluid">
-	<h1>Список сайтів</h1>
+	<h1>Sites list</h1>
 	<ul>
-		<li>Сайти на React
+		<li>Sites on React
 			<ul>
 				<li><a href="#tm">TaskManager</a></li>
 				<li><a href="#el">EventsLviv</a></li>
 			</ul>
 		</li>
-		<li>Сайти без фреймворків
+		<li>Sites without frameworks
 				<ul>
 					<li><a href="#ein">Events in Lviv</a></li>
 					<li><a href="#com">Company(тз)</a></li>
@@ -44,21 +44,21 @@
 		</li>
 	</ul>
 	<br><br>
-	<h2 align='center'>Сайти(тз) на React.js</h2> 
+	<h2 align='center'>Sites on React</h2> 
 	<br><br>
 	<h4 id='tm'>TaskManager</h4>
-	<h5>Використано React, Redux. Данні зберігаються у localstorage.</h5>
+	<h5>Used: React, Redux. Data save on localstorage.</h5>
 	<p>
-		<h4>Функціонал</h4>
+		<h4>Functional</h4>
 		<ul>
-			<li>Реєтрація</li>
-			<li>Логінізація</li>
-			<li>Створення нових завдань</li>
-			<li>Можна поділитись завданням з іншим користувачем вказавши його email при створенні завдання.</li>
-			<li>Можна видалити або редагувати свої завдання. Завдання від інших користувачів можна редагувати</li>
+			<li>Sign up</li>
+			<li>Sign in</li>
+			<li>Add new task</li>
+			<li>You can share the task with another user by specifying his email when creating the task.</li>
+			<li>You can delete or edit your tasks. Tasks from other users can be edited.</li>
 		</ul>
 	</p>
-	<p><a href="https://github.com/MarikKV/TaskManager.git" class="btn btn-secondary">Посилання на Git</a></p>
+	<p><a href="https://github.com/MarikKV/TaskManager.git" class="btn btn-secondary">Show on Git</a></p>
 	
 	<!---->
 
@@ -112,7 +112,7 @@
 	<h2 id='el'>EventsLviv</h2>
 	<h4>Сайт на React. Данні отримано з <a href='api.gastroli.ua/v2/events/filter?locale=uk&public_key=3638eeb29dff9f8bb81f72e805769df0&filter%5Bcity_id%5D=1&limit=12&offset=24'>API</a>.</h4>
 	
-	<p><a href="https://github.com/MarikKV/events_lviv.git" class="btn btn-secondary">Посилання на Git</a></p>
+	<p><a href="https://github.com/MarikKV/events_lviv.git" class="btn btn-secondary">Show on Git</a></p>
 	<!---->
 
 	<div class="bd-example">
@@ -126,32 +126,16 @@
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 			  <img src="images/EL1.png" class="d-block w-100" alt="...">
-			  <div class="carousel-caption d-none d-md-block">
-				<h5>First slide label</h5>
-				<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-			  </div>
 			</div>
 			<div class="carousel-item">
 			  <img src="images/EL4.png" class="d-block w-100" alt="...">
-			  <div class="carousel-caption d-none d-md-block">
-				<h5>Second slide label</h5>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			  </div>
 			</div>
 			<div class="carousel-item">
 			  <img src="images/EL2.png" class="d-block w-100" alt="...">
-			  <div class="carousel-caption d-none d-md-block">
-				<h5>Third slide label</h5>
-				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-			  </div>
 			</div>
 			<div class="carousel-item">
 				<img src="images/EL3.png" class="d-block w-100" alt="...">
-				<div class="carousel-caption d-none d-md-block">
-				  <h5>Third slide label</h5>
-				  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-				</div>
-			  </div>
+			</div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -168,23 +152,23 @@
 	
 	
 	<br><br>
-	<h2 align='center'>Сайти без фреймворків</h2>
+	<h2 align='center'>Sites without frameworks</h2>
 	<br><br>
-	<div class="card" style="width: 18rem; float: left;">
+	<div class="card" style="width: 18rem; float: left;" id="ein">
 		<img src="images/el.png" class="card-img-top" alt="...">
 		<div class="card-body">
 		  <h5 class="card-title">Events in Lviv</h5>
-		  <p class="card-text">Приклад сайту(з використанням jQuery, bootstrap та витягуванням інформації з API).</p>
+		  <p class="card-text">Site example(Used: jQuery, bootstrap, data gets from API).</p>
 		  <a href="https://marikkv.github.io/EventsInLviv/index.html" class="btn btn-primary">Go on site</a>
 		  <a href="https://github.com/MarikKV/Lviv_events.git" class="btn btn-secondary">Git</a>
 		</div>
 	</div>
 
-	<div class="card" style="width: 18rem; float: left;">
+	<div class="card" style="width: 18rem; float: left;" id="com">
 		<img src="images/company.png" class="card-img-top" alt="...">
 		<div class="card-body">
 		  <h5 class="card-title">Company(тз)</h5>
-		  <p class="card-text">Приклад сайту без використання bootstrap.</p>
+		  <p class="card-text">Site made from psd without bootstrap.</p>
 		  <a href="https://marikkv.github.io/company/index.html" class="btn btn-primary">Go on site</a>
 		  <a href="https://github.com/MarikKV/TestPage.git" class="btn btn-secondary">Git</a>
 		</div>
@@ -192,21 +176,5 @@
 
 </div>
 </div>
-<script>
-	$('.foto').click(function(){
-		if($(this).attr('class') == 'foto fl'){
-			$(this).removeClass( "foto fl" ).addClass( "foto_big fl" );
-		}
-		else if($(this).attr('class') == 'foto'){
-			$(this).removeClass( "foto" ).addClass( "foto_big" );
-		}
-		else if($(this).attr('class') == 'foto_big'){
-			$(this).removeClass( "foto_big" ).addClass( "foto" );
-		}
-		else{
-			$(this).removeClass( "foto_big fl" ).addClass( "foto fl" );
-		}	
-	})
-</script>
 </body>
 </html>
