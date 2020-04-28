@@ -1,13 +1,13 @@
 .about{
-    background: rgb(88, 86, 86);
+    background: #181b30;
     color: whitesmoke;
     font-family: Tahoma;
 }
 .about__container>h3>a{
-    color: navy;
+    color: rgb(49, 49, 146);
 }
 .about__container>h3>a:hover{
-    color: red;
+    color: rgb(245, 68, 68);
 }
 .about__container>img{
     border-radius: 50%;
