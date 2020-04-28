@@ -1,0 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+.menu, .about, .portfolio, .react, .exp{
+    min-height: 100vh;
+}
