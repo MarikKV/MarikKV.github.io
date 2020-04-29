@@ -1,6 +1,6 @@
 .portfolio{
     display: flex;
-    background: #1f243f;
+    background: rgb(245, 225, 225);
 }
 .card{
     display: flex;
@@ -9,8 +9,8 @@
 }
 .box{
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 650px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,8 +18,21 @@
     background: #060c21;
     transition: 0.5s;
 }
+
 .box:hover{
-    height: 400px;
+    height: 300px;
+}
+@media screen and (max-width: 950px){
+    .card{
+        flex-direction: column;
+    }
+    .box{
+        width: 500px;
+        height: 320px;
+    }
+    .box:hover{
+        height: 360px;
+    } 
 }
 .box .imgBox{
     position: absolute;
@@ -30,17 +43,14 @@
     padding: 10px;
     box-sizing: border-box;
 }
-
 .box .imgBox img{
     max-width: 100%;
     opacity: 0.1;
     transition: 0.5s;
 }
-
 .box:hover .imgBox img{
     opacity: 1;
 }
-
 .box:before{
     content: '';
     position: absolute;
