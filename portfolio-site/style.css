@@ -48,10 +48,13 @@ body{
 }
 .main__header__left{
     min-height: 580px;
+    display: flex;
+    justify-content: center;
 }
 .main__header__right{
     padding: 135px 70px;
 }
+
 @media screen and (max-width: 860px){
     .main__header{
         flex-direction: column;
@@ -110,7 +113,14 @@ body{
     padding: 156px 100px;
     background: #f8f9f9;
 }
-
+.skills__right{
+    display: flex;
+    justify-content: center;
+}
+#skills__right__photo{
+    width:100%;
+    max-height: 570px;
+}
 @media screen and (max-width: 815px){
     .skills{
         flex-direction: column;
