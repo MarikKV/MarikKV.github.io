@@ -1,0 +1,255 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.wrapper{
+    max-width: 1365px;
+    margin: 0 auto;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+.menu__logo{
+    margin-left: 100px;
+}
+.menu__items>a{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    margin-right: 30px;
+    font-weight: bold;
+}
+.menu__items>a:hover{
+    text-decoration: underline;
+}
+.menu__items>.open{
+    color: #10c9c3;
+}
+.header, .about__header{
+    height: 315px;
+    background: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.header h1{
+    margin: 0;
+}
+
+.about__header{
+    background: #3e3e3e;
+    color: #fff;
+}
+
+
+.about__aboutMe{
+    display: flex;
+    min-height: 570px;
+}
+.aboutMe__block__left, .aboutMe__block__right{
+    width: 50%;
+}
+.aboutMe__block__left{
+    background: #e1e1e1;
+}
+.aboutMe__block__right{
+    box-sizing: border-box;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+}
+.aboutMe__block__right p{
+    font-size: 16px;
+}
+.aboutMe__block__right h1{
+    align-self: start;
+}
+.aboutMe__block__right img{
+    align-self: start;
+}
+
+.contactMe{
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+}
+
+.contact__button{
+    padding: 22px 45px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: white;
+    background: #10c9c3;
+}
+.contact__button:hover{
+    background: #09a39e;
+}
+
+
+
+
+.icons{
+    min-height: 240px;
+    background: #10c9c3;
+    display: flex;
+    box-sizing: border-box;
+    padding: 100px;
+}
+.icons__block{
+    display: flex;
+    width: 25%;
+    color: white;
+}
+@media screen and (max-width: 815px){
+    .icons{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .icons__block{
+        width: 100%;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}
+.icons__block__icon{
+    font-size: 40pt;
+}
+.icons__block__text{
+    font-size: 12px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding:0 10px;
+}
+.icons__block__text__num{
+    font-size: 18px;
+}
+
+
+.chess{
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+}
+.chess__row{
+    display: flex;
+    height: 50%;
+}
+.chess__row__item1{
+    background-color: #838383;
+}
+.chess__row__item2{
+    background-color: #dddddd;
+}
+.w-25{
+    width: 25%;
+}
+
+.contact{
+    min-height: 720px;
+    background: #dddddd;
+    box-sizing: border-box;
+    padding: 100px 0 10px;
+}
+.contact__forForm{
+    max-width: 675px;
+    margin: 0 auto;
+}
+.w-45{
+    width: 45%;
+}
+.w-100{
+    width: 100%;
+}
+.mr-10{
+    margin-right: 9.2%;
+}
+.h-48{
+    height: 48px;
+}
+.h-170{
+    height: 170px;
+}
+input{
+    border: 0;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding: 15px 18px;
+}
+input[type=submit]{
+    background: #10c9c3;
+    padding: 20px 35px;
+    color: white;
+    font-size: 10px;
+}
+@media screen and (max-width: 700px){
+    .w-45{
+        width: 100%;
+    }
+}
+
+
+.footer{
+    min-height: 280px;
+    background: black;
+    color: white;
+    box-sizing: border-box;
+    padding: 100px;
+    display: flex;
+}
+.footer__rights{
+    width: 40%;
+}
+.footer__contacts{
+    padding-top: 20px;
+    width: 35%;
+}
+.footer__menu{
+    display: flex;
+    padding-top: 20px;
+    width: 30%;
+}
+@media screen and (max-width: 900px){
+    .footer{
+        padding: 10px;
+    }
+    .footer__rights{
+        width: 35%;
+    }
+}
+@media screen and (max-width: 685px){
+    .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__rights, .footer__contacts, .footer__menu{
+        width: 100%;
+    }
+}
+.footer__socials{
+    padding-top: 20px;
+}
+.footer__menu__box{
+    width: 50%;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+.footer a:hover{
+    text-decoration: underline;
+}
