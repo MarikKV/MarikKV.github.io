@@ -1,0 +1,214 @@
+.main {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.main .main__box {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.main .main__box > h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-weight: normal;
+}
+
+.main .main__box > h2 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.main .main__box > p {
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.main .main__box .line {
+  height: 3px;
+  width: 64px;
+  background: #f38181;
+  position: relative;
+  top: 40px;
+  left: calc(50% - 32px);
+  margin-bottom: 60px;
+}
+
+.main .main__box .main__info {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'block1 block2 block3' 'block4 block5 block6';
+}
+
+.main .main__box .main__info:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: block1;
+}
+
+.main .main__box .main__info:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: block2;
+}
+
+.main .main__box .main__info:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: block3;
+}
+
+.main .main__box .main__info:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: block4;
+}
+
+.main .main__box .main__info:nth-child(5) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: block5;
+}
+
+.main .main__box .main__info:nth-child(6) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: block6;
+}
+
+.main .main__box .main__info .main__info__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px 30px;
+}
+
+.main .main__box .main__info .main__info__box:hover .main__info__box__image svg path {
+  fill: red;
+}
+
+.main .main__box .main__info .main__info__box__image {
+  padding: 0 20px;
+}
+
+.main .main__box .main__info .main__info__box__text {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main .main__box .main__info .main__info__box__text h1 {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.main .main__box .main__info .main__info__box__text p {
+  font-size: 12px;
+  color: gray;
+}
+
+.main .main__box .main__us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 90px;
+}
+
+.main .main__box .main__us__box__image {
+  position: relative;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.main .main__box .main__us__box__image__socials {
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f38181), to(#fce38a));
+  background: linear-gradient(#f38181, #fce38a);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .main__box .main__us__box__image__socials .socials__images {
+  width: 60px;
+  height: 60px;
+  background-color: yellow;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 1px;
+}
+
+.main .main__box .main__us__box__image__socials .socials__images img {
+  width: 50%;
+}
+
+.main .main__box .main__us__box__image__socials .socials__images:hover {
+  cursor: pointer;
+}
+
+.main .main__box .main__us__box__image__socials .fb {
+  background: #f38181;
+}
+
+.main .main__box .main__us__box__image__socials .fb img {
+  width: 25%;
+}
+
+.main .main__box .main__us__box__image:hover {
+  -webkit-transform: translate(-5%, -5%);
+          transform: translate(-5%, -5%);
+}
+
+.main .main__box .main__us__box__image:hover .main__us__box__image__socials {
+  opacity: 0.8;
+}
+
+.main .main__box .main__us__box__image img {
+  width: 100%;
+}
+
+.main .main__box .main__us__box__text {
+  text-align: center;
+}
+
+.main .main__box .main__us__box__text h1 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  margin: 30px 0 15px;
+}
+
+.main .main__box .main__us__box__text p {
+  font-family: 'Montserrat', sans-serif;
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 90px;
+}
+/*# sourceMappingURL=main-block.css.map */
