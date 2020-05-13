@@ -1,8 +1,8 @@
 .header {
   max-width: 1920px;
   height: 1000px;
-  background: url("../images/picture.png"), -webkit-gradient(linear, left top, left bottom, from(#f38181), to(#fce38a));
-  background: url("../images/picture.png"), linear-gradient(#f38181, #fce38a);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f38181), to(#fce38a)), url("../images/picture.png");
+  background: linear-gradient(#f38181, #fce38a), url("../images/picture.png");
   margin: 0 auto;
 }
 
