@@ -37,6 +37,8 @@
 
 .header .header__box .header__menu .menu__items a:hover {
   color: yellow;
+  padding-bottom: 15px;
+  border-bottom: 3px solid yellow;
 }
 
 .header .header__box .header__welcome {
