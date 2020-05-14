@@ -1,9 +1,8 @@
 .header{
     max-width: 1920px; 
     height: 1000px;
-    background: linear-gradient(rgb(243, 129, 129, 0.8), rgb(252, 227, 138, 0.8)), url('../images/picture.png');
+    background: linear-gradient(rgba(243, 129, 129, 0.8), rgba(252, 227, 138, 0.8)), url('../images/picture.png');
     margin: 0 auto;
- 
     
     .header__box{
         max-width: 1200px;
