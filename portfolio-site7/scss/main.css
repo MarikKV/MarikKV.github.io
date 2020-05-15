@@ -30,9 +30,11 @@
   text-transform: uppercase;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-left: 30px;
+  -webkit-transition: border 0.5s ease;
+  transition: border 0.5s ease;
 }
 
 .header .header__box .header__menu .menu__items a:hover {
@@ -49,13 +51,13 @@
 
 .header .header__box .header__welcome__h {
   font-size: 72px;
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
 }
 
 .header .header__box .header__welcome__text {
   font-size: 150px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   margin-bottom: 125px;
 }
@@ -67,7 +69,7 @@
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main {
@@ -83,20 +85,20 @@
 }
 
 .main .main__box > h1 {
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   font-weight: normal;
 }
 
 .main .main__box > h2 {
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-top: 20px;
   font-weight: bold;
 }
 
 .main .main__box > p {
   color: gray;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }
 
@@ -156,7 +158,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 50px 30px;
+  margin: 50px 0px;
 }
 
 .main .main__box .main__info .main__info__box:hover .main__info__box__image svg path {
@@ -169,7 +171,7 @@
 
 .main .main__box .main__info .main__info__box__text {
   text-align: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main .main__box .main__info .main__info__box__text h1 {
@@ -224,7 +226,7 @@
 .main .main__box .main__us__box__image__socials .socials__images {
   width: 60px;
   height: 60px;
-  background-color: yellow;
+  background-color: #fce38a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,12 +275,12 @@
 .main .main__box .main__us__box__text h1 {
   font-size: 14px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 30px 0 15px;
 }
 
 .main .main__box .main__us__box__text p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: gray;
   font-size: 14px;
   margin-bottom: 90px;
@@ -296,7 +298,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   max-width: 1920px;
   margin: 0 auto;
 }
