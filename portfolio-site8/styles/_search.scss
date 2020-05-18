@@ -1,0 +1,65 @@
+.search{
+    background: #e7f4f8;
+    min-height: 200px;
+    padding: 0 0 20px;
+    
+    .search__content{
+        display: flex;
+        max-width: 1170px;
+        align-items: center;
+        height: 100%;
+        input, select{
+            width: 90%; 
+            height: 40px;
+            border: 1px solid gray;
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        .search__logo{
+            width: 20%;
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+        .search__name{
+            width: 30%;
+        }
+        .search__year{
+            width: 15%;
+        }
+        .search__host{
+            width: 15%;
+        }
+        .search__button{
+            width: 20%;
+            background: #ff8261;
+            text-align: center;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-size: 25px;
+            }
+            &:hover{
+                background-color: #52cbf8;
+            }
+        }
+        @media screen and (max-width: 800px){
+            &{
+                flex-direction: column;
+            }
+            & .search__logo, .search__name, .search__year, .search__host, .search__button{
+                width: 70%;
+                margin-top: 10px
+            }
+            input, select{
+                width: 100%;
+            }
+        }
+    }
+    
+}
