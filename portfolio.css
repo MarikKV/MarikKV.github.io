@@ -22,6 +22,26 @@
     'block1 block2 block3'
     'block4 block5 block6';
 }
+@media screen and (max-width: 900px){
+    .boxes{
+        grid-template-areas: 
+        'block1 block2'
+        'block3 block4'
+        'block5 block6';
+    }
+}
+@media screen and (max-width: 600px){
+    .boxes{
+        display: grid;
+        grid-template-areas: 
+        'block1'
+        'block2'
+        'block3'
+        'block4'
+        'block5'
+        'block6';
+    }
+}
 .box{
     display: flex;
     flex-direction: column;
