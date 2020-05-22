@@ -152,14 +152,14 @@ header .header__content .menu .active {
 }
 
 .search .search__content {
+  max-width: 1170px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 1170px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
+  min-height: 200px;
 }
 
 .search .search__content input, .search .search__content select {
