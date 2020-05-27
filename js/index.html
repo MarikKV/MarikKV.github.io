@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    <title>POE items</title>
+</head>
+<body>
+
+    <form>
+        <input type="text" id="name">
+        <input type="text" id="task">
+        <input type="button" value="Add task"  onclick="submitForm()">
+    </form>
+
+
+    <div>
+        <table>
+            <tbody id='table'>
+                <tr>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDL-YftUBhtXcCbMRXgSXR8FxILgvuOzTQ",
+            authDomain: "mytask-8fc81.firebaseapp.com",
+            databaseURL: "https://mytask-8fc81.firebaseio.com",
+            projectId: "mytask-8fc81",
+            storageBucket: "mytask-8fc81.appspot.com",
+            messagingSenderId: "57531743513",
+            appId: "1:57531743513:web:0b3659b73257a849469988"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>

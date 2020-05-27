@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шпора</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="links">
+        
+    </nav>
+
+    <section>
+        <h1 id="recursion">recursion</h1>
+        <p>Рекурсия – это приём программирования, полезный в ситуациях, когда задача может быть естественно разделена на несколько аналогичных, но более простых задач. Или когда задача может быть упрощена до несложных действий плюс простой вариант той же задачи. Или, как мы скоро увидим, для работы с определёнными структурами данных.</p>
+
+        <p>В процессе выполнения задачи в теле функции могут быть вызваны другие функции для выполнения подзадач. Частный случай подвызова – когда функция вызывает сама себя. Это как раз и называется рекурсией.</p>
+    </section>
+
+    <section>
+        <h1 id="closures">closures</h1>
+        <p>
+            Замыкание – это функция, которая запоминает свои внешние переменные и может получить к ним доступ. В некоторых языках это невозможно, или функция должна быть написана специальным образом, чтобы получилось замыкание. Но, как было описано выше, в JavaScript, все функции изначально являются замыканиями 
+        </p>
+    </section>
+
+    <section>
+        <h1 id='loops'>loops(Цикли)</h1>
+        <p>
+            <ul>
+                <li>for - loops through a block of code a number of times</li>
+                <li>for/in - loops through the properties of an object</li>
+                <li>for/of - loops through the values of an iterable object</li>
+                <li>while - loops through a block of code while a specified condition is true</li>
+                <li>do/while - also loops through a block of code while a specified condition is true</li>
+            </ul>
+        </p>
+    </section>
+
+
+    <section>
+        <h1 id='conditions'>conditions(Умовиний оператор)</h1>
+        <p>Умовний (тернарний) оператор - це єдиний оператор JavaScript, який приймає три операнди: умову, за якою йде знак питання (?), далі вираз, який має виконатися, якщо умова правдива, далі двокрапка (:) і, нарешті, вираз, який має виконатись, якщо умова хибна. Цей оператор часто використовують в якості скорочення конструкції if.</p>
+        <p align='center'><b>condition ? exprIfTrue : exprIfFalse </b></p>
+    </section>
+    <section>
+        <h1 id='Ajax'>AJAX</h1>
+        <h2 align='center'>let promise = fetch(url, [options])</h2>
+        <p>
+            <b>url</b> – URL для отправки запроса.<br>
+            <b>options</b> – дополнительные параметры: метод, заголовки и так далее.
+        </p>
+        <p><b>fetch</b>('https://api.nytimes.com/svc/books/v3/lists.{format}')<br>
+            <b>.then</b>(response => response.json())<br>
+            <b>.then</b>(data => console.log(data));
+        </p>
+        <h2>POST</h2>
+        <p>let response = await fetch('/article/fetch/post/user', {<br>
+            &nbsp;&nbsp;method: 'POST',<br>
+            &nbsp;&nbsp;headers: {<br>
+                &nbsp;&nbsp;	&nbsp;'Content-Type': 'application/json;charset=utf-8'<br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;body: JSON.stringify(user)<br>
+          });</p>
+    </section>
+
+    <section>
+        <h1>ajax / async</h1>
+        <p>Если вы используете асинхронный режим XMLHttpRequest, то после того, как данные будут получены, будет вызвана функция обработчик. Это позволяет браузеру работать нормально пока ваш запрос будет обрабатываться.</p>
+        <p>Вы устанавливаете async в false, когда вам нужно, чтобы запрос ajax был завершен до того, как браузер перейдет к другим кодам:</p>
+        <p>
+             $.ajax(... async: false ...); // Hey browser! first complete this request, 
+            // then go for other codes
+            <br>
+            $.ajax(...); // Executed after the completion of the previous async:false request.
+        </p>
+    </section>
+
+    <section>
+        <h1>Promise</h1>
+        <p>let promise = new Promise(resolve => {<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; setTimeout(() => resolve("done!"), 1000);<br>
+          });<br><br>
+          promise.then(alert); // выведет "done!" спустя одну секунду
+        </p>
+        <p>
+            let promise = new Promise((resolve, reject) => {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp;  setTimeout(() => reject(new Error("Ошибка!")), 1000);<br>
+              });<br>
+              <br>
+              // .catch(f) это тоже самое, что promise.then(null, f)<br>
+              promise.catch(alert); // выведет "Error: Ошибка!" спустя одну секунду
+        </p>
+    </section>
+
+    <section>
+        <h1 id='.filter'>.filter</h1>
+        <p>
+            const names = ['John', 'Peter', 'James', 'Pammy'];<br>
+            const myName = names.filter(name => name.includes('am'));<br>
+            console.log(myName)
+        </p>
+    </section>
+
+    <section>
+        <h1></h1>
+        <p></p>
+    </section>
+    <section>
+        <h1></h1>
+        <p></p>
+    </section>
+    <section>
+        <h1></h1>
+        <p></p>
+    </section>
+    <section>
+        <h1></h1>
+        <p></p>
+    </section>
+
+    <script type='module' src='index.js'></script>
+    <script>
+        const linksNames = [
+            'recursion', 'closures', 'loops', 'conditions',
+            'Ajax', 'ajax / async', 'Promises', 'async / await',
+            'Scope(local, lobal, lexical)', 'ES6 imports/exports',
+            'Arrow functions', 'Spread opreator', '.map', '.filter',
+            '.reduce', 'Destructuring'
+            ]
+
+        const addLinks = links => {
+            let menu = document.getElementById('links');
+            let allLinks = '';
+            links.forEach(e => {
+                allLinks += `<a href='#${e}'>${e}</a>`;
+            })
+            menu.innerHTML = allLinks;
+        }
+
+        addLinks(linksNames)
+        
+        let a = ['asdasdasd', 'asdas', 'ad']
+        const lol = () => {
+            let a = linksNames;
+            a.filter(item =>  item.length >= 5 )
+        }
+        lol()
+       
+    </script>
+</body>
+</html>
