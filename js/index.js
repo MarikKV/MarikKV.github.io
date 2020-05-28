@@ -125,6 +125,7 @@ function edit(index){
   task.value = user[0].task;
   button.value = 'Eddit task'
   button.setAttribute('onclick',`edditTask('${index}')`);
+  button.classList.add("pulse");
 }
 function edditTask(index){
   const name =  document.querySelector('#name');
@@ -137,6 +138,7 @@ function edditTask(index){
   function time(){
     button.value = 'Add task'
     button.setAttribute('onclick','submitForm()');
+    button.classList.remove("pulse");
     name.value = ''
     task.value = ''
   }

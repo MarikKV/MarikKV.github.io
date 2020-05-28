@@ -25,4 +25,35 @@ body form label {
 body form input[type=button] {
   font-size: 20px;
 }
+
+.pulse {
+  content: '';
+  position: absolute;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background: blue;
+  }
+  50% {
+    background: red;
+  }
+  100% {
+    background: blue;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background: blue;
+  }
+  50% {
+    background: red;
+  }
+  100% {
+    background: blue;
+  }
+}
 /*# sourceMappingURL=style.css.map */

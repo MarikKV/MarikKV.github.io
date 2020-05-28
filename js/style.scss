@@ -22,3 +22,19 @@ body{
        }
     }
 }
+.pulse{
+    content: '';
+    position: absolute;
+    animation: pulse 2s infinite ;
+}
+@keyframes pulse{
+    0%{
+        background: blue;
+    }
+    50%{
+        background: red;
+    }
+    100%{
+        background: blue;
+    }
+}
