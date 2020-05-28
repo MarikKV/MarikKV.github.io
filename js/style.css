@@ -13,6 +13,8 @@ body form {
   padding: 20px 30px;
   background: #edeeee;
   height: 100vh;
+  position: fixed;
+  right: 0;
 }
 
 body form label {
