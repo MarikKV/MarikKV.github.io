@@ -1,0 +1,26 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .tasks {
+  width: 70%;
+}
+
+body form {
+  width: 30%;
+  padding: 20px 30px;
+  background: #edeeee;
+  height: 100vh;
+}
+
+body form label {
+  font-weight: 800;
+  font-size: 30px;
+}
+
+body form input[type=button] {
+  font-size: 20px;
+}
+/*# sourceMappingURL=style.css.map */

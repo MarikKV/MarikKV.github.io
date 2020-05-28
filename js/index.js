@@ -12,12 +12,13 @@ function drawTable(){
       <td>${index + 1}</td>
       <td>${value.name}</td>
       <td>${value.task}</td>
-      <td><button value='${value.id}' onclick='edit(this.value)'>Edit</button></td>
-      <td><button value='${value.id}' onclick='del(this.value)'>Delete</button></td>
+      <td><button value='${value.id}' onclick='edit(this.value)' type='button' class='btn btn-warning'>Edit</button></td>
+      <td><button value='${value.id}' onclick='del(this.value)' type='button' class='btn btn-danger'>Delete</button></td>
     </tr>`
   })
   table.innerHTML = tableHtml;
 }
+
 
 //real time db
 db.collection('Users').onSnapshot(snapshot =>{
