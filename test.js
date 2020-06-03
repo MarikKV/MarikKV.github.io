@@ -10,5 +10,8 @@
 // });
 
 // console.log(result);
-const a = [2, 3, 4, 5];
-console.log(a.indexOf(8) != -1);
+// const a = [2, 3, 4, 5];
+// console.log(a.indexOf(8) != -1);
+
+
+  console.log(this);  

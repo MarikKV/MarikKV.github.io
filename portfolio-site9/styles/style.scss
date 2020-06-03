@@ -1,0 +1,87 @@
+@import './form';
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    header{
+        height: 10vh;
+        
+        .menu{
+            display: flex;
+            height: 100%;
+            padding: 0 20px;
+            align-items: center;
+            justify-content: flex-start;
+            
+            &__logo{
+                font-size: 30px;
+                min-width: 200px;
+                .red{
+                    color: red;
+                }
+            }
+            &__links{
+                
+                a{
+                    text-decoration: none;
+                    color: black;
+                    margin-left: 20px;
+                    font-size: 14px;
+                    color: gray;
+
+                    &:hover{
+                        color: red;
+                    }
+                }
+                .active{
+                    color: black;
+                    &:hover{
+                        color: black;
+                    }
+                }
+           }
+            &__burger{
+                display: none;
+            }
+
+            @media screen and (max-width: 830px){
+                .menu{
+                    justify-content: space-between;
+                }
+                .menu__links{
+                    display: none;
+                }
+                .menu__burger{
+                    position: absolute;
+                    right: 20px;
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+    .menu-opened{
+        height: 200px;
+        .menu .menu__links{
+            display: flex;  
+            flex-direction: column;
+            a{margin: 10px;}
+        }
+    }
+    @media screen and (min-width: 830px){
+        .menu-opened{
+            height: 10vh;
+        
+            .menu .menu__links{  
+                flex-direction: row;
+            }
+        }
+    }
+    main{
+        background-image: url('../map.jpg');
+        height: 90vh;
+        padding: 20px;
+    }
+}
+
