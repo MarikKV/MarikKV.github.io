@@ -1,0 +1,1 @@
+export let obj = {a:2, b:4};
