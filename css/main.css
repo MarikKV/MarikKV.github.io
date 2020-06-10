@@ -3,6 +3,7 @@
     padding: 0;
     scroll-behavior: smooth;
 }
-.menu, .about, .portfolio, .react, .contact{
+
+.menu, .about, .portfolio, .js, .react, .contact{
     min-height: 100vh;
 }
