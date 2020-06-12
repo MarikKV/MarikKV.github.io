@@ -33,6 +33,11 @@
         background: rgb(26, 26, 124);
     }
 }
+@media screen and (max-width: 800px){
+    .footer{
+        flex-direction: column;
+    }
+}
 .red{
     color: #f38181;
 }
