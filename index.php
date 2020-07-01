@@ -21,7 +21,6 @@
        $message = $_POST['message'];
    
        try {
-         $mail->isSMTP();
          $mail->Host = 'smtp.gmail.com';
          $mail->SMTPAuth = true;
          // Gmail ID which you want to use as SMTP server
