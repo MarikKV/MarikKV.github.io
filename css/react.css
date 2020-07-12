@@ -1,5 +1,5 @@
 .react{
-    background-color: rgb(114, 131, 168);
+    background-color: rgb(69, 108, 194);
     color: white;
     padding: 20px 50px;
 }
@@ -9,15 +9,15 @@
     align-items: center;
 }
 .react-gif img{
-    width: 60%;
+    width: 50%;
     margin-bottom: 24px;
 }
 .react>h1{
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 24px;
 }
 .react>p{
-    font-size: 34px;
+    font-size: 24px;
     margin: 10px 0;
 }
 .react>ol>li{
