@@ -60,9 +60,11 @@ function drawPlayer(x, y) {
         if(!player.cloak) {ctx.fillStyle = 'black';} else{ ctx.strokeStyle = 'blue'; }
         ctx.beginPath();
         ctx.arc(centerX + x, centerY + y, player.width, 0, Math.PI * 2, true); // body
+        ctx.moveTo(centerX - player.width + x,  centerY + y);
         ctx.arc(centerX - player.width - player.hand + x, centerY + y, player.hand, 0, Math.PI * 2, true); // left hand
-        ctx.arc(centerX + player.width + player.hand + x, centerY + y, player.hand, 0, Math.PI * 2, true); // left hand
-        if(!player.cloak) {ctx.fill()} else{ ctx.stroke(); }
+        ctx.moveTo(centerX + player.width + player.hand*2 + x,  centerY + y);
+        ctx.arc(centerX + player.width + player.hand + x, centerY + y, player.hand, 0, Math.PI * 2, true); // right hand
+        if(!player.cloak) {ctx.fill()} else { ctx.stroke(); }
     }
 }
 
@@ -80,6 +82,7 @@ function darawArmor(){
         ctx.stroke();
     })
 }
+
 
 function clear(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -142,5 +145,34 @@ const run = setInterval( () => {
     clear();
     savePlayerPosition(keysHold, 3);
     drawPlayer(player.positionX, player.positionY)
+    drawBullets();
     if(player.armor){ darawArmor()}
 }, 30)
+
+
+//fire
+const bullets = [];
+
+const fire = () => {
+    let bullet = { 
+        x: centerX + player.positionX,
+        y: centerY + player.positionY
+    }
+    bullets.push(bullet);
+}
+
+function drawBullets(){
+    bullets.map((item, idx) => {
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.moveTo(item.x - 1, item.y);
+        ctx.lineTo(item.x + 1, item.y);
+        ctx.lineTo(item.x + 1, item.y+20);
+        ctx.lineTo(item.x - 1, item.y+20);
+        ctx.fill();
+        bullets[idx].y -= 20;
+        if(bullets[idx].y <= -30){ bullets.shift()}
+    })
+}
+
+document.onmousedown = fire;
