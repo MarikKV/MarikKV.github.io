@@ -1,4 +1,4 @@
-export const armor = [
+const armor = [
     //col 1
     {x:0,y:0},
     {x:0,y:20},
@@ -28,3 +28,5 @@ export const armor = [
     //col8
     {x:105,y:-10},
 ]
+
+export { armor } 
