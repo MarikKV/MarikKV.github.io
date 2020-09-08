@@ -52,18 +52,20 @@ const player = {
     positionX: 0,
     positionY: 0,
     armor: false,
-    cloak: false
+    cloak: false,
+    fire: false
 }
 
 function drawPlayer(x, y) {
     if(canvas.getContext){
         if(!player.cloak) {ctx.fillStyle = 'black';} else{ ctx.strokeStyle = 'blue'; }
         ctx.beginPath();
+        ctx.lineWidth = 1;
         ctx.arc(centerX + x, centerY + y, player.width, 0, Math.PI * 2, true); // body
-        ctx.moveTo(centerX - player.width + x,  centerY + y);
-        ctx.arc(centerX - player.width - player.hand + x, centerY + y, player.hand, 0, Math.PI * 2, true); // left hand
-        ctx.moveTo(centerX + player.width + player.hand*2 + x,  centerY + y);
-        ctx.arc(centerX + player.width + player.hand + x, centerY + y, player.hand, 0, Math.PI * 2, true); // right hand
+        ctx.moveTo(centerX - player.width + x + player.hand,  centerY - 2*player.hand + y);
+        ctx.arc(centerX - player.width + x, centerY - 2*player.hand + y, player.hand, 0, Math.PI * 2, true); // left hand
+        ctx.moveTo(centerX + player.width + player.hand + x,  centerY - player.hand*2 + y);
+        ctx.arc(centerX + player.width + x, centerY - player.hand*2 + y, player.hand, 0, Math.PI * 2, true); // right hand
         if(!player.cloak) {ctx.fill()} else { ctx.stroke(); }
     }
 }
@@ -146,8 +148,10 @@ const run = setInterval( () => {
     savePlayerPosition(keysHold, 3);
     drawPlayer(player.positionX, player.positionY)
     drawBullets();
+    drawEnergy();
+    drawMag()
     if(player.armor){ darawArmor()}
-}, 30)
+}, 20)
 
 
 //fire
@@ -158,21 +162,68 @@ const fire = () => {
         x: centerX + player.positionX,
         y: centerY + player.positionY
     }
-    bullets.push(bullet);
+    if(player.fire){ bullets.push(bullet) };
 }
 
 function drawBullets(){
     bullets.map((item, idx) => {
         ctx.fillStyle = 'black';
         ctx.beginPath();
-        ctx.moveTo(item.x - 1, item.y);
-        ctx.lineTo(item.x + 1, item.y);
-        ctx.lineTo(item.x + 1, item.y+20);
-        ctx.lineTo(item.x - 1, item.y+20);
+        ctx.moveTo(item.x + 10, item.y - 35);
+        ctx.lineTo(item.x + 12, item.y - 35);
+        ctx.lineTo(item.x + 12, item.y - 20);
+        ctx.lineTo(item.x + 10, item.y - 20);
         ctx.fill();
         bullets[idx].y -= 20;
-        if(bullets[idx].y <= -30){ bullets.shift()}
+        if(bullets[idx].y <= -30){ bullets.shift() }
     })
 }
 
-document.onmousedown = fire;
+const stopFire = () => {
+    player.fire = false;
+    clearInterval(shootTnterval)
+}
+const shootTnterval = setInterval(() => {
+    fire();
+    status.magazineNow-=1
+}, 500)
+
+const startFire = () => {
+    console.log('fire')
+    player.fire = true;
+    fire()
+    shootTnterval
+}
+
+document.onmousedown = startFire;
+document.onmouseup = stopFire;
+
+//status
+
+const status = {
+    health: 100,
+    energy: 100,
+    magazineMax: 30,
+    magazineNow: 30,
+    widthOfHealth: canvas.width*(2/5),
+    widthOfEnergy: canvas.width/2,
+}
+
+function drawEnergy(){
+    ctx.fillStyle = 'lightgray';
+    ctx.fillRect(canvas.width - status.widthOfHealth - 30, canvas.height - 80, status.widthOfHealth, 50);
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(canvas.width - status.widthOfHealth - 30, canvas.height - 80, status.widthOfHealth, 50);
+
+    ctx.fillStyle = 'gray';
+    for(let i = 0; i < status.health*3.5; i+=18){
+        ctx.fillRect(canvas.width - status.widthOfHealth - 25 + i, canvas.height - 75, 10, 40);
+    }
+}
+
+function drawMag(){
+    ctx.lineWidth = 2;
+    ctx.font = '40px sans-serif';
+    ctx.strokeText(`${status.magazineNow} / ${status.magazineMax}`, 50, 560);
+}

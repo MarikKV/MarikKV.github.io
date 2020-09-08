@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    .wrapper{
+        max-width: 1440px;
+        min-height: 1300px;
+        margin: 0 auto;
+        background-color: #E5E5E5;
+    }
+}
+
+
+@import './program';
