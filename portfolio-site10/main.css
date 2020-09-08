@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:700,400");
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "proxima-nova-thin", sans-serif;
 }
 
 body .wrapper {
@@ -28,6 +29,18 @@ body .wrapper {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding-top: 100px;
+}
+
+.program > h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 125%;
+  /* or 50px */
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #303552;
 }
 
 .program .program_boxes {
@@ -101,8 +114,8 @@ body .wrapper {
 
 .program .program_boxes .program_box .card-body .program_price div:nth-child(3) {
   font-style: normal;
-  font-weight: 200;
-  font-size: 25px;
+  font-weight: 300;
+  font-size: 24px;
   line-height: 125%;
   letter-spacing: 0.03em;
   margin-top: 15px;
@@ -175,6 +188,8 @@ body .wrapper {
 
 .program .program_boxes .program_box .card-body .program_chouse form .custom-select {
   color: #B3B3B3;
+  background-image: url("images/arrows.svg");
+  background-size: 1em auto, 100%;
 }
 
 .program .program_boxes .program_box .card-body .program_chouse form .btn {
@@ -242,7 +257,7 @@ body .wrapper {
   line-height: 125%;
 }
 
-.program .program_benefits_box_info p {
+.program .program_benefits_box_info .listed {
   font-weight: normal;
   font-size: 16px;
   line-height: 147.3%;
@@ -250,11 +265,10 @@ body .wrapper {
   position: relative;
 }
 
-.program .program_benefits_box_info p::before {
+.program .program_benefits_box_info .listed::before {
   content: '\2022';
   position: absolute;
   left: 0px;
-  top: 3px;
   font-size: 50px;
   color: #3CA5D1;
 }
@@ -293,7 +307,7 @@ body .wrapper {
   letter-spacing: 0.02em;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 980px) {
   .program .program_benefits_box {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -308,6 +322,12 @@ body .wrapper {
   }
   .program .program_benefits_box_info {
     padding: 0 5%;
+  }
+  .program .program_benefits_box_info_block {
+    margin-right: 0;
+  }
+  .program .program_benefits_box .lastImage {
+    display: none;
   }
   .program .program_benefits_box_image img {
     max-width: 100%;

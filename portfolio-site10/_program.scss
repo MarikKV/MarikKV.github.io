@@ -4,6 +4,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: 100px;
+
+    &>h1{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 125%;
+        /* or 50px */
+
+        text-align: center;
+        letter-spacing: 0.03em;
+
+        color: #303552;
+    }
 
     .program_boxes{
         display: flex;
@@ -25,7 +39,6 @@
             box-sizing: border-box;
             background-color: #F9F9F9;
             border-radius: 10px;
-
 
             .card-body{
                 display: flex;
@@ -55,19 +68,16 @@
                         font-size: 40px;
                         line-height: 125%;
                         letter-spacing: 0.03em;
-                
                     }
 
                     & div:nth-child(3){
                         font-style: normal;
-                        font-weight: 200;
-                        font-size: 25px;
+                        font-weight: 300;
+                        font-size: 24px;
                         line-height: 125%;
                         letter-spacing: 0.03em;
                         margin-top: 15px;
                     }
-
-
                 }
 
                 .program_header{
@@ -133,6 +143,8 @@
 
                         .custom-select{
                             color: #B3B3B3;
+                            background-image: url('images/arrows.svg');
+                            background-size: 1em auto, 100%;
                         }
                         
                         .btn{
@@ -174,9 +186,7 @@
             flex-wrap: wrap;
             &:nth-child(odd){
                 align-self: flex-end;
-            }
-            
-            
+            } 
 
             &_info{
                 max-width: 418px;
@@ -191,17 +201,18 @@
                     font-size: 40px;
                     line-height: 125%;
                 }
-                p{
+                .listed{
                     font-weight: normal;
                     font-size: 16px;
                     line-height: 147.3%;
                     padding-left: 20px;
                     position: relative;
+
                     &::before{
                         content: '\2022';
                         position: absolute;
                         left: 0px;
-                        top: 3px;
+
                         font-size: 50px;
                         color:  #3CA5D1;
                     }
@@ -236,15 +247,13 @@
                         font-size: 14px;
                         line-height: 133%;
                         letter-spacing: 0.02em;
-
-                        
                     }
                 }
             }
 
         }
 
-        @media screen and (max-width: 950px){
+        @media screen and (max-width: 980px){
             &_box{
                 justify-content: center;
                 width: 100%;
@@ -255,6 +264,13 @@
 
                 &_info{
                     padding: 0 5%;
+
+                    &_block{
+                        margin-right: 0;
+                    }
+                }
+                .lastImage{
+                    display: none;
                 }
 
                 &_image{
