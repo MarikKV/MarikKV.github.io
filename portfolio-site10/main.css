@@ -13,7 +13,7 @@ body .wrapper {
   max-width: 1440px;
   min-height: 1300px;
   margin: 0 auto;
-  background-color: #E5E5E5;
+  background-color: #FFFFFF;
 }
 
 .program {
@@ -101,7 +101,7 @@ body .wrapper {
   font-size: 24px;
   line-height: 125%;
   letter-spacing: 0.03em;
-  margin-top: -5px;
+  margin-top: -2px;
 }
 
 .program .program_boxes .program_box .card-body .program_price div:nth-child(2) {
@@ -118,7 +118,7 @@ body .wrapper {
   font-size: 24px;
   line-height: 125%;
   letter-spacing: 0.03em;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .program .program_boxes .program_box .card-body .program_header {
@@ -209,6 +209,11 @@ body .wrapper {
   border: 0;
 }
 
+.program .program_boxes .program_box .card-body .program_chouse form .btn:hover {
+  background: #438aa8;
+  color: #f5ff6c;
+}
+
 .program .program_benefits {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -283,6 +288,7 @@ body .wrapper {
   margin-bottom: 17px;
   margin-right: 40px;
   max-width: 424px;
+  cursor: pointer;
 }
 
 .program .program_benefits_box_info_block:hover {
@@ -292,6 +298,7 @@ body .wrapper {
 .program .program_benefits_box_info_block h2, .program .program_benefits_box_info_block p {
   color: #303552;
   font-style: normal;
+  pointer-events: none;
 }
 
 .program .program_benefits_box_info_block h2 {

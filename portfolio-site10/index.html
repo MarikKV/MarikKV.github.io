@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="animate.css"/>
+
     <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="program">
-            <h1 align='center'>Choose your program</h1>
+            <h1 align='center' class="wow animate_bounceInUp">Choose your program</h1>
 
             <div class="program_boxes">
                 <div class="program_box card">
@@ -219,13 +223,13 @@
                     </div>
 
                     <div class="program_benefits_box_image">
-                        <img src="images/benefits1.svg" alt="">
+                        <img src="images/benefits1.svg" class="wow bounceInRight" alt="">
                     </div>
                 </div>
 
                 <div class="program_benefits_box">
                     <div class="program_benefits_box_image">
-                        <img src="images/benefits2.svg" alt="">
+                        <img src="images/benefits2.svg" class="wow bounceInLeft" alt="">
                     </div>
                     
                     <div class="program_benefits_box_info">
@@ -238,21 +242,21 @@
 
                 <div class="program_benefits_box">
                     <div class="program_benefits_box_info">
-                        <div class="program_benefits_box_info_block">
+                        <div class="program_benefits_box_info_block" id="what_you_get_1">
                             <h2>PDF certificate</h2>
                             <p class="listed">
                                 A high-resolution PDF certificate that proves you successfully passed the Botmakers certification.
                             </p>
                         </div>
 
-                        <div class="program_benefits_box_info_block">
+                        <div class="program_benefits_box_info_block" id="what_you_get_2">
                             <h2>Digital badge</h2>
                             <p class="listed">
                                 A high-resolution PDF certificate that proves you successfully passed the Botmakers certification.
                             </p>
                         </div>
 
-                        <div class="program_benefits_box_info_block">
+                        <div class="program_benefits_box_info_block" id="what_you_get_3">
                             <h2>Agency profile page at botmakers.net</h2>
                             
                             <p class="listed">Website dofollow link.</p>
@@ -265,14 +269,19 @@
                         </div>
                     </div>
 
-                    <div class="program_benefits_box_image lastImage">
-                        <img src="images/benefits3.svg" alt="">
+                    <div class="program_benefits_box_image lastImage" id="what_you_get">
+                        <img src="images/what_you_get1.svg" class="wow bounceInRight" alt="">
+                        
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
+    
+    <script src="wow.min.js"></script>
+    <script src="main.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

@@ -59,7 +59,7 @@
                         font-size: 24px;
                         line-height: 125%;
                         letter-spacing: 0.03em;
-                        margin-top: -5px;
+                        margin-top: -2px;
                     }
 
                     & div:nth-child(2){
@@ -76,7 +76,7 @@
                         font-size: 24px;
                         line-height: 125%;
                         letter-spacing: 0.03em;
-                        margin-top: 15px;
+                        margin-top: 20px;
                     }
                 }
 
@@ -161,6 +161,11 @@
                             width: 100%;
                             padding: 15px 65px;
                             border: 0;
+
+                            &:hover{
+                                background: #438aa8;
+                                color: #f5ff6c;
+                            }
                         }
                     }
                 }
@@ -227,6 +232,7 @@
                     margin-bottom: 17px;
                     margin-right: 40px;
                     max-width: 424px;
+                    cursor: pointer;
 
                     &:hover{
                         background: #FFFFFF;
@@ -235,6 +241,7 @@
                     h2,p{
                         color: #303552;
                         font-style: normal;
+                        pointer-events: none;
                     }
                     h2{
                         font-weight: bold;
