@@ -1,3 +1,6 @@
+$text-color: #303552;
+$bg-cards:  #F9F9F9;
+
 .program{
     max-width: 1040px;
     margin: 0 auto;
@@ -11,12 +14,9 @@
         font-weight: bold;
         font-size: 40px;
         line-height: 125%;
-        /* or 50px */
-
         text-align: center;
         letter-spacing: 0.03em;
-
-        color: #303552;
+        color: $text-color;
     }
 
     .program_boxes{
@@ -28,23 +28,23 @@
             width: 336px;
             height: 613px;
             box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
+           
             &:hover{
                 background-color: #FFFFFF;
                 transition: background 0.5s ease;
             }
 
-            //change padding to 50 after change font-family;
-            padding: 20px;
+            padding: 0;
             margin: 50px 0 0;
             box-sizing: border-box;
-            background-color: #F9F9F9;
+            background-color: $bg-cards;
             border-radius: 10px;
 
             .card-body{
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                
+                padding: 25px 45px;
                 
                 .program_price{
                     display: flex;
@@ -53,29 +53,26 @@
                     position: relative;
                     margin: 20px 0;
 
-                    & div:nth-child(1){
+                    div{
                         font-style: normal;
-                        font-weight: 300;
-                        font-size: 24px;
                         line-height: 125%;
                         letter-spacing: 0.03em;
+                    }
+
+                    & div:nth-child(1){
+                        font-weight: 300;
+                        font-size: 24px;
                         margin-top: -2px;
                     }
 
                     & div:nth-child(2){
-                        font-style: normal;
                         font-weight: 800;
                         font-size: 40px;
-                        line-height: 125%;
-                        letter-spacing: 0.03em;
                     }
 
                     & div:nth-child(3){
-                        font-style: normal;
                         font-weight: 300;
                         font-size: 24px;
-                        line-height: 125%;
-                        letter-spacing: 0.03em;
                         margin-top: 20px;
                     }
                 }
@@ -84,7 +81,7 @@
                     font-weight: bold;
                     font-size: 24px;
                     letter-spacing: 0.03em;
-                    color: #303552;
+                    color: $text-color;
                     margin-bottom: 10px;
                 }
 
@@ -94,44 +91,52 @@
                     font-size: 14px;
                     line-height: 130.5%;
                     letter-spacing: 0.05em;
-                    color: #303552;
+                    color: $text-color;
                     margin-bottom: 16px;
-
                 }
 
                 .program_services{
                     font-size: 14px;
                     line-height: 20px;
                     letter-spacing: 0.05em;
-                    color: #303552;
-
+                    color: $text-color;
 
                     p{
                         display: flex;
-                        margin: 0 0 0 -10px;
+                        margin: 10px 0;
                         align-items: center;
+
                         img{
                             align-self: flex-start;
+                            margin-right: 10px;
                         }
-                        a{
-                            text-decoration: none;
-                            font-weight: 600;
-                            font-size: 12px;
-                            line-height: 35px;
-                            letter-spacing: 0.03em;
-                            color: #3CA5D1;
-                        
-                            &:hover{
-                                color: #4dc1f3
+
+                        span{
+                            position: relative;
+                            a{
+                                text-decoration: none;
+                                font-weight: 600;
+                                font-size: 12px;
+                                letter-spacing: 0.03em;
+                                color: #3CA5D1;
+                                
+                                &:hover{
+                                    color: #4dc1f3
+                                }
                             }
-                        }
-                        .learnMore{
-                            border: 1px solid #0485bd;
-                            box-sizing: border-box;
-                            border-radius: 3px; 
-                            padding: 8px 12px;
-                            &:hover{
-                                border: 1px solid #4dc1f3;
+                        
+                            .learnMore{
+                                border: 1px solid #0485bd;
+                                box-sizing: border-box;
+                                border-radius: 3px; 
+                                padding: 4px 12px;
+                                position: absolute;
+                                top: -5px;
+                                margin-left: 4px;
+                                width: 100%;
+                                &:hover{
+                                    border: 1px solid #4dc1f3;
+                                }
                             }
                         }
                     }
@@ -140,25 +145,27 @@
                 .program_chouse{
 
                     form{
-
-                        .custom-select{
-                            color: #B3B3B3;
-                            background-image: url('images/arrows.svg');
-                            background-size: 1em auto, 100%;
-                        }
-                        
-                        .btn{
-                            background: #3CA5D1;
-                            box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
-                            border-radius: 2px;
+                        .costom-select{
                             font-style: normal;
                             font-weight: 600;
                             font-size: 14px;
-                            line-height: 17px;
                             letter-spacing: 0.05em;
+                            border-radius: 2px;
+                            width: 100%;
+                        }
+                        .custom-select{
+                            color: #B3B3B3;
+                            height: 45px;
+                            border: 1px solid #B2B2B2;
+                            box-sizing: border-box;
+                            background-image: url('images/arrows.svg');
+                            background-size: 1em auto, 100%;
+                        }
+                        .btn{
+                            background: #3CA5D1;
+                            box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
                             text-transform: uppercase;
                             color: #FFFFFF;
-                            width: 100%;
                             padding: 15px 65px;
                             border: 0;
 
@@ -169,18 +176,14 @@
                         }
                     }
                 }
-            }
+            }  
         }
-
-        
     }
 
     .program_benefits{
         display: flex;
         flex-direction: column;
         margin-top: 100px;    
-         
-      
 
         &_box{
             width: 952px;
@@ -198,13 +201,15 @@
 
                 h1,p{
                     letter-spacing: 0.02em;
-                    color: #303552;
+                    color: $text-color;
                 }
                 h1{
                     font-style: normal;
                     font-weight: bold;
                     font-size: 40px;
                     line-height: 125%;
+                    width: 100%;
+                    margin-bottom: 20px;
                 }
                 .listed{
                     font-weight: normal;
@@ -228,7 +233,7 @@
                     box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
                     border-radius: 10px;
                     padding: 38px;
-                    background: #F9F9F9;
+                    background-color: $bg-cards;
                     margin-bottom: 17px;
                     margin-right: 40px;
                     max-width: 424px;
@@ -239,7 +244,7 @@
                     }
 
                     h2,p{
-                        color: #303552;
+                        color: $text-color;
                         font-style: normal;
                         pointer-events: none;
                     }
@@ -270,8 +275,10 @@
                 }
 
                 &_info{
-                    padding: 0 5%;
-
+                    padding: 0 24px;
+                    h1{
+                        font-size: 24px;
+                    }
                     &_block{
                         margin-right: 0;
                     }

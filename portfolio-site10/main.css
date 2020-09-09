@@ -38,7 +38,6 @@ body .wrapper {
   font-weight: bold;
   font-size: 40px;
   line-height: 125%;
-  /* or 50px */
   text-align: center;
   letter-spacing: 0.03em;
   color: #303552;
@@ -59,7 +58,7 @@ body .wrapper {
   height: 613px;
   -webkit-box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
           box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
-  padding: 20px;
+  padding: 0;
   margin: 50px 0 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -84,6 +83,7 @@ body .wrapper {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 25px 45px;
 }
 
 .program .program_boxes .program_box .card-body .program_price {
@@ -96,29 +96,26 @@ body .wrapper {
   margin: 20px 0;
 }
 
-.program .program_boxes .program_box .card-body .program_price div:nth-child(1) {
+.program .program_boxes .program_box .card-body .program_price div {
   font-style: normal;
-  font-weight: 300;
-  font-size: 24px;
   line-height: 125%;
   letter-spacing: 0.03em;
+}
+
+.program .program_boxes .program_box .card-body .program_price div:nth-child(1) {
+  font-weight: 300;
+  font-size: 24px;
   margin-top: -2px;
 }
 
 .program .program_boxes .program_box .card-body .program_price div:nth-child(2) {
-  font-style: normal;
   font-weight: 800;
   font-size: 40px;
-  line-height: 125%;
-  letter-spacing: 0.03em;
 }
 
 .program .program_boxes .program_box .card-body .program_price div:nth-child(3) {
-  font-style: normal;
   font-weight: 300;
   font-size: 24px;
-  line-height: 125%;
-  letter-spacing: 0.03em;
   margin-top: 20px;
 }
 
@@ -151,7 +148,7 @@ body .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 0 0 -10px;
+  margin: 10px 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -160,35 +157,56 @@ body .wrapper {
 .program .program_boxes .program_box .card-body .program_services p img {
   -ms-flex-item-align: start;
       align-self: flex-start;
+  margin-right: 10px;
 }
 
-.program .program_boxes .program_box .card-body .program_services p a {
+.program .program_boxes .program_box .card-body .program_services p span {
+  position: relative;
+}
+
+.program .program_boxes .program_box .card-body .program_services p span a {
   text-decoration: none;
   font-weight: 600;
   font-size: 12px;
-  line-height: 35px;
   letter-spacing: 0.03em;
   color: #3CA5D1;
 }
 
-.program .program_boxes .program_box .card-body .program_services p a:hover {
+.program .program_boxes .program_box .card-body .program_services p span a:hover {
   color: #4dc1f3;
 }
 
-.program .program_boxes .program_box .card-body .program_services p .learnMore {
+.program .program_boxes .program_box .card-body .program_services p span .learnMore {
   border: 1px solid #0485bd;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 3px;
-  padding: 8px 12px;
+  padding: 4px 12px;
+  position: absolute;
+  top: -5px;
+  margin-left: 4px;
+  width: 100%;
 }
 
-.program .program_boxes .program_box .card-body .program_services p .learnMore:hover {
+.program .program_boxes .program_box .card-body .program_services p span .learnMore:hover {
   border: 1px solid #4dc1f3;
+}
+
+.program .program_boxes .program_box .card-body .program_chouse form .costom-select {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  width: 100%;
 }
 
 .program .program_boxes .program_box .card-body .program_chouse form .custom-select {
   color: #B3B3B3;
+  height: 45px;
+  border: 1px solid #B2B2B2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-image: url("images/arrows.svg");
   background-size: 1em auto, 100%;
 }
@@ -197,15 +215,8 @@ body .wrapper {
   background: #3CA5D1;
   -webkit-box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
           box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  border-radius: 2px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #FFFFFF;
-  width: 100%;
   padding: 15px 65px;
   border: 0;
 }
@@ -261,6 +272,8 @@ body .wrapper {
   font-weight: bold;
   font-size: 40px;
   line-height: 125%;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .program .program_benefits_box_info .listed {
@@ -285,7 +298,7 @@ body .wrapper {
           box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
   border-radius: 10px;
   padding: 38px;
-  background: #F9F9F9;
+  background-color: #F9F9F9;
   margin-bottom: 17px;
   margin-right: 40px;
   max-width: 424px;
@@ -329,7 +342,10 @@ body .wrapper {
             flex-direction: column-reverse;
   }
   .program .program_benefits_box_info {
-    padding: 0 5%;
+    padding: 0 24px;
+  }
+  .program .program_benefits_box_info h1 {
+    font-size: 24px;
   }
   .program .program_benefits_box_info_block {
     margin-right: 0;
