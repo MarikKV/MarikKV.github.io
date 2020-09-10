@@ -216,6 +216,7 @@ body .wrapper {
   -webkit-box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
           box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
   text-transform: uppercase;
+  width: 100%;
   color: #FFFFFF;
   padding: 15px 65px;
   border: 0;
@@ -223,7 +224,6 @@ body .wrapper {
 
 .program .program_boxes .program_box .card-body .program_chouse form .btn:hover {
   background: #438aa8;
-  color: #f5ff6c;
 }
 
 .program .program_benefits {
