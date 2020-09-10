@@ -56,8 +56,6 @@ body .wrapper {
 .program .program_boxes .program_box {
   width: 336px;
   height: 613px;
-  -webkit-box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
-          box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
   padding: 0;
   margin: 50px 0 0;
   -webkit-box-sizing: border-box;
@@ -68,6 +66,8 @@ body .wrapper {
 
 .program .program_boxes .program_box:hover {
   background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
+          box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
   -webkit-transition: background 0.5s ease;
   transition: background 0.5s ease;
 }

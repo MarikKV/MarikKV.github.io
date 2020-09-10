@@ -27,10 +27,10 @@ $bg-cards:  #F9F9F9;
         .program_box{
             width: 336px;
             height: 613px;
-            box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
            
             &:hover{
                 background-color: #FFFFFF;
+                box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
                 transition: background 0.5s ease;
             }
 
