@@ -207,7 +207,7 @@ body .wrapper {
   border: 1px solid #B2B2B2;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-image: url("images/arrows.svg");
+  background-image: url("../images/arrows.svg");
   background-size: 1em auto, 100%;
 }
 
@@ -355,6 +355,170 @@ body .wrapper {
   }
   .program .program_benefits_box_image img {
     max-width: 100%;
+  }
+}
+
+.enroll {
+  min-height: 550px;
+  background: linear-gradient(120.66deg, #080B21 23.86%, #434E91 111.73%);
+  color: #ffffff;
+  font-style: normal;
+  line-height: 125%;
+  letter-spacing: 0.03em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.enroll_box {
+  min-height: 326px;
+  width: 870px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.enroll_box h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.enroll_box_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 230px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.enroll_box_content_icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  /*
+                @keyframes anim1 {
+                    100%{
+                        transform: rotate3d(0, 1, 0, 360deg)
+                    }
+                }*/
+}
+
+.enroll_box_content_icons img {
+  z-index: 1000;
+}
+
+.enroll_box_content_icons .line {
+  border: 1px dashed rgba(60, 165, 209, 0.22);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 1px;
+}
+
+.enroll_box_content_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.enroll_box_content_text p {
+  font-size: 18px;
+  font-weight: normal;
+  width: 20%;
+}
+
+.enroll_box_content_text p:nth-child(2) {
+  width: 26%;
+}
+
+@media screen and (max-width: 700px) {
+  .enroll_box h1 {
+    font-size: 24px;
+    margin: 34px 0;
+  }
+  .enroll_box_content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 0 15px;
+  }
+  .enroll_box_content_icons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 400px;
+    /*
+                    @keyframes anim2 {
+                        0%{
+                            transform: scale(0.78); 
+                        }
+                        100%{
+                            transform: scale(0.78) rotate3d(0, 1, 0, 360deg)
+                        }
+                    }
+                    */
+  }
+  .enroll_box_content_icons img {
+    -webkit-transform: scale(0.78);
+            transform: scale(0.78);
+  }
+  .enroll_box_content_icons .line {
+    -webkit-transform: scaleY(1.78);
+            transform: scaleY(1.78);
+  }
+  .enroll_box_content_text {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    height: 400px;
+  }
+  .enroll_box_content_text p {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding: 20px 0 0 34px;
+  }
+  .enroll_box_content_text p:nth-child(2) {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

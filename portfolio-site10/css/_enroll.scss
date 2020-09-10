@@ -1,0 +1,127 @@
+.enroll{
+    min-height: 550px;
+    background: linear-gradient(120.66deg, #080B21 23.86%, #434E91 111.73%);
+    color: #ffffff;
+    font-style: normal;
+    line-height: 125%;
+    letter-spacing: 0.03em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &_box{
+        min-height: 326px;
+        width: 870px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h1{
+            font-weight: bold;
+            font-size: 40px;
+        }
+        
+        &_content{
+            display: flex;
+            flex-direction: column;
+            min-height: 230px;
+            justify-content: space-between;
+
+            &_icons{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+
+                img{
+                    z-index: 1000;
+                    //animation: 2s ease anim1 infinite;
+                }
+                .line{
+                    border: 1px dashed rgba(60, 165, 209, 0.22);
+                    flex-basis: 50%;
+                    height: 1px;
+                }
+                /*
+                @keyframes anim1 {
+                    100%{
+                        transform: rotate3d(0, 1, 0, 360deg)
+                    }
+                }*/
+            }
+
+            &_text{
+                display: flex;
+                justify-content: space-between;
+                
+                p{
+                    font-size: 18px;
+                    font-weight: normal;
+                    width: 20%;
+
+                    &:nth-child(2){
+                        width: 26%;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 700px){
+            h1{
+                font-size: 24px;
+                margin: 34px 0;
+            }
+            &_content{
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 0 15px;
+
+                &_icons{
+                    flex-direction: column;
+                    height: 400px;
+
+                    img{
+                        transform: scale(0.78);
+                        //animation: 3s ease anim2 infinite;
+                    }
+                    .line{
+                        transform: scaleY(1.78)
+                    }
+                    /*
+                    @keyframes anim2 {
+                        0%{
+                            transform: scale(0.78); 
+                        }
+                        100%{
+                            transform: scale(0.78) rotate3d(0, 1, 0, 360deg)
+                        }
+                    }
+                    */
+                
+                }
+
+                
+                &_text{
+                    flex-direction: column;
+                    justify-content: space-around;
+                    height: 400px;                 
+
+                    p{
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        padding: 20px 0 0 34px;
+
+                        &:nth-child(2){
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+    
+}
