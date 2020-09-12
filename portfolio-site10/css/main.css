@@ -1004,4 +1004,202 @@ body .wrapper {
     text-align: center;
   }
 }
+
+.test_badge {
+  max-width: 864px;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.test_badge h1 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 115%;
+  letter-spacing: 0.03em;
+}
+
+.test_badge h2 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 150%;
+  width: 722px;
+  margin: 0 auto;
+  margin-top: 22px;
+}
+
+.test_badge_banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 90px;
+}
+
+.test_badge_banner_text {
+  width: 420px;
+  font-style: normal;
+  font-weight: 250;
+  font-size: 36px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.test_badge_banner_logo {
+  width: 50%;
+}
+
+.test_badge_boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 87px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.test_badge_boxes_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 256px;
+}
+
+.test_badge_boxes_box .box_text {
+  padding-left: 15px;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+}
+
+.test_badge_boxes_box:nth-child(2) {
+  width: 270px;
+}
+
+@media screen and (max-width: 900px) {
+  .test_badge {
+    margin-top: 50px;
+    padding: 0 22px;
+  }
+  .test_badge h1 {
+    text-align: left;
+    font-size: 24px;
+    line-height: 125%;
+    letter-spacing: 0.01em;
+  }
+  .test_badge h2 {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+  }
+  .test_badge_banner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 20px;
+  }
+  .test_badge_banner_text {
+    display: none;
+  }
+  .test_badge_banner_logo {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .test_badge_boxes {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 20px;
+  }
+  .test_badge_boxes_box {
+    width: 100%;
+  }
+  .test_badge_boxes_box .box_text {
+    font-size: 14px;
+    line-height: 130%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .test_badge_banner_logo {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+}
+
+.test_test {
+  background-image: url("../images/test_background.svg");
+  background-repeat: no-repeat;
+  background-position: 160px 0;
+  margin-top: 80px;
+}
+
+.test_test_content {
+  max-width: 864px;
+  margin: 0 auto;
+  padding-top: 115px;
+}
+
+.test_test_content h1 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 115%;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.test_test_content_statistics {
+  margin-top: 53px;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.test_test_content_statistics_box {
+  width: 380px;
+}
+
+.test_test_content_page {
+  width: 864px;
+  -webkit-box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
+          box-shadow: 0px 10px 50px rgba(48, 53, 82, 0.08), 0px 2px 6px rgba(48, 53, 82, 0.04), 0px 0px 1px rgba(48, 53, 82, 0.06);
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 61px 88px;
+  margin-top: 48px;
+}
+
+.test_test_content_page h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+}
 /*# sourceMappingURL=main.css.map */
