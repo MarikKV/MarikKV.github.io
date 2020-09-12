@@ -1,0 +1,313 @@
+.landing{
+    min-height: 800px;
+    background: linear-gradient(120.66deg, #080B21 23.86%, #434E91 111.73%);
+    padding-top: 55px;
+    box-sizing: border-box;
+
+    &_content{
+        max-width: 1040px;
+        margin: 0 auto;
+       
+        .myMenu{
+            width: 100%;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+
+            .navbar-brand{
+                margin: 0;
+            }
+            .logo-small{
+                display: none;
+            }
+
+            .navbar-collapse, .navbar{
+                box-sizing: border-box;
+                flex-grow: 0;
+            }
+
+            a{ color: #fff; }
+
+            .burger{
+                color: #fff;
+                font-size: 24px;
+                padding-top: 6px;
+            }
+            
+            .search{                
+                margin: 0;
+
+                .myInput{
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.4);
+                    box-sizing: border-box;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 12px;
+                    letter-spacing: 0.03em;
+                    width: 250px;
+                    height: 33px;
+                }
+            }
+
+            .search2{
+                margin-left: 20px;
+                display: none;
+
+                .myInput2{
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.4);
+                    box-sizing: border-box;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 12px;
+                    letter-spacing: 0.03em;
+                    width: 190px;
+                }
+            }
+            
+            ul{
+                 
+                li{
+                    &>a{
+                        text-decoration: none;
+                        color: #fff;
+                        font-weight: 600;
+                        font-size: 12px;
+                        line-height: 15px;
+                        letter-spacing: 0.03em;
+                        margin: 0 20px;
+
+                        &:hover{text-shadow: 0px 0px 5px #fff;}
+                    }
+                    &:nth-child(1) a{
+                        margin-left: 0px;
+                    }
+                    &:nth-last-child(1) a{
+                        margin-right: 0px;
+                    }
+                    .nav-link{
+                        padding: 0;
+                    }
+                    .dropdown-item{
+                        color: black
+                    }
+                } 
+
+            }
+
+        }
+
+        &_banner{
+            display: flex;
+            margin-top: 134px;
+            padding: 0 10px;
+
+            .banner_text{
+                color: #FFFFFF;
+                font-style: normal;
+                letter-spacing: 0.03em;
+
+                h1,p,.btn{
+                    margin: 18px 0;
+                }
+                h1{
+                    font-weight: 800;
+                    font-size: 48px;
+                    line-height: 119.3%;
+                }
+                p{
+                    font-weight: 300;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+                .btn{
+                    background: #3CA5D1;
+                    text-transform: uppercase;
+                    color: #FFFFFF;
+                    padding: 11px 32px;
+                    border: 0;
+                    font-weight: 600;
+                    font-size: 14px;
+
+                    &:hover{
+                        background: #54acd1;
+                        box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
+                    }
+                }
+            }
+        }
+
+        
+
+        &_benefits{
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 110px;
+            min-height: 130px;
+
+            &_box{
+                display: flex;
+                width: 33%;
+
+                &_content{
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 20px;
+
+                    .logo{
+                        margin-right: 10px;
+                    }
+
+                    .text{
+                        h2{
+                            font-weight: 600;
+                            font-size: 18px;
+                            line-height: 22px;
+                            margin-bottom: 10px;
+                        }
+
+                        p{
+                            font-weight: 300;
+                            font-size: 14px;
+                            line-height: 150%;
+                        }
+                    }
+                }
+                .content_left{
+                    width: 90%;
+                }
+                .content_center{
+                    width: 80%;
+                }
+                .content_right{
+                    width: 85%;
+                }
+            }
+
+            .center{
+                justify-content: center;
+            }
+            .right{
+                justify-content: flex-end;
+            }
+
+            &_box:nth-child(2){
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            
+        }
+    }
+
+    @media screen and (max-width: 1040px){
+        
+        &_content{
+            width: 100%;
+
+            &_banner{
+                flex-direction: column;
+                flex-direction: column-reverse;
+                align-items: center;
+                padding: 0 20px;
+                margin-top: 80px;
+
+                .banner_text{
+                    h1{
+                        font-size: 28px;
+                    }
+                    p{
+                        font-size: 14px;
+                    }
+                    .btn{
+                        width: 100%;
+                        padding: 16px 0;
+                    }
+                }
+            }
+
+            &_benefits{
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+                padding-bottom: 50px;
+
+                &_box{
+                    width: 400px;
+                    padding: 0 20px;
+
+                    &_content{
+                        display: flex;
+                        justify-content: flex-start;
+                        padding-top: 20px;                 
+                    }
+                    .content_left, 
+                    .content_center, 
+                    .content_right{
+                        width: 100%;
+                    } 
+                }
+                &_box:nth-child(2){
+                   border: 0;
+                }
+                & .left, & .center, & .right {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 992px){
+        .logo-big{
+            display: none;
+        }
+        
+        .logo-small{
+            display: block!important;
+        }
+
+        .search{
+            display: none;
+        }
+        .search2{
+            display: block!important;
+        }
+        .myMenu{
+            ul>li .nav-link{
+                padding: 15px 0;
+                font-size: 15px;
+            }
+            ul>li:nth-child(1) a{
+                margin-left: 0px;
+            }
+        }
+    }
+    @media screen and (max-width: 500px){
+        .banner_logo{
+            img{
+                transform: scale(0.7);
+            }
+        }
+    }
+    @media screen and (max-width: 400px){
+        
+        .landing_content_benefits_box{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 700px){
+    .landing{
+        padding-top: 40px;
+    }
+    .logo-big{
+        display: none;
+    }
+    .logo-small{
+        display: block!important;
+    }
+    .search2{
+        margin: 0;
+    }
+}
