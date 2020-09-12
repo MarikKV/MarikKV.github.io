@@ -25,6 +25,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+
             &_box{
                 width: 380px;
             }
@@ -43,6 +44,89 @@
                 font-size: 24px;
                 line-height: 150%;
                 letter-spacing: 0.03em;
+            }
+
+           &_question{
+            
+                h2,p{
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 150%;
+                    letter-spacing: 0.03em;
+                }
+                h2{
+                    margin-top: 45px;
+                    margin-bottom: 25px;
+                }
+                p{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        margin-right: 10px;
+                        margin-top: -2px;
+                    }
+                    margin-bottom: 10px;
+                }
+                .true{
+                    color: #3CA5D1;
+                    font-weight: bold;
+                }
+                .disabled{
+                    color: #B2B2B2;
+                }
+           }
+        }
+    }
+
+    @media screen and (max-width: 900px){
+        background-position: -100px 250px;
+        margin-top: 0px;
+        background-size: 692px 591px;
+        &_content{
+            padding: 50px 20px;
+
+            h1{ 
+                font-size: 18px; 
+                margin-top: 0;
+                margin-bottom: -30px;
+                text-align: center;
+            }
+
+            &_statistics{
+                padding: 0 20px;
+                font-size: 16px;
+                line-height: 130%;
+            }
+
+            &_page{
+                width: 100%;
+                padding: 30px 20px;
+            }
+        }
+    }
+    @media screen and (max-width: 840px){
+        &_content{
+            h1{
+                text-align: left;
+
+            }
+            &_statistics{
+                flex-direction: column;
+                align-items: center;
+                
+                &_box{
+                    margin-top: 20px;       
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 540px){
+        &_content{
+            &_statistics{
+                font-size: 14px;
+                &_box{
+                    width: 100%;
+                }
             }
         }
     }
