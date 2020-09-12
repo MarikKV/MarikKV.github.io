@@ -1,0 +1,116 @@
+.test{
+    padding: 100px 0;
+    line-height: 115%;
+    letter-spacing: 0.03em;
+    color: #303552;
+
+    &_chuse{
+        max-width: 920px;
+        margin: 0 auto;
+
+        h1{
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 22px;
+            line-height: 115%;
+        }
+        h2{
+            font-size: 18px;
+            line-height: 150%;
+            width: 722px;
+            margin: 0 auto;
+        }
+
+        &_boxes{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            &_box{
+                width: 400px;
+                display: flex;
+                margin-top: 70px;
+
+                .box_text{
+                    padding: 0 17px;
+                    
+                    h3{
+                        font-size: 18px; 
+                        line-height: 22px; 
+                        font-weight: bold;
+                    }
+                    p{
+                        font-size: 16px;
+                        line-height: 150%;
+                    }
+                }
+            }  
+        } 
+        a{ text-decoration: none;}
+
+        &_button{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            .test_btn{
+                background: #3CA5D1;
+                text-transform: uppercase;
+                color: #FFFFFF;
+                padding: 11px 32px;
+                border: 0;
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 2px;
+            
+
+                &:hover{
+                    background: #54acd1;
+                    box-shadow: 0px 8px 24px rgba(60, 165, 209, 0.2), 0px 2px 6px rgba(60, 165, 209, 0.14), 0px 0px 1px rgba(0, 0, 0, 0.04);
+                }
+            }
+        }
+    } 
+}
+ @media screen and (max-width: 800px){
+    .test{
+        padding: 50px 0;
+        &_chuse{
+            padding: 0 24px;
+            
+            h1{
+                font-size: 24px;
+                line-height: 125%;
+                letter-spacing: 0.01em;
+            }
+            h2{
+                font-size: 14px;
+                line-height: 130%;
+                width: 100%;
+            }
+            h1, h2{text-align: left;}
+
+            &_boxes{
+                justify-content: center;
+                
+                &_box{
+                    margin-top: 38px;
+                    .box_text{
+                        p{
+                            font-size: 14px;
+                            line-height: 130%;
+                            letter-spacing: 0.02em;
+                        }
+                    }
+                }
+            }
+
+            &_button{
+                margin-top: 40px;
+                .test_btn{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
