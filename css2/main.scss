@@ -1,0 +1,16 @@
+
+body{
+
+    scroll-behavior: smooth;
+}
+.container{
+    max-width: 1400px!important;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+
+@import './landing';
+@import './jobs';
+@import './examples';
