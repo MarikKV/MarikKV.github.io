@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 body {
   scroll-behavior: smooth;
 }
@@ -62,7 +63,7 @@ body {
 }
 
 .exapmles .example {
-  height: 600px;
+  height: 440px;
   overflow-y: hidden;
   margin-bottom: 40px;
   -webkit-transition: .5s;
@@ -71,7 +72,7 @@ body {
 
 .exapmles .example img {
   border: 1px solid gray;
-  width: 300px;
+  width: 280px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -80,5 +81,67 @@ body {
 .exapmles .example:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+ul {
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+.social-icon {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 11px;
+  cursor: pointer;
+}
+
+.social-twitter {
+  background-color: #55acee;
+}
+
+.social-facebook {
+  background-color: #3b5999;
+}
+
+.social-linkedin {
+  background-color: #0077B5;
+}
+
+.social-google {
+  background-color: #dd4b39;
+}
+
+.social-instagram {
+  background-color: #dd4b39;
+}
+
+.social-icon {
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.social-icon:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  text-decoration: none;
+  color: #ffffff;
 }
 /*# sourceMappingURL=main.css.map */
