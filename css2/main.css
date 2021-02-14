@@ -10,9 +10,14 @@ body {
 }
 
 .landing {
+  padding-top: 16px;
   background: linear-gradient(120.66deg, #080b21 23.86%, #434e91 111.73%);
   min-height: 580px;
   color: #ffffff;
+}
+
+.landing .photo {
+  margin-top: 80px;
 }
 
 .jobs {
@@ -58,8 +63,22 @@ body {
 
 .exapmles {
   overflow: hidden;
-  background: linear-gradient(120.66deg, #f4f5f7 23.86%, #e9eaec 111.73%);
   padding: 20px 0 50px;
+}
+
+.exapmles_header {
+  background: linear-gradient(120.66deg, #080b21 23.86%, #434e91 111.73%);
+  min-height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
 }
 
 .exapmles .example {
@@ -81,6 +100,29 @@ body {
 .exapmles .example:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.tech_header {
+  background: linear-gradient(120.66deg, #080b21 23.86%, #434e91 111.73%);
+  min-height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+}
+
+.tech .tech_box p {
+  margin: 0;
+}
+
+.tech .explain {
+  font-size: 13px;
 }
 
 ul {

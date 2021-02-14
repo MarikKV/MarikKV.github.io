@@ -1,7 +1,15 @@
 .exapmles{
     overflow: hidden;
-    background: linear-gradient(120.66deg,#f4f5f7 23.86%,#e9eaec 111.73%);
     padding: 20px 0 50px;
+
+    &_header{
+        background: linear-gradient(120.66deg,#080b21 23.86%,#434e91 111.73%);
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+    }
     .example{
         height: 440px;
         overflow-y: hidden;
