@@ -1,0 +1,26 @@
+.btn-default {
+    padding: 20px 40px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+}
+.btn-primary {
+    background-color: #ffe100;
+    color: #000;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 -10px #fff; }
+    40% { box-shadow: 0 0 20px #fff; }
+    60% { box-shadow: 0 0 20px #fff; }
+    100% { box-shadow: 0 0 -10px #fff; }
+}
+
+.button-glow {
+    animation: glowing 4s infinite;
+}
+  
