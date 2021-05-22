@@ -1,0 +1,46 @@
+#index {
+  font-size: 2rem;
+  min-height: 50px;
+}
+
+.lines .line {
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 800;
+  width: 184px;
+}
+
+.line:nth-child(1) {
+  border-radius: 10px 0 0 0;
+}
+
+.line:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.success {
+  background-color: #0fc727;
+}
+
+.warning {
+  background-color: #ffa600;
+}
+
+.danger {
+  background-color: #f87744;
+}
+
+.danger2 {
+  background-color: #f15323;
+}
+
+.danger3 {
+  background-color: #ec0909;
+}
+
+@media (max-width: 1200px) {
+  .line:last-child {
+    border-radius: 0 0 10px 0;
+  }
+}
+/*# sourceMappingURL=calc.css.map */
