@@ -25,7 +25,7 @@ function getStyles(){
     let styles = ``;
     const classesUsed = [];
    
-    const result_array = [];
+    let result_array = [];
     html.forEach(cls => {
         /*
         console.log(cls)
@@ -46,15 +46,30 @@ function getStyles(){
                     while(!css_array[i].includes("@media")){
                         i--
                     }
-                    result_array.push(css_array[i])
-                    //add entry of media
-                    let j = idx;
-                    while(!css_array[j].includes("}")){
-                        result_array.push(css_array[j]);
-                        j++
+                    let media_index = result_array.indexOf(css_array[i]);
+                    //if it's new media query
+                    if(media_index == -1){
+                        result_array.push(css_array[i]) //push @media screen...
+                        //add entry of media
+                        let j = idx;
+                        while(!css_array[j].includes("}")){
+                            result_array.push(css_array[j]);
+                            j++
+                        }
+                        result_array.push(css_array[j])
+                        result_array.push("}")
+                    } else {
+                        console.log('media exists')
+                        //if this media query already exists
+                        let j2 = idx;
+                        let m = media_index;
+                        while(!css_array[j2].includes("}")){
+                            result_array = insert(result_array, m+1, css_array[j2])
+                            j2++
+                            m++
+                        }
+                        result_array = insert(result_array, m+1, "      }")
                     }
-                    result_array.push(css_array[j])
-                    result_array.push("}")
                 }
            }
        })
@@ -71,3 +86,12 @@ function locations(substring, string){
     while((i=string.indexOf(substring,i+1)) >= 0) a.push(i);
     return a;
 }
+
+const insert = (arr, index, newItem) => [
+    // part of the array before the specified index
+    ...arr.slice(0, index),
+    // inserted item
+    newItem,
+    // part of the array after the specified index
+    ...arr.slice(index)
+  ]
