@@ -1,0 +1,28 @@
+.test{
+    color:red;
+}
+.blue{
+    color: blue;
+}
+@media(min-width: 1070px) {
+    .container,.container-sm {
+        max-width:540px
+    }
+}
+
+@media(min-width: 1070px) {
+    .container,.container-md,.container-sm {
+        max-width:720px;
+        min-height: 100px;
+    }
+}
+
+@media(min-width: 1070px) {
+    .container,.container-lg,.container-md,.container-sm {
+        max-width:960px
+    }
+}
+
+<div class="container"></div>
+<div class="test"></div>
+<div class="blue"></div>
