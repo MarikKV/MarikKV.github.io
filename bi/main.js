@@ -32,7 +32,8 @@ function getStyles(){
         classesUsed.push( { name: cls, used: locations(cls, css) })
         */
        css_array.forEach((el, idx) => {
-           if(el.includes(cls) && el.endsWith("{")){
+           const test = cls+" ";
+           if(el.includes(test) && el.endsWith("{")){
                if(el[0] != " " && el[1] != " "){
                     let i = idx;
                     while(!css_array[i].includes("}")){
@@ -43,7 +44,7 @@ function getStyles(){
                 } else{
                     //add media
                     let i = idx;
-                    while(!css_array[i].includes("@")){
+                    while(!css_array[i].includes("@media")){
                         i--
                     }
                     let media_index = result_array.indexOf(css_array[i]);
