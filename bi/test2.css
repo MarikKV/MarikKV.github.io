@@ -18,6 +18,10 @@
 }
 
 @media(min-width: 1070px) {
+    .container,.container-md,.container-sm {
+        max-width:720px;
+        min-height: 100px;
+    }
     .container,.container-lg,.container-md,.container-sm {
         max-width:960px
     }

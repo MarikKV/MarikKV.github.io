@@ -43,7 +43,7 @@ function getStyles(){
                 } else{
                     //add media
                     let i = idx;
-                    while(!css_array[i].includes("@media")){
+                    while(!css_array[i].includes("@")){
                         i--
                     }
                     let media_index = result_array.indexOf(css_array[i]);
@@ -59,16 +59,23 @@ function getStyles(){
                         result_array.push(css_array[j])
                         result_array.push("}")
                     } else {
-                        console.log('media exists')
                         //if this media query already exists
                         let j2 = idx;
                         let m = media_index;
+                        let end = false;
                         while(!css_array[j2].includes("}")){
+                            let test_arr = result_array.slice(m);
+                            if(css_array[j2].includes("{") && test_arr.indexOf(css_array[j2]) != -1){
+                                end=true;
+                                break;
+                            }
                             result_array = insert(result_array, m+1, css_array[j2])
                             j2++
                             m++
                         }
-                        result_array = insert(result_array, m+1, "      }")
+                        if(!end){
+                            result_array = insert(result_array, m+1, "    }")
+                        }
                     }
                 }
            }
