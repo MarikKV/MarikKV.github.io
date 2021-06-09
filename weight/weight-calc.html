@@ -54,7 +54,18 @@
             const result = weight / Math.pow(height / 100, 2);
 
             index.innerText = result.toString().slice(0, 4);
-            console.log(result)
+            index.style.color = indexColor(result);
+        }
+
+        function indexColor(weigth){
+            let color = "black";
+            if(weigth < 18.5){ color = "#ec0909"}
+            if(weigth >= 18.5 && weigth < 25){ color = "#0fc727"}
+            if(weigth >= 25 && weigth < 30){ color = "#ffa600"}
+            if(weigth >= 30 && weigth < 35){ color = "#f87744"}
+            if(weigth >= 35 && weigth < 40){ color = "#f15323"}
+            if(weigth < 18.5){ color = "#ec0909"}
+            return color;
         }
     </script>
 </body>
