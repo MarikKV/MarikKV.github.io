@@ -1,0 +1,38 @@
+.header{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header-logo{
+    margin-right: auto;
+}
+.header-menu, .header-menu>ul, .header-menu>ul>li{
+    display: flex;
+}
+.header-menu>ul{
+    list-style: none;
+}
+.header-menu>ul>li{
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    margin-right: 15px;
+}
+.header-menu>ul>li:last-child{
+    margin-right: 0;
+}
+.header-menu>ul>li>a{
+    text-decoration: none;
+    font-family: Tahoma;
+    font-weight: bold;
+    color: black;
+}
+.header-menu>ul>li>a:hover{
+    color:red;
+}
+@media screen and (max-width: 480px){
+    .header-menu>ul>li{
+        font-size: 9pt;
+    }
+}

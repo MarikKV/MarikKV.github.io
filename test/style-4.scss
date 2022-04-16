@@ -1,0 +1,48 @@
+$button-bg: transparent!important;
+$green: #17528f;
+$red: #ff6666;
+
+.trans, .trans:focus, .trans:hover {
+	transition: all 2s ease-in-out;
+}
+
+.button-4 {
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px 40px;
+	color: #fff;
+	font-size: 20px;
+	border: none;
+}
+
+#callbutton {
+	cursor: pointer;
+	background-color: $button-bg;
+	
+	&:hover {
+		background-color: $green;
+	}
+	
+	i.icon {   
+		background-position: 0px 45%;
+	}
+}
+
+@keyframes pulsate {
+    0%   {box-shadow: 0 0 0 0px rgba(21, 171, 191, 0);}
+    40%  {box-shadow: 0 0 0 2px white}
+    100% {box-shadow: 0 0 0 0px rgba(21, 89, 191, 0);}
+}
+
+#callbutton.calling {
+	background-color: $green;
+	animation-name: pulsate;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+	
+	i.icon {     // Calling
+		background-position: -24px 40%;
+	}
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+    
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TaskManager</title>
+</head>
+<body>
+    <div class="tasks">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+            <tbody id='table'>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="task">Task</label>
+            <input type="text" id="task" name="task" class="form-control">
+            <small class="form-text text-muted">Deskribe your task.</small>
+        </div>
+        <input type="button" value="Add task" id="submitButton" class="btn btn-primary" onclick="submitForm()">
+    </form>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDL-YftUBhtXcCbMRXgSXR8FxILgvuOzTQ",
+            authDomain: "mytask-8fc81.firebaseapp.com",
+            databaseURL: "https://mytask-8fc81.firebaseio.com",
+            projectId: "mytask-8fc81",
+            storageBucket: "mytask-8fc81.appspot.com",
+            messagingSenderId: "57531743513",
+            appId: "1:57531743513:web:0b3659b73257a849469988"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>

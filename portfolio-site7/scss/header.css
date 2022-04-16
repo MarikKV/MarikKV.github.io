@@ -1,0 +1,72 @@
+.header {
+  max-width: 1920px;
+  height: 1000px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(243, 129, 129, 0.8)), to(rgba(252, 227, 138, 0.8))), url("../images/picture.png");
+  background: linear-gradient(rgba(243, 129, 129, 0.8), rgba(252, 227, 138, 0.8)), url("../images/picture.png");
+  margin: 0 auto;
+}
+
+.header .header__box {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header .header__box .header__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 26px 0;
+}
+
+.header .header__box .header__menu .menu__logo {
+  color: #fff;
+}
+
+.header .header__box .header__menu .menu__items a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-left: 30px;
+}
+
+.header .header__box .header__menu .menu__items a:hover {
+  color: yellow;
+  padding-bottom: 15px;
+  border-bottom: 3px solid yellow;
+}
+
+.header .header__box .header__welcome {
+  margin-top: 160px;
+  color: white;
+  text-align: center;
+}
+
+.header .header__box .header__welcome__h {
+  font-size: 72px;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.header .header__box .header__welcome__text {
+  font-size: 150px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  margin-bottom: 125px;
+}
+
+.header .header__box .header__welcome__button {
+  border: 4px solid #fff;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,170 @@
+@import './vars';
+
+.main{
+    max-width: 1920px; 
+    margin: 0 auto;
+
+    .main__box{
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 50px;
+        text-align: center;
+
+        >h1{
+            font-family: $font2;
+            font-weight: normal;
+        }
+        >h2{
+            text-transform: uppercase;
+            font-family: $font1;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        >p{
+            color: gray;
+            font-family: $font1;
+            font-size: 14px;
+        }
+ 
+        .line{
+            height: 3px;
+            width: 64px;
+            background: $pink; 
+            position: relative;
+            top: 40px;
+            left: calc(50% - 32px);
+            margin-bottom: 60px;
+        }
+
+        .main__info{  
+            &:nth-child(1){grid-area:block1}
+            &:nth-child(2){grid-area:block2}
+            &:nth-child(3){grid-area:block3}
+            &:nth-child(4){grid-area:block4}
+            &:nth-child(5){grid-area:block5}
+            &:nth-child(6){grid-area:block6}
+            display: grid;
+            grid-template-areas:
+            'block1 block2 block3'
+            'block4 block5 block6';
+
+            .main__info__box{
+                display: flex;
+                margin: 50px 0px;
+
+                &:hover .main__info__box__image svg path{
+                    fill:red;
+                }
+                &__image{
+                    padding: 0 20px;
+                }
+
+                &__text{
+                   text-align: left;
+                   font-family: $font1;
+
+                   h1{
+                       text-transform: uppercase;
+                       font-size: 14px;
+                   }
+                   p{
+                    font-size: 12px;
+                    color: gray 
+                   }
+                }
+            }
+        }
+        @media screen and (max-width: 800px){
+            .main__info{
+                grid-template-areas:
+                'block1 block2'
+                'block3 block4'
+                'block5 block6';
+            }
+            
+        }
+        .main__us{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 90px;
+
+            &__box__image{
+                position: relative;
+                transition: 1s;
+                margin: 10px;
+                &__socials{
+                    height: 100%;
+                    width: 100%;
+                    background: linear-gradient($pink, $yellow);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 100;
+                    opacity: 0;
+                    transition: 1s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .socials__images{
+                        width: 60px;
+                        height: 60px;
+                        background-color: $yellow;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: 1px;
+                        & img{
+                            width: 50%;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    .fb{
+                        background: $pink;
+                    }
+                    .fb img{
+                        width: 25%; 
+                    }
+                }
+                &:hover{
+                    transform: translate(-5%,-5%);
+                }
+                &:hover .main__us__box__image__socials{
+                    opacity: 0.8;
+                }
+            }
+            
+            &__box__image img{
+                width: 100%
+            }
+            &__box__text{
+                text-align: center;
+
+                h1{
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    font-family: $font1;
+                    margin: 30px 0 15px;
+                }
+                p{
+                    font-family: $font1;
+                    color: gray;
+                    font-size: 14px;
+                    margin-bottom: 90px;
+                }
+            }
+        }
+        @media screen and (max-width: 800px){
+            .main__us{
+                flex-direction: column;
+                &__box__image{
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+            }
+            
+        }
+    }
+}

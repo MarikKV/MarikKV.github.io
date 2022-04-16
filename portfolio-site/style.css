@@ -1,0 +1,387 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.wrapper{
+    max-width: 1365px;
+    margin: 0 auto;
+}
+.main{
+    min-height: 670px;
+    background: #e9e9e9;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 90px;
+}
+.menu__items>a{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    margin-right: 30px;
+    font-weight: bold;
+}
+.main__header__button{
+    transition: color 1s ease;
+    transition: background 1s ease;
+}
+.menu__items>a:hover{
+    text-decoration: underline;
+}
+.main__header__button:hover{
+    background: #149c98;
+    color: rgb(236, 236, 130)
+}
+.menu__items>.open{
+    color: #10c9c3;
+}
+.main__header{
+    display: flex;
+}
+.main__header__left, .main__header__right{
+    box-sizing: border-box;
+    width: 50%;
+}
+.main__header__left{
+    min-height: 580px;
+    display: flex;
+    justify-content: center;
+}
+.main__header__right{
+    padding: 135px 70px;
+}
+
+@media screen and (max-width: 860px){
+    .main__header{
+        flex-direction: column;
+    }
+    .main__header__left{
+        width: 100%;
+    }
+    .main__header__right{
+        width: 100%;
+        padding: 135px 10px;
+    }
+}
+.main__header__right>h1{
+    font-size: 38px;
+    margin-left: 15px;
+}
+.main__header__right>p{
+    font-size: 18px;
+    color: #787878;
+    margin-bottom: 45px;
+}
+.main__header__button{
+    padding: 22px 45px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: white;
+    background: #10c9c3;
+}
+
+.aboutUs{
+    min-height: 420px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding-top: 100px;
+}
+.aboutUs>h1{
+    font-size: 30px;
+}
+.aboutUs>p{
+    color: #787878;
+    font-size: 16px;
+}
+
+
+
+.skills{
+    min-height: 570px;
+    display: flex;
+}
+.skills__left, .skills__right{
+    width: 50%;
+    min-height: 570px;
+    box-sizing: border-box;
+}
+.skills__left{
+    padding: 156px 100px;
+    background: #f8f9f9;
+}
+.skills__right{
+    display: flex;
+    justify-content: center;
+}
+#skills__right__photo{
+    width:100%;
+}
+@media screen and (max-width: 815px){
+    .skills{
+        flex-direction: column;
+    }
+    .skills__left, .skills__right{
+        width: 100%;
+    }
+}
+
+.skills__left>h1{
+    font-size: 30px;
+}
+.skills__left>p{
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.skills__right{
+    background: #e9e9e9;
+}
+.line{
+    width: 100%;
+    height: 4px;
+    display: flex;
+}
+.line__left{
+    background: aqua;
+    height: 4px;
+}
+.line__right{
+    background: #e9e9e9;
+    height: 4px;
+}
+.w-10{width: 10%;}
+.w-25{width: 25%;}
+.w-35{width: 35%;}
+.w-75{width: 75%;}
+.w-90{width: 90%;}
+.w-65{width: 65%;}
+
+
+.icons{
+    min-height: 240px;
+    background: #10c9c3;
+    display: flex;
+    box-sizing: border-box;
+    padding: 100px;
+}
+.icons__block{
+    display: flex;
+    width: 25%;
+    color: white;
+}
+@media screen and (max-width: 815px){
+    .icons{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .icons__block{
+        width: 100%;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}
+.icons__block__icon{
+    font-size: 40pt;
+}
+.icons__block__text{
+    font-size: 12px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding:0 10px;
+}
+.icons__block__text__num{
+    font-size: 18px;
+}
+
+.chess{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.chess__row{
+    display: flex;
+    height: 50%;
+}
+.chess__row__item1{
+    background-color: #838383;
+}
+.chess__row__item1{
+    background-color: #dddddd;
+}
+
+
+.forVideo{
+    height: 930px;
+    box-sizing: border-box;
+    padding: 100px 0;
+}
+.forVideo>h1{
+    font-size: 30px;
+}
+.forVideo>p{
+    font-size: 16px;
+    color: #787878;
+}
+
+.moreIcons{
+    min-height: 535px;
+    background: #dddddd;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 100px;
+}
+.moreIcons__row{
+    display: flex;
+}
+.moreIcons__block{
+    width: 25%;
+    text-align: center;
+}
+@media screen and (max-width: 740px){
+    .moreIcons__row{
+        flex-direction: column;
+    }
+    .moreIcons__row{
+        align-items: center;
+    }
+}
+.moreIcons__block__icon{
+    font-size: 40pt;
+    color: gray;
+}
+.moreIcons__block__text>p{
+    color: #787878;
+    font-size: 12px;
+}
+.moreIcons__block__text>h1{
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+
+
+.slider{
+    height: 500px;
+    background: #10c9c3;
+    box-sizing: border-box;
+    padding-top: 175px;
+}
+.slider>p{
+    font-size: 20pt;
+    color: white;
+}
+
+
+.clients{
+    height: 200px;
+    display: flex;
+}
+.clients__logo{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clients__logo>img{
+    width: 100px;
+    height: 70px;
+}
+
+.contact{
+    min-height: 720px;
+    background: #dddddd;
+    box-sizing: border-box;
+    padding: 100px 0 10px;
+}
+.contact__forForm{
+    max-width: 675px;
+    margin: 0 auto;
+}
+.w-45{
+    width: 45%;
+}
+.w-100{
+    width: 100%;
+}
+.mr-10{
+    margin-right: 9.2%;
+}
+.h-48{
+    height: 48px;
+}
+.h-170{
+    height: 170px;
+}
+input{
+    border: 0;
+    margin-top: 30px;
+    box-sizing: border-box;
+    padding: 15px 18px;
+}
+input[type=submit]{
+    background: #10c9c3;
+    padding: 20px 35px;
+    color: white;
+    font-size: 10px;
+}
+@media screen and (max-width: 700px){
+    .w-45{
+        width: 100%;
+    }
+}
+
+
+.footer{
+    min-height: 280px;
+    background: black;
+    color: white;
+    box-sizing: border-box;
+    padding: 100px;
+    display: flex;
+}
+.footer__rights{
+    width: 40%;
+}
+.footer__contacts{
+    padding-top: 20px;
+    width: 35%;
+}
+.footer__menu{
+    display: flex;
+    padding-top: 20px;
+    width: 30%;
+}
+@media screen and (max-width: 900px){
+    .footer{
+        padding: 10px;
+    }
+    .footer__rights{
+        width: 35%;
+    }
+}
+@media screen and (max-width: 685px){
+    .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__rights, .footer__contacts, .footer__menu{
+        width: 100%;
+    }
+}
+.footer__socials{
+    padding-top: 20px;
+}
+.footer__menu__box{
+    width: 50%;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+.footer a:hover{
+    text-decoration: underline;
+}

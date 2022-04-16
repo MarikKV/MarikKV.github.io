@@ -1,0 +1,43 @@
+@import './vars';
+.footer{
+    border-top: 1px solid gray;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font1;
+    max-width: 1920px; 
+    margin: 0 auto;
+    .footer__searh{
+        display: flex;
+    }
+    & input[type=text]{
+        width: 230px;
+        height: 40px;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+
+    & .footer__searh .button{
+        display: flex;
+        cursor: pointer;
+        height: 40px;
+        color: #fff;
+        background: #95e1d3;
+        align-items: center;
+        padding: 0 34px;
+        font-weight: bold;
+    }
+    & .footer__searh .button:hover{
+        color: yellow;
+        background: rgb(26, 26, 124);
+    }
+}
+@media screen and (max-width: 800px){
+    .footer{
+        flex-direction: column;
+    }
+}
+.red{
+    color: #f38181;
+}
