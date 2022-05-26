@@ -11,7 +11,6 @@ class Scene_0 extends Phaser.Scene {
         this.text = this.add.text(230, 400, "Клікніть щоб розпочати", { font: "34px Impact" });
 
         this.input.on('pointerdown', function(e){
-            console.log('click')
             this.scene.start("Scene_1")
         }, this)
     }

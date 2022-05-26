@@ -9,10 +9,11 @@ class Scene_1 extends Phaser.Scene {
 
     create() {
         const textStyle = {
-            font: "24px Tahoma"
+            font: "24px Tahoma",
+            color: "transparent"
         }
         
-        this.text = this.add.text(240, 200, "У древні часи не було бутилок.", textStyle)
+        this.text  = this.add.text(240, 200, "У древні часи не було бутилок.", textStyle)
         this.text2 = this.add.text(240, 230, "І було тяжко рускім.", textStyle)
         this.text3 = this.add.text(240, 260, "Та недовго лаптєногі страждали.", textStyle)
         this.text4 = this.add.text(240, 290, "Людство винайшло бутилку.", textStyle)
@@ -26,11 +27,18 @@ class Scene_1 extends Phaser.Scene {
                 alpha: 1,
                 delay: start,
                 duration: 3000,
-                ease: 'fadeIn'
+                ease: 'Sine.easeInOut'
             })
             start+=3500;
         });
-        this.soundFX = this.sound.add("intro", { loop: "true" });
+        
+        setTimeout(()=>{
+            [this.text, this.text2, this.text3, this.text4, this.text5].forEach(text => {
+                text.setColor("white")
+            });
+        }, 500)
+       
+        this.soundFX = this.sound.add("intro");
         this.soundFX.play();
     }
 }
