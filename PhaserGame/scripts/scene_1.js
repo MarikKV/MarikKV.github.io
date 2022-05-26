@@ -4,7 +4,7 @@ class Scene_1 extends Phaser.Scene {
     }
     
     preload(){
-
+        this.load.audio('intro', ['assets/sound/predator-intro.mp3'])
     }
 
     create() {
@@ -30,6 +30,8 @@ class Scene_1 extends Phaser.Scene {
             })
             start+=3500;
         });
+        this.soundFX = this.sound.add("intro", { loop: "true" });
+        this.soundFX.play();
     }
 }
 
