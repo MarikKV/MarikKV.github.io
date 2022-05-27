@@ -37,9 +37,15 @@ class Scene_1 extends Phaser.Scene {
                 text.setColor("white")
             });
         }, 500)
-       
-        this.soundFX = this.sound.add("intro");
-        this.soundFX.play();
+        
+        const introMusic = this.sound.add("intro");
+        introMusic.once("complete", () => this.scene.start("Scene_2"));  
+        introMusic.play();
+
+        this.input.on('pointerdown', ()=>{
+            introMusic.stop();
+            this.scene.start("Scene_2")
+        }, this)
     }
 }
 
