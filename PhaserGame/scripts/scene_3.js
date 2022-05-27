@@ -8,6 +8,8 @@ class Scene_3 extends Phaser.Scene {
         this.load.image('star', 'assets/star2.png');
         this.load.image('dude', 'assets/phaser-dude.png');
         this.load.image('plane', 'assets/plane.png');
+        this.load.image('poo', 'assets/poo.png');
+        this.load.spritesheet('mummy', 'assets/mummy37x45.png', { frameWidth: 37, frameHeight: 45 });
     }
 
     create() {
@@ -30,6 +32,50 @@ class Scene_3 extends Phaser.Scene {
 
         this.ilText  = this.add.text(-250, -1380, "РУЦКИЙ ІЛ", textStyle);
         this.plane = this.add.sprite(-215, -1300, 'plane');
+
+        //Mummy
+        this.mommyMaked_1 = false;
+        this.mommyMaked_2 = false;
+        this.mommyMaked_3 = false;
+        this.makeMymmy = (y_start, x_coord) => {
+            const mummyAnimation = this.anims.create({
+                key: 'walk',
+                frames: this.anims.generateFrameNumbers('mummy'),
+                frameRate: 16
+            });
+    
+            const sprite = this.add.sprite(y_start, -1300, 'mummy').setScale(1);
+    
+            sprite.play({ key: 'walk', repeat: 10000 });
+    
+            this.tweens.add({
+                targets: sprite,
+                y: -1000,
+                x: x_coord,
+                duration: 8800,
+                ease: 'Linear'
+            });
+    
+            sprite.on('animationrepeat', function () {
+    
+                const poop = this.add.image(sprite.x - 32, 300, 'poo').setScale(0.5);
+    
+                this.tweens.add({
+                    targets: poop,
+                    props: {
+                        x: {
+                            value: '-=64', ease: 'Power1'
+                        },
+                        y: {
+                            value: '+=50', ease: 'Bounce.easeOut'
+                        }
+                    },
+                    duration: 750
+                });
+    
+            }, this);
+        }
+        //mummy
     
         this.cameras.main.startFollow(this.player);
     
@@ -55,10 +101,22 @@ class Scene_3 extends Phaser.Scene {
             } else if(this.plane.x > this.w - 200){
                 this.planeSound.setVolume(0.2)
             } else if(this.plane.x > this.w - 350){
+                if(!this.mommyMaked_2){
+                    this.mommyMaked_2 = true;
+                    this.makeMymmy(this.plane.x, 800)
+                }
                 this.planeSound.setVolume(0.3)
             } else if(this.plane.x > this.w - 400){
+                if(!this.mommyMaked_1){
+                    this.mommyMaked_1 = true;
+                    this.makeMymmy(this.plane.x, 300)
+                }
                 this.planeSound.setVolume(0.5)
             } else if(this.plane.x > this.w - 600){
+                if(!this.mommyMaked_3){
+                    this.mommyMaked_3 = true;
+                    this.makeMymmy(this.plane.x, 400)
+                }
                 this.planeSound.setVolume(0.8)
             }
         }
