@@ -4,9 +4,7 @@ class Scene_2 extends Phaser.Scene {
     }
     
     preload(){
-        this.load.audio('intro', ['assets/sound/predator-intro.mp3']);
-        this.load.image('star', 'assets/star2.png');
-        this.load.image('dude', 'assets/phaser-dude.png');
+
     }
 
     create() {
@@ -17,6 +15,7 @@ class Scene_2 extends Phaser.Scene {
 
         this.text  = this.add.text(200, 200, "Гостомельський аеропорт.", textStyle);
         this.text2  = this.add.text(200, 240, "24.02.2022", textStyle);
+        this.skip = false;
 
         let start = 500;
         [this.text, this.text2].forEach(text => {
@@ -46,39 +45,19 @@ class Scene_2 extends Phaser.Scene {
                 })
             });
 
-            setTimeout(startAnimation, 3000);
+            setTimeout(startScene3, 3000);
         }, 6000)
 
-        const startAnimation = () => {
-            this.w = this.cameras.main.width;
-            this.h = this.cameras.main.height;
-        
-            var bg = this.add.group({ key: 'star', frameQuantity: 300 });
-        
-            this.sky = new Phaser.Display.Color(120, 120, 255);
-            this.space = new Phaser.Display.Color(0, 0, 0);
-        
-            this.player = this.add.sprite(this.w / 2, -1100, 'dude');
-        
-            this.cameras.main.startFollow(this.player);
-        
-            var rect = new Phaser.Geom.Rectangle(0, -2 * this.h, this.w, 2 * this.h);
-        
-            Phaser.Actions.RandomRectangle(bg.getChildren(), rect);
-        }
-    }
-    
-    update () 
-    {   
-        setTimeout(()=>{
-            if(this.player.y <= 0 ){
-                this.player.y = this.player.y + 2;
-            
-                var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
-        
-                this.cameras.main.setBackgroundColor(hexColor);
+        const startScene3 = () => {
+            if(!this.skip){
+                this.scene.start("Scene_3")
             }
-        }, 10000)
+        }
+
+        this.input.on('pointerdown', () => {
+            this.skip = true;
+            this.scene.start("Scene_3")
+        }, this)
     }
 }
 
