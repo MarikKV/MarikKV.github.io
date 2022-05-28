@@ -9,7 +9,7 @@ class Scene_3 extends Phaser.Scene {
         this.load.image('dude', 'assets/phaser-dude.png');
         this.load.image('plane', 'assets/plane.png');
         this.load.image('poo', 'assets/poo.png');
-        this.load.spritesheet('mummy', 'assets/mummy37x45.png', { frameWidth: 37, frameHeight: 45 });
+        this.load.spritesheet('okupant', 'assets/okupant.png', { frameWidth: 40, frameHeight: 100 });
     }
 
     create() {
@@ -37,20 +37,23 @@ class Scene_3 extends Phaser.Scene {
         this.mommyMaked_1 = false;
         this.mommyMaked_2 = false;
         this.mommyMaked_3 = false;
-        this.makeMymmy = (y_start, x_coord) => {
+        this.ocupantFall = (y_start, x_coord) => {
             const mummyAnimation = this.anims.create({
-                key: 'walk',
-                frames: this.anims.generateFrameNumbers('mummy'),
-                frameRate: 16
-            });
+                key: 'fall',
+                frames: this.anims.generateFrameNumbers('okupant'),
+                frameRate: 7,
+                repeat: -1
+            }); 
+            console.log(mummyAnimation);
+            //mummyAnimation.stopOnFrame(16)
     
-            const sprite = this.add.sprite(y_start, -1300, 'mummy').setScale(1);
+            const sprite = this.add.sprite(y_start, -1300, 'okupant').setScale(1);
     
-            sprite.play({ key: 'walk', repeat: 10000 });
-    
+            sprite.play({ key: 'fall', repeat: 0 });
+
             this.tweens.add({
                 targets: sprite,
-                y: -1000,
+                y: -700,
                 x: x_coord,
                 duration: 8800,
                 ease: 'Linear'
@@ -112,7 +115,7 @@ class Scene_3 extends Phaser.Scene {
             {
                 if(!this.mommyMaked_2){
                     this.mommyMaked_2 = true;
-                    this.makeMymmy(this.plane.x, 800)
+                    this.ocupantFall(this.plane.x, 800)
                 }
                 this.planeSound.setVolume(0.3)
             } 
@@ -120,7 +123,7 @@ class Scene_3 extends Phaser.Scene {
             {
                 if(!this.mommyMaked_1){
                     this.mommyMaked_1 = true;
-                    this.makeMymmy(this.plane.x, 300)
+                    this.ocupantFall(this.plane.x, 500)
                 }
                 this.planeSound.setVolume(0.5)
             } 
@@ -128,14 +131,14 @@ class Scene_3 extends Phaser.Scene {
             {
                 if(!this.mommyMaked_3){
                     this.mommyMaked_3 = true;
-                    this.makeMymmy(this.plane.x, 400)
+                    this.ocupantFall(this.plane.x, 200)
                 }
                 this.planeSound.setVolume(0.8)
             }
         }
         if(this.player.y <= 0 && this.plane.x > this.w / 2 + 400)
         {
-            this.player.y = this.player.y + 2;
+            this.player.y = this.player.y + 3;
 
             var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
     

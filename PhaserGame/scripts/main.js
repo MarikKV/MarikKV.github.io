@@ -5,8 +5,8 @@ import Scene_3 from "./scene_3.js";
 
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: 800, //window.innerHeight
+    height: 600, //window.innerWidth
     physics: {
         default: 'arcade',
         arcade: {
