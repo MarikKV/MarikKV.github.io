@@ -55,10 +55,10 @@ class Scene_3 extends Phaser.Scene {
                 duration: 8800,
                 ease: 'Linear'
             });
-    
+            /*
             sprite.on('animationrepeat', function () {
     
-                const poop = this.add.image(sprite.x - 32, 300, 'poo').setScale(0.5);
+                const poop = this.add.image(sprite.x - 22, sprite.y, 'poo').setScale(0.1);
     
                 this.tweens.add({
                     targets: poop,
@@ -67,13 +67,14 @@ class Scene_3 extends Phaser.Scene {
                             value: '-=64', ease: 'Power1'
                         },
                         y: {
-                            value: '+=50', ease: 'Bounce.easeOut'
+                            value: '+=2000', ease: 'Bounce.easeOut'
                         }
                     },
-                    duration: 750
+                    duration: 10000
                 });
     
             }, this);
+            */
         }
         //mummy
     
@@ -90,29 +91,41 @@ class Scene_3 extends Phaser.Scene {
     
     update () 
     {   
-        if(this.plane.x < this.w + 1000 ){
+        if(this.plane.x < this.w + 1000 )
+        {
             this.plane.x = this.plane.x + 2;
             this.ilText.x= this.ilText.x + 2;
 
-            if(this.plane.x > this.w + 700){
+            if(this.plane.x > this.w + 700)
+            {
                 this.planeSound.stop();
-            } else if(this.plane.x > this.w + 100){
+            } 
+            else if(this.plane.x > this.w + 100)
+            {
                 this.planeSound.setVolume(0.1)
-            } else if(this.plane.x > this.w - 200){
+            } 
+            else if(this.plane.x > this.w - 200)
+            {
                 this.planeSound.setVolume(0.2)
-            } else if(this.plane.x > this.w - 350){
+            } 
+            else if(this.plane.x > this.w - 350)
+            {
                 if(!this.mommyMaked_2){
                     this.mommyMaked_2 = true;
                     this.makeMymmy(this.plane.x, 800)
                 }
                 this.planeSound.setVolume(0.3)
-            } else if(this.plane.x > this.w - 400){
+            } 
+            else if(this.plane.x > this.w - 400)
+            {
                 if(!this.mommyMaked_1){
                     this.mommyMaked_1 = true;
                     this.makeMymmy(this.plane.x, 300)
                 }
                 this.planeSound.setVolume(0.5)
-            } else if(this.plane.x > this.w - 600){
+            } 
+            else if(this.plane.x > this.w - 600)
+            {
                 if(!this.mommyMaked_3){
                     this.mommyMaked_3 = true;
                     this.makeMymmy(this.plane.x, 400)
@@ -120,7 +133,8 @@ class Scene_3 extends Phaser.Scene {
                 this.planeSound.setVolume(0.8)
             }
         }
-        if(this.player.y <= 0 && this.plane.x > this.w / 2 + 400){
+        if(this.player.y <= 0 && this.plane.x > this.w / 2 + 400)
+        {
             this.player.y = this.player.y + 2;
 
             var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
