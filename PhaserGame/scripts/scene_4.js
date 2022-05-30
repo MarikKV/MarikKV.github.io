@@ -8,13 +8,10 @@ class Scene_4 extends Phaser.Scene {
         this.load.image('ship', 'assets/phaser-dude.png');
         this.load.image('bullet', 'assets/1715.png');
         this.load.image('sky', 'assets/ms3-sky.png');
-        this.load.image('trees', 'assets/ms3-trees.png');
     }
 
     create() {
         this.bg = this.add.tileSprite(0, 0, 800, 296, 'sky')
-            .setOrigin(0, 0);
-        this.trees = this.add.tileSprite(0, 280, 800, 320, 'trees')
             .setOrigin(0, 0);
 
         this.w = this.cameras.main.width;
