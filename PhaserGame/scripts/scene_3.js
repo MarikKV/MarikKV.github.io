@@ -88,6 +88,10 @@ class Scene_3 extends Phaser.Scene {
         this.planeSound = this.sound.add("plane-sound");
         this.planeSound.play();
 
+        this.input.on('pointerdown', () => {
+            this.planeSound.stop();
+            this.scene.start("Scene_4")
+        }, this)
     
         Phaser.Actions.RandomRectangle(bg.getChildren(), rect);
     }
@@ -143,6 +147,10 @@ class Scene_3 extends Phaser.Scene {
             var hexColor = Phaser.Display.Color.Interpolate.ColorWithColor(this.sky, this.space, -this.h * 2, this.player.y);
     
             this.cameras.main.setBackgroundColor(hexColor);
+        }
+        if(this.player.y > 0)
+        {
+            this.scene.start("Scene_4")
         }
     }
 }
