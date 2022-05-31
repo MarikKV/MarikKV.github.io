@@ -6,8 +6,8 @@ import Scene_4 from "./scene_4.js";
 
 var config = {
     type: Phaser.AUTO,
-    width: window.innerWidth, //window.innerWidth
-    height: window.innerHeight, //window.innerHeight
+    width: 800, //window.innerWidth
+    height: 600, //window.innerHeight
     physics: {
         default: 'arcade',
         arcade: {

@@ -5,9 +5,10 @@ class Scene_4 extends Phaser.Scene {
     
     preload(){
         this.objects = {};
-        this.load.image('ship', 'assets/phaser-dude.png');
+        this.load.image('player', 'assets/phaser-dude.png');
         this.load.image('bullet', 'assets/1715.png');
         this.load.image('sky', 'assets/ms3-sky.png');
+        this.load.image('okupant', 'assets/okupant.png');
     }
 
     create() {
@@ -29,7 +30,7 @@ class Scene_4 extends Phaser.Scene {
             {
                 Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
                 
-                this.speed = Phaser.Math.GetSpeed(300, 1);
+                this.speed = Phaser.Math.GetSpeed(400, 1);
             },
     
             fire: function (x, y)
@@ -39,6 +40,7 @@ class Scene_4 extends Phaser.Scene {
                 this.setScale(0.03);
                 this.setActive(true);
                 this.setVisible(true);
+                
             },
     
             update: function (time, delta)
@@ -56,21 +58,51 @@ class Scene_4 extends Phaser.Scene {
 
         this.info = this.add.text(0, 0, 'Click to add objects', { fill: '#00ff00' });
 
-        //  Set the custom class type that this Group will create.
-        //  Limited to just 10 objects in the pool, not allowed to grow beyond it.
-        //  runChildUpdate tells the Group to call 'update' on any active child. The default is false.
-
         this.bullets = this.add.group({
             classType: Bullet,
             maxSize: 3,
             runChildUpdate: true
         });
 
-        this.ship = this.add.sprite(this.w / 2 - 13, this.h - 22, 'ship').setDepth(1);
+        this.player = this.physics.add.sprite(this.w / 2 - 13, this.h - 22, 'player').setDepth(1);
+        
+        this.player.setCollideWorldBounds(true);
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        this.speed = Phaser.Math.GetSpeed(300, 1);
+        this.speed = Phaser.Math.GetSpeed(400, 1);
+
+        //this.ocupantFall(0, this.h/2)
+        this.ocupants = this.physics.add.group({
+            key: 'okupant',
+            frameQuantity: 12,
+            maxSize: 12,
+            active: false,
+            visible: false,
+            enable: false,
+            collideWorldBounds: true,
+            bounceX: 0.5,
+            bounceY: 0.5,
+            dragX: 30,
+            dragY: 0
+        });
+
+        this.createOcupant = (x, y, vx, vy) =>
+        {
+            var ocupant = this.ocupants.get();
+            if (!ocupant) return;
+            ocupant
+                .enableBody(true, x, y, true, true)
+                .setVelocity(vx, vy);
+        }
+
+        this.createOcupant(400, 10, 100, 1)
+
+        this.destroyOcupant = (bullet, ocupant) => {
+            ocupant.disableBody(true, true);
+            bullet.destroy();
+        };
+    
     }
     
     update (time, delta) 
@@ -79,26 +111,36 @@ class Scene_4 extends Phaser.Scene {
 
         if (this.cursors.left.isDown)
         {
-            this.ship.x -= this.speed * delta;
+            this.player.x -= this.speed * delta;
         }
         else if (this.cursors.right.isDown)
         {
-            this.ship.x += this.speed * delta;
+            this.player.x += this.speed * delta;
         }
-        if (this.cursors.up.isDown && time > this.lastFired)
+        if ((this.cursors.space.isDown || this.cursors.up.isDown) && time > this.lastFired)
         {
             var bullet = this.bullets.get();
             if (bullet)
             {
-                bullet.fire(this.ship.x, this.ship.y);
-    
+                bullet.fire(this.player.x, this.player.y);
                 this.lastFired = time + 300;
             }
         }
-    
+        this.bullets.children.entries.forEach(bullet => {
+            this.ocupants.children.entries.forEach(ocupant => {
+                if(Math.abs(bullet.x - ocupant.x) < 20 && Math.abs(bullet.y - ocupant.y) < 10){
+                    this.destroyOcupant(bullet, ocupant);
+                    setTimeout(() => {
+                        this.createOcupant(400, 10, 100, 1)
+                    }, 1500)
+                }
+            })
+        
+        });
+        //console.log(this.ocupants)
         this.info.setText([
-            'Used: ' + this.bullets.getTotalUsed(),
-            'Free: ' + this.bullets.getTotalFree()
+            //'Used: ' + this.bullets.getTotalUsed(),
+            'Бутилок готово: ' + this.bullets.getTotalFree()
         ]);
     }
 }
