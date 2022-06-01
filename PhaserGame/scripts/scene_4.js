@@ -75,8 +75,8 @@ class Scene_4 extends Phaser.Scene {
         //this.ocupantFall(0, this.h/2)
         this.ocupants = this.physics.add.group({
             key: 'okupant',
-            frameQuantity: 12,
-            maxSize: 12,
+            frameQuantity: 4,
+            maxSize: 4,
             active: false,
             visible: false,
             enable: false,
@@ -96,12 +96,32 @@ class Scene_4 extends Phaser.Scene {
                 .setVelocity(vx, vy);
         }
 
-        this.createOcupant(400, 10, 100, 1)
-
         this.destroyOcupant = (bullet, ocupant) => {
             ocupant.disableBody(true, true);
             bullet.destroy();
         };
+
+        setInterval(() => {
+            let okupantX = 0;
+            if(this.player.x <= 200)
+            {
+                okupantX = 200;
+            }
+            else if(this.player.x >= this.w - 200)
+            {
+                okupantX = -200;
+            }
+            else
+            {
+                let direction =  Math.random() > 0.5 ? 1 : -1; 
+                okupantX = this.player.x + direction * 200;
+            }
+            
+            this.createOcupant(okupantX, -100, 100, 1)
+        }, 2500)
+
+        this.sky = new Phaser.Display.Color(3, 186, 252);
+        this.cameras.main.setBackgroundColor(this.sky);
     
     }
     
@@ -130,18 +150,25 @@ class Scene_4 extends Phaser.Scene {
             this.ocupants.children.entries.forEach(ocupant => {
                 if(Math.abs(bullet.x - ocupant.x) < 20 && Math.abs(bullet.y - ocupant.y) < 10){
                     this.destroyOcupant(bullet, ocupant);
-                    setTimeout(() => {
-                        this.createOcupant(400, 10, 100, 1)
-                    }, 1500)
                 }
             })
         
         });
-        //console.log(this.ocupants)
         this.info.setText([
             //'Used: ' + this.bullets.getTotalUsed(),
             'Бутилок готово: ' + this.bullets.getTotalFree()
         ]);
+        let ocupantsFall = 0;
+
+        this.ocupants.children.entries.forEach(ocupant => {
+            if(ocupant.y >= this.h - 50){ocupantsFall++};
+        });
+        console.log(ocupantsFall)
+        if(ocupantsFall == 4){
+            this.scene.start("Scene_5");
+        } else {
+            ocupantsFall = 0;
+        }
     }
 }
 
