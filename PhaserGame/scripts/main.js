@@ -7,8 +7,8 @@ import Scene_5 from "./scene_5.js";
 
 var config = {
     type: Phaser.AUTO,
-    width: 800, //window.innerWidth
-    height: 600, //window.innerHeight
+    width: window.innerWidth <= 1200 ? window.innerWidth : 1200, //window.innerWidth
+    height: window.innerHeight, //window.innerHeight
     physics: {
         default: 'arcade',
         arcade: {
@@ -17,4 +17,6 @@ var config = {
     },
     scene: [ Scene_0, Scene_1, Scene_2, Scene_3, Scene_4, Scene_5]
 };
+
+console.log(Phaser)
 var game = new Phaser.Game(config);

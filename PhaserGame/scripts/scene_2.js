@@ -9,12 +9,12 @@ class Scene_2 extends Phaser.Scene {
 
     create() {
         const textStyle = {
-            font: "30px Tahoma",
+            font: "400% Tahoma",
             color: "transparent"
         }
 
         this.text  = this.add.text(200, 200, "Гостомельський аеропорт.", textStyle);
-        this.text2  = this.add.text(200, 240, "24.02.2022", textStyle);
+        this.text2  = this.add.text(200, 250, "24.02.2022", textStyle);
         this.skip = false;
 
         let start = 500;
