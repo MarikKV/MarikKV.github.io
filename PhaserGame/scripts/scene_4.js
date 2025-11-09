@@ -5,18 +5,61 @@ class Scene_4 extends Phaser.Scene {
     
     preload(){
         this.objects = {};
+        this.load.audio('bootle_sound', ['assets/sound/bottle_sound.mp3']);
         this.load.image('player', 'assets/phaser-dude.png');
         this.load.image('bullet', 'assets/1715.png');
-        this.load.image('sky', 'assets/ms3-sky.png');
+        this.load.image('sky', 'assets/sky.png');
         this.load.image('okupant', 'assets/okupant.png');
     }
 
     create() {
-        this.bg = this.add.tileSprite(0, 0, 800, 296, 'sky')
-            .setOrigin(0, 0);
-
+      // Sky height (20% of screen)
         this.w = this.cameras.main.width;
         this.h = this.cameras.main.height;
+         // Define sky layers — each with different height & speed
+        const layers = [
+            { heightPercent: 0.05, speed: 0.25, alpha: 0.7 },
+            { heightPercent: 0.10, speed: 0.35, alpha: 0.9 },
+            { heightPercent: 0.08, speed: 0.45, alpha: 1.0 },
+        ];
+
+        this.skies = [];
+
+        const skyTexture = this.textures.get('sky').getSourceImage();
+        const imgRatio = skyTexture.width / skyTexture.height;
+
+       layers.forEach((layer, i) => {
+            const skyHeight = this.h * layer.heightPercent;
+            const skyWidth = skyHeight * imgRatio;
+
+            // Vertical position: stack layers down from top
+            const yPos = i === 0 ? 0 : layers.slice(0, i).reduce((sum, l) => sum + this.h * l.heightPercent, 0);
+
+            // Create enough images to fill width (considering gaps)
+            const needed = Math.ceil(this.w / (skyWidth * 2)) + 2; // *2 = with gap
+
+            const images = [];
+            for (let j = 0; j < needed; j++) {
+                const img = this.add.image(j * skyWidth * 2, yPos, 'sky') // <-- note *2
+                    .setOrigin(0, 0)
+                    .setDisplaySize(skyWidth, skyHeight)
+                    .setAlpha(layer.alpha);
+                images.push(img);
+            }
+
+            this.skies.push({
+                images,
+                width: skyWidth,
+                height: skyHeight,
+                speed: layer.speed
+            });
+        });
+
+
+        // Keep background color for the rest of the screen
+        this.cameras.main.setBackgroundColor(new Phaser.Display.Color(3, 186, 252));
+
+        this.bottleSound = this.sound.add('bootle_sound');
 
         this.lastFired = 0;
 
@@ -127,7 +170,17 @@ class Scene_4 extends Phaser.Scene {
     
     update (time, delta) 
     {   
-        this.bg.tilePositionX -= 0.2;
+        // Move backgrounds to the right at slightly different speeds
+         this.skies.forEach(layer => {
+            layer.images.forEach(img => {
+                img.x += layer.speed;
+
+                // When an image goes off screen (including gap), wrap it back
+                if (img.x >= this.w + layer.width) {
+                    img.x -= layer.width * 2 * layer.images.length;
+                }
+            });
+        });
 
         if (this.cursors.left.isDown)
         {
@@ -137,15 +190,16 @@ class Scene_4 extends Phaser.Scene {
         {
             this.player.x += this.speed * delta;
         }
-        if ((this.cursors.space.isDown || this.cursors.up.isDown) && time > this.lastFired)
-        {
+
+        if ((this.cursors.space.isDown || this.cursors.up.isDown) && time > this.lastFired) {
             var bullet = this.bullets.get();
-            if (bullet)
-            {
+            if (bullet) {
                 bullet.fire(this.player.x, this.player.y);
+                this.bottleSound.play(); // 🔊 play sound
                 this.lastFired = time + 300;
             }
         }
+        
         this.bullets.children.entries.forEach(bullet => {
             this.ocupants.children.entries.forEach(ocupant => {
                 if(Math.abs(bullet.x - ocupant.x) < 20 && Math.abs(bullet.y - ocupant.y) < 10){

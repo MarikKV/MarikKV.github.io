@@ -124,6 +124,7 @@ class Scene_3 extends Phaser.Scene {
         }
         if(this.player.y > 0)
         {
+            this.planeSound.stop();
             this.scene.start("Scene_4")
         }
     }

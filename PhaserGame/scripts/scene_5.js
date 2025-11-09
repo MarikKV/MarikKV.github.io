@@ -16,14 +16,15 @@ class Scene_5 extends Phaser.Scene {
 
     create() {
         const textStyle = {
-            font: "34px Tahoma",
+            font: "300% Tahoma",
             color: "white"
         }
         this.w = this.cameras.main.width;
         this.h = this.cameras.main.height;
 
-        this.UkraineText  = this.add.text(0, 0, "Україна", textStyle);
-        this.MaskvaText  = this.add.text(this.w - 90, 0, "мацква", textStyle);
+        this.UkraineText  = this.add.text(10, 10, "Україна", textStyle);
+        this.MaskvaText  = this.add.text(this.w - 120, 10, "мацква", textStyle);
+        this.LostText  = this.add.text((this.w / 2 ) - 120, this.h - 80, "Ви програли", {...textStyle, color: "red", font: "450% Tahoma"} );
         this.okupant_1 = this.add.sprite(-100, 100, 'okupant_1').setScale(1.5);
         this.okupant_2 = this.add.sprite(-650, 240, 'okupant_4').setScale(1.5);
         this.okupant_3 = this.add.sprite(-450, 340, 'okupant_1').setScale(1.5);
