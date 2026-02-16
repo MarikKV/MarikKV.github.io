@@ -187,3 +187,22 @@ ul li a {
   color: #ffffff;
 }
 /*# sourceMappingURL=main.css.map */
+
+.projects-section {
+  padding: 20px 0 50px;
+}
+
+.projects_header {
+  background: linear-gradient(120.66deg, #080b21 23.86%, #434e91 111.73%);
+  min-height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+}
