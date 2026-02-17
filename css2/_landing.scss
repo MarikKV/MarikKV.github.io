@@ -1,10 +1,11 @@
-.landing{
-    padding-top: 16px;
-    background: linear-gradient(120.66deg,#080b21 23.86%,#434e91 111.73%);
+.landing {
+    background: linear-gradient(120.66deg, #080b21 23.86%, #434e91 111.73%);
     min-height: 580px;
     color: #ffffff;
 
-    .photo{
+    .photo {
+        width: 180px;
+        height: 180px;
         margin-top: 80px;
     }
 }

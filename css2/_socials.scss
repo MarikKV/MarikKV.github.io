@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
-ul {
+.social-links {
     font-family: "Poppins", sans-serif;
     list-style: none;
     display: flex;
 
-    li a{
+    li a {
         text-decoration: none;
     }
 }
@@ -49,5 +49,5 @@ ul {
 .social-icon:hover {
     transform: scale(1.05);
     text-decoration: none;
-    color: #ffffff;   
+    color: #ffffff;
 }
