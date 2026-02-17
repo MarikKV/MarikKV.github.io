@@ -30,28 +30,27 @@ p {
 }
 
 .success {
-  background-color: #0fc727;
+  background-color: rgb(15, 199, 39);
 }
 
 .warning {
-  background-color: #ffa600;
+  background-color: rgb(255, 166, 0);
 }
 
 .danger {
-  background-color: #f87744;
+  background-color: rgb(248, 119, 68);
 }
 
 .danger2 {
-  background-color: #f15323;
+  background-color: rgb(241, 83, 35);
 }
 
 .danger3 {
-  background-color: #ec0909;
+  background-color: rgb(236, 9, 9);
 }
 
 @media (max-width: 1200px) {
   .line:last-child {
     border-radius: 0 0 10px 0;
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
