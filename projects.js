@@ -17,6 +17,17 @@ createApp({
                     website: "https://instafill.ai"
                 },
                 {
+                    name: "Best AI Apps",
+                    description: "Market of plugins for ChatGPT. AI applications designed for personal and business use cases.",
+                    image: "/project_images/bestaiapps.png", // Or local path if available
+                    tags: ["AI plugins", "AI-driven"],
+                    responsibilities: [
+
+                    ],
+                    video: "https://www.youtube.com/@bestaiapps-co",
+                    website: "https://bestaiapps.co"
+                },
+                {
                     name: "Tarta.ai",
                     description: "Job board website. Also provides content about companies and articles for job apply tips.",
                     image: "/project_images/tarta.png",
@@ -28,17 +39,6 @@ createApp({
                     ],
                     video: "https://www.youtube.com/@tarta-ai",
                     website: "https://tarta.ai"
-                },
-                {
-                    name: "Best AI Apps",
-                    description: "Market of plugins for ChatGPT. AI applications designed for personal and business use cases.",
-                    image: "/project_images/tarta.png", // Or local path if available
-                    tags: ["AI plugins", "AI-driven"],
-                    responsibilities: [
-
-                    ],
-                    video: "https://www.youtube.com/@bestaiapps-co",
-                    website: "https://bestaiapps.co"
                 },
                 // Add more projects here
             ]

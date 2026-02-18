@@ -89,7 +89,7 @@
                         <h4>Full-stack Developer</h4>
                         <h6>Botmakers LLC</h6>
                         <div class="small">Sep 2020 - Present</div>
-                        <div class="mt-2">
+                        <div class="mt-2 job_info_description">
                             <p class="mb-1">
                                 4+ years of commercial experience
                                 Supported and developed projects from .NET 4.6.1 to .NET 7.
@@ -117,7 +117,7 @@
                         <h4>Teacher of IT-courses </h4>
                         <h6>IT-Elit, StudyLink</h6>
                         <div class="small">Dec 2018 - Jun 2020</div>
-                        <div class="mt-2">
+                        <div class="mt-2 job_info_description">
                             Worked in 2 different companies with different age groups of students. Taught programmig
                             cources: HTML/CSS, JavaScript.
                         </div>
@@ -130,9 +130,9 @@
 
     <section class="projects" id="projects">
         <div id="projects-app" class="projects-section container mt-5">
-            <h2 class="text-center my-4">Projects</h2>
-            <div class="row">
-                <div class="col-lg-12 mb-5" v-for="(project, index) in projects" :key="index">
+            <h2 class="text-center my-5">Last projects</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 mb-5" v-for="(project, index) in projects" :key="index">
                     <div class="card bg-lighgt p-3">
                         <div class="row g-0">
                             <div class="col-md-4 d-flex align-items-center justify-content-center bg-white rounded p-1">
@@ -175,88 +175,72 @@
     </section>
 
     <section class="tech" id="tech">
-        <div class="contaier">
+        <div class="container">
             <h2 class="text-center my-4">Technologies and libraries I been using in my projects</h2>
 
-            <div class="row flex-wrap m-0 mt-4">
-                <div class="col-lg-4 my-4 d-flex justify-content-center">
-                    <div class="tech_box">
-                        <h5>Frontend</h5>
-                        <p>JavaScript</p>
-                        <p>Angular.js</p>
-                        <p>Bootstrap</p>
-                    </div>
-                </div>
+            <div class="row justify-content-center m-0 mt-4">
+                <div class="col-12 col-lg-8">
+                    <div class="d-flex justify-content-between">
+                        <div class="my-4">
+                            <div class="tech_box">
+                                <h5>Frontend</h5>
+                                <p>JavaScript</p>
+                                <p>Angular.js</p>
+                                <p>Bootstrap</p>
+                            </div>
+                        </div>
 
-                <div class="col-lg-4 my-4 d-flex justify-content-center">
-                    <div class="tech_box">
-                        <h5>Backend</h5>
-                        <p>C#, ASP.NET</p>
-                        <p>MongoDB</p>
-                        <p>Elasticsearch</p>
-                    </div>
-                </div>
+                        <div class="my-4">
+                            <div class="tech_box">
+                                <h5>Backend</h5>
+                                <p>C#, ASP.NET</p>
+                                <p>MongoDB</p>
+                                <p>Elasticsearch</p>
+                            </div>
+                        </div>
 
-                <div class="col-lg-4 my-4 d-flex justify-content-center">
-                    <div class="tech_box">
-                        <h5>Other</h5>
-                        <p>Github</p>
-                        <p>Sourcetree</p>
-                        <p>Visual Studio</p>
+                        <div class="my-4">
+                            <div class="tech_box">
+                                <h5>Other</h5>
+                                <p>Github</p>
+                                <p>Sourcetree</p>
+                                <p>Visual Studio</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="jobs_links d-flex justify-content-around flex-wrap">
-                <a class="jobs_link" href="#" target="_blank">
-                    <img src="https://cdn.freebiesupply.com/logos/large/2x/bootstrap-5-logo-png-transparent.png"
-                        width="110px" alt="">
-                </a>
-                <a class="jobs_link" href="#" target="_blank">
-                    <img alt="joblogo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png"
-                        width="130px">
-                </a>
-                <a class="jobs_link" href="#" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/JQuery-Logo.svg/1280px-JQuery-Logo.svg.png"
-                        width="130px" alt="">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://images.squarespace-cdn.com/content/v1/55073940e4b0692c8417c3b1/1610330003844-I1OY3VKU0DERWD5NUI3B/ke17ZwdGBToddI8pDm48kIamrE5HUl1aPdw83QPmdQQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcuF1NSmfLZTKiw7EWyt74kPxrgFcga-pDEDfEB1AvPCpNM73QXRgFI3R2ZannKnUT/figma-logo.png?format=500w"
-                        width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1200px-Npm-logo.svg.png"
-                        width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://pnn.com.ua/Storage/BaseContents/2a8eef55-6923-4616-b483-3af535f9adfe/6f383c72-68d6-4b44-a973-48a0850e997f.png"
-                        width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://webassets.mongodb.com/_com_assets/cms/MongoDB_Logo_FullColorBlack_RGB-4td3yuxzjs.png"
-                        width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://wac-cdn.atlassian.com/dam/jcr:e75ffb0e-b3ee-40ca-8659-ecb93675a379/Bitbucket@2x-blue.png"
-                        width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo" src="source_tree.png" width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo" src="vs.png" width="110px">
-                </a>
-                <a class="jobs_link" href="#">
-                    <img alt="joblogo"
-                        src="https://d2k1ftgv7pobq7.cloudfront.net/meta/u/res/images/brand-assets/Logos/0099ec3754bf473d2bbf317204ab6fea/trello-logo-blue.png"
-                        width="110px">
-                </a>
+            <div class="row justify-content-center my-5">
+                <div class="col-12 col-lg-5">
+                    <div class="d-flex justify-content-around align-items-center gap-5 flex-wrap">
+                        <a class="jobs_link" href="#" target="_blank">
+                            <img src="https://cdn.freebiesupply.com/logos/large/2x/bootstrap-5-logo-png-transparent.png"
+                                width="110px" alt="">
+                        </a>
+                        <a class="jobs_link" href="#" target="_blank">
+                            <img alt="joblogo"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/AngularJS_logo.svg/695px-AngularJS_logo.svg.png"
+                                width="130px">
+                        </a>
+                        <a class="jobs_link" href="#">
+                            <img alt="joblogo"
+                                src="https://images.squarespace-cdn.com/content/v1/55073940e4b0692c8417c3b1/1610330003844-I1OY3VKU0DERWD5NUI3B/ke17ZwdGBToddI8pDm48kIamrE5HUl1aPdw83QPmdQQUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcuF1NSmfLZTKiw7EWyt74kPxrgFcga-pDEDfEB1AvPCpNM73QXRgFI3R2ZannKnUT/figma-logo.png?format=500w"
+                                width="110px">
+                        </a>
+                        <a class="jobs_link" href="#">
+                            <img alt="joblogo"
+                                src="https://webassets.mongodb.com/_com_assets/cms/MongoDB_Logo_FullColorBlack_RGB-4td3yuxzjs.png"
+                                width="110px">
+                        </a>
+                        <a class="jobs_link" href="#">
+                            <img alt="joblogo" src="source_tree.png" width="110px">
+                        </a>
+                        <a class="jobs_link" href="#">
+                            <img alt="joblogo" src="vs.png" width="110px">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

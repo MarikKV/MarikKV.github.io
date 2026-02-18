@@ -17,6 +17,10 @@ body {
   height: 180px;
 }
 
+.job_info_description {
+  font-size: 1.05rem;
+}
+
 .social-links {
   font-family: "Poppins", sans-serif;
   list-style: none;
