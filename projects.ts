@@ -1,4 +1,15 @@
-export const projects = [
+export interface Project {
+    name: string;
+    description: string;
+    image: string;
+    tags: string[];
+    responsibilities: string[];
+    video: string;
+    website: string;
+    show: boolean;
+}
+
+export const projects: Project[] = [
     {
         name: "Instafill.ai",
         description: "AI PDF filler. Web application that helps user to fill PDF forms with AI.",

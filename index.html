@@ -132,7 +132,7 @@
         <div id="projects-app" class="projects-section container mt-5">
             <h2 class="text-center my-5">Last projects</h2>
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-9 mb-5" v-for="(project, index) in projects" :key="index">
+                <div class="col-12 col-lg-9 mb-5" v-for="(project, index) in visibleProjects" :key="index">
                     <div class="card bg-lighgt p-3">
                         <div class="row g-0">
                             <div class="col-md-4 d-flex align-items-center justify-content-center bg-white rounded p-1">
@@ -246,7 +246,7 @@
     </section>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="/projects.js"></script>
+    <script type="module" src="/main.js"></script>
 </body>
 
 </html>
