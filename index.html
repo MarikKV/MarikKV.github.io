@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marian Kosaniak</title>
-    <link rel="shortcut icon" href="m.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/m.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="css2/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://use.fontawesome.com/d84662afa8.js"></script>
 </head>
 
@@ -41,12 +41,12 @@
 
             <div class="photo d-flex justify-content-center mt-5">
                 <div>
-                    <img src="../images/handsome.jpg" class="rounded-circle">
+                    <img src="/images/me.jpg" class="rounded-circle">
                 </div>
             </div>
 
             <div class="d-flex flex-column justify-content-center align-items-center mt-4">
-                <h5>Frontend Developer, ASP.NET Developer</h5>
+                <h5>Full-stack Developer (ASP.NET)</h5>
                 <h6>Lviv, Ukraine</h6>
                 <div class="row mt-2">
                     <ul class="social-links">
@@ -135,11 +135,11 @@
                 <div class="col-12 col-lg-9 mb-5" v-for="(project, index) in visibleProjects" :key="index">
                     <div class="card bg-lighgt p-3">
                         <div class="row g-0">
-                            <div class="col-md-4 d-flex align-items-center justify-content-center bg-white rounded p-1">
+                            <div class="col-md-5 d-flex align-items-center justify-content-center bg-white rounded p-1">
                                 <img :src="project.image" class="img-fluid rounded-start" :alt="project.name"
                                     style="max-height: 100%; object-fit: contain;">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h3 class="card-title">{{ project.name }}</h3>
                                     <div class="mb-2">
