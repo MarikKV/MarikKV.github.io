@@ -52,10 +52,100 @@
             text-align: center;
             font-weight: bold;
         }
+
+        /* Sidebar & Toggle Button Styles */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background: #2575fc;
+            transform: scale(1.1);
+        }
+
+        .offcanvas-body .nav-link {
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: #f0f0f0;
+            color: #6a11cb;
+            padding-left: 20px;
+        }
+
+        .offcanvas-body .sub-nav {
+            padding-left: 20px;
+            border-left: 2px solid #e9ecef;
+            margin-left: 10px;
+        }
+
+        .offcanvas-body .sub-nav .nav-link {
+            font-size: 0.9rem;
+            padding: 5px 15px;
+        }
     </style>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 
 <body>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu">
+        <i class="bi bi-list fs-3"></i>
+    </button>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header bg-light">
+            <h5 class="offcanvas-title fw-bold text-primary" id="sidebarMenuLabel">Зміст посібника</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <a class="nav-link" href="#clr"><i class="bi bi-speedometer2 me-2"></i>CLR & ASP.NET</a>
+                <a class="nav-link" href="#fundamentals"><i class="bi bi-code-square me-2"></i>Fundamentals</a>
+                <a class="nav-link" href="#oop"><i class="bi bi-box me-2"></i>OOP Concepts</a>
+
+                <a class="nav-link d-flex justify-content-between align-items-center" href="#solid">
+                    <span><i class="bi bi-shield-check me-2"></i>SOLID Principles</span>
+                </a>
+                <div class="sub-nav">
+                    <a class="nav-link" href="#solid-s">S - Single Responsibility</a>
+                    <a class="nav-link" href="#solid-o">O - Open/Closed</a>
+                    <a class="nav-link" href="#solid-l">L - Liskov Substitution</a>
+                    <a class="nav-link" href="#solid-i">I - Interface Segregation</a>
+                    <a class="nav-link" href="#solid-d">D - Dependency Inversion</a>
+                </div>
+
+                <a class="nav-link" href="#rest"><i class="bi bi-cloud-arrow-down me-2"></i>REST API</a>
+                <a class="nav-link" href="#async"><i class="bi bi-clock-history me-2"></i>Async / Sync</a>
+                <a class="nav-link" href="#middleware"><i class="bi bi-layers me-2"></i>Middleware</a>
+                <a class="nav-link" href="#di"><i class="bi bi-puzzel me-2"></i>Dependency Injection</a>
+                <a class="nav-link" href="#efcore"><i class="bi bi-database-check me-2"></i>EF Core</a>
+                <a class="nav-link" href="#databases"><i class="bi bi-database me-2"></i>Databases (SQL/NoSQL)</a>
+            </nav>
+        </div>
+    </div>
 
     <header class="header-section text-center">
         <div class="container">
@@ -425,7 +515,7 @@ public override void Fix() { /* реалізація */ }</code></pre>
         <section id="solid" class="mb-5">
             <h2 class="section-title">SOLID Principles</h2>
             <div class="row g-4">
-                <div class="col-12">
+                <div class="col-12" id="solid-s">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title text-success">S – Single Responsibility</h4>
@@ -436,7 +526,7 @@ public class EmailService { public void SendWelcome(User user) { } }</code></pre
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="solid-o">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title text-success">O – Open/Closed</h4>
@@ -446,7 +536,7 @@ public class Circle : IShape { public double Area() => Math.PI * R * R; }</code>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="solid-l">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title text-success">L – Liskov Substitution</h4>
@@ -457,7 +547,7 @@ public class Square : Polygon { }</code></pre>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="solid-i">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title text-success">I – Interface Segregation</h4>
@@ -467,7 +557,7 @@ public interface IScanner { void Scan(); }</code></pre>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="solid-d">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title text-success">D – Dependency Inversion</h4>
@@ -555,42 +645,123 @@ public interface IScanner { void Scan(); }</code></pre>
         <!-- Async/Sync Section -->
         <section id="async" class="mb-5">
             <h2 class="section-title">Синхронні та Асинхронні операції</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">Synchronous (Синхронно)</h4>
-                            <p>Код виконується послідовно. Потік (thread) блокується, поки операція не завершиться.</p>
-                            <pre><code class="language-csharp">public void DoWork() {
-    var data = ReadFromFile("file.txt"); // Блокує потік
-    Console.WriteLine(data);
+
+            <div class="card mb-4 border-start border-primary border-5 shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-primary border-bottom pb-2 mb-3">Основна концепція</h4>
+                    <p>Асинхронність дозволяє програмі не чекати завершення тривалої операції (наприклад, запит до БД),
+                        а продовжувати виконання іншого коду. Це критично для масштабованості серверних додатків.</p>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 border-end">
+                            <h6 class="fw-bold text-danger">Synchronous (Блокуюче)</h6>
+                            <p class="small text-muted">Потік (Thread) завмирає. Він не може обробляти інші запити, поки
+                                чекає на відповідь від диска чи мережі. <br><strong>Результат:</strong> Низька пропускна
+                                здатність сервера.</p>
+                            <pre><code class="language-csharp">public string FetchData() {
+    var data = networkClient.Download(); // Thread "зайнятий" очікуванням
+    return data;
 }</code></pre>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">Asynchronous (Асинхронно)</h4>
-                            <p>Дозволяє виконувати тривалі операції без блокування головного потоку (UI або запиту).</p>
-                            <pre><code class="language-csharp">public async Task DoWorkAsync() {
-    var data = await ReadFromFileAsync("file.txt"); // Не блокує
-    Console.WriteLine(data);
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-success">Asynchronous (Неблокуюче)</h6>
+                            <p class="small text-muted">Потік звільняється під час очікування операції і повертається в
+                                пул (ThreadPool). Він може обробляти інші запити. <br><strong>Результат:</strong> Висока
+                                масштабованість (Scalability).</p>
+                            <pre><code class="language-csharp">public async Task<string> FetchDataAsync() {
+    var data = await networkClient.DownloadAsync(); // Thread вільний
+    return data;
 }</code></pre>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h5>Ключові поняття:</h5>
-                    <ul>
-                        <li><strong>Task</strong> — репрезентація асинхронної операції.</li>
-                        <li><strong>async / await</strong> — ключові слова для зручної роботи з тасками.</li>
-                        <li><strong>Task.WhenAll</strong> — очікування завершення кількох тасок паралельно.</li>
-                        <li><strong>Deadlock</strong> — ситуація, коли два потоки блокують один одного (зазвичай через
-                            неправильний `.Wait()` або `.Result`).</li>
-                    </ul>
+
+            <div class="row g-4">
+                <!-- Task vs Task<T> -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0 bg-light">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">Task та Task&lt;T&gt;</h5>
+                            <p class="small">Це об'єкт, що представляє роботу, яка завершиться в майбутньому.</p>
+                            <ul class="small">
+                                <li><strong>Task</strong> — аналог <code>void</code> для асинхронності.</li>
+                                <li><strong>Task&lt;string&gt;</strong> — асинхронна операція, що поверне рядок.</li>
+                                <li><strong>ValueTask</strong> — оптимізована версія для випадків, коли результат може
+                                    бути доступний миттєво (кешування).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- I/O vs CPU Bound -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-0 bg-light">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">I/O Bound vs CPU Bound</h5>
+                            <ul class="small">
+                                <li><strong>I/O Bound:</strong> Очікування (БД, мережа, диск). Використовуємо
+                                    <code>await</code>.
+                                </li>
+                                <li><strong>CPU Bound:</strong> Складні обчислення. Використовуємо
+                                    <code>Task.Run(() => ...)</code> для винесення в окремий потік.
+                                </li>
+                            </ul>
+                            <p class="small fst-italic">Порада: Не використовуйте Task.Run для I/O операцій, це марна
+                                трата потоків.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cancellation & Parallel -->
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary border-bottom pb-2">Просунуті приклади</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="small fw-bold">1. Скасування операцій (CancellationToken)</h6>
+                                    <pre><code class="language-csharp">public async Task LongJob(CancellationToken ct) {
+    // Передаємо токен в усі асинхронні виклики
+    await Task.Delay(5000, ct); 
+}</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="small fw-bold">2. Паралельне виконання (WhenAll)</h6>
+                                    <pre><code class="language-csharp">var task1 = GetUsers();
+var task2 = GetOrders();
+// Запускаються одночасно
+await Task.WhenAll(task1, task2);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pitfalls -->
+                <div class="col-12">
+                    <div class="card border-danger shadow-sm">
+                        <div class="card-header bg-danger text-white fw-bold">Common Pitfalls (Типові помилки)</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="small fw-bold text-danger">Async Void</h6>
+                                    <p class="small">Тільки для обробників подій (UI). В інших випадках — це помилка, бо
+                                        неможливо обробити виключення.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="small fw-bold text-danger">Blocking calls (.Result / .Wait)</h6>
+                                    <p class="small">Призводять до <strong>Deadlock</strong> (в ASP.NET Legacy) або
+                                        просто марно займають потік. Завжди використовуйте <code>await</code>.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="small fw-bold text-danger">ConfigureAwait(false)</h6>
+                                    <p class="small fst-italic">Це було критично раніше. В .NET Core / .NET 5+ в ASP.NET
+                                        Core контексту синхронізації немає, тому це менш актуально в контролерах.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -999,6 +1170,17 @@ var result = await query.ToListAsync();</code></pre>
     <script>hljs.highlightAll();</script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close offcanvas when a link is clicked
+        const sidebar = document.getElementById('sidebarMenu');
+        const offcanvas = new bootstrap.Offcanvas(sidebar);
+        sidebar.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebar);
+                if (bsOffcanvas) bsOffcanvas.hide();
+            });
+        });
+    </script>
 
 </body>
 
