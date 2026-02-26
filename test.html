@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep - .NET & Architecture</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Highlight.js for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            border-bottom: 3px solid #0d6efd;
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+        }
+
+        code {
+            border-radius: 8px;
+        }
+
+        .middleware-flow {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Interview Prep Guide</h1>
+            <p class="lead">OOP, SOLID, Patterns, and .NET Basics</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+
+        <!-- CLR Section -->
+        <section id="clr" class="mb-5">
+            <h2 class="section-title">CLR & ASP.NET Overview</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-primary">CLR (Common Language Runtime)</h4>
+                            <p>Середовище виконання, що керує IL-кодом, пам'яттю (GC) та безпекою.</p>
+                            <div class="alert alert-info py-2 small">
+                                <strong>Переваги ASP.NET Core:</strong>
+                                <ul class="mb-0">
+                                    <li>Кросплатформенність (Windows, Linux, macOS).</li>
+                                    <li>Висока продуктивність (Kestrel).</li>
+                                    <li>Вбудована Dependency Injection.</li>
+                                    <li>Модульність (Middleware).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="text-primary">MVC Pattern</h4>
+                            <p>Розділення логіки на три компоненти:</p>
+                            <ul class="small">
+                                <li><strong>Model:</strong> Дані та бізнес-логіка.</li>
+                                <li><strong>View:</strong> Відображення (HTML/Razor).</li>
+                                <li><strong>Controller:</strong> Обробка запитів та зв'язок M та V.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fundamentals Section (Moved & Expanded) -->
+        <section id="fundamentals" class="mb-5">
+            <h2 class="section-title">C# & .NET Fundamentals</h2>
+            <div class="row g-4">
+                <!-- Value vs Reference -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Value vs Reference Types</h4>
+                            <div class="row g-2 mb-3">
+                                <div class="col-6 shadow-sm p-2 border-end">
+                                    <h6 class="fw-bold">Value Types (Stack)</h6>
+                                    <ul class="small list-unstyled mb-0 font-monospace">
+                                        <li>int, bool, double</li>
+                                        <li>struct, enum</li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 shadow-sm p-2">
+                                    <h6 class="fw-bold">Reference (Heap)</h6>
+                                    <ul class="small list-unstyled mb-0 font-monospace">
+                                        <li>class, string</li>
+                                        <li>interface, object</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <pre><code class="language-csharp">int a = 10; int b = a; b = 20; // a залишається 10
+User u1 = new(); User u2 = u1; u2.Name = "Test"; // u1.Name теж "Test"</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <!-- Numeric Types -->
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Numeric Types</h4>
+                            <p class="small">Відмінність у точності та розмірі:</p>
+                            <ul class="small mb-2">
+                                <li><strong>int:</strong> Цілі числа (32 bit).</li>
+                                <li><strong>double:</strong> Плаваюча крапка (64 bit, швидкий).</li>
+                                <li><strong>decimal:</strong> Найвища точність (128 bit, для фінансів).</li>
+                            </ul>
+                            <pre><code class="language-csharp">double d = 0.1 + 0.2; // Може бути 0.30000000000000004
+decimal m = 0.1m + 0.2m; // Завжди 0.3</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <!-- String vs StringBuilder -->
+                <div class="col-12">
+                    <div class="card border-top border-primary border-4 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary border-bottom pb-2">String vs StringBuilder</h4>
+                            <div class="row">
+                                <div class="col-md-6 border-end">
+                                    <h6 class="fw-bold">String (Immutable)</h6>
+                                    <p class="small text-muted"><strong>Незмінний:</strong> Будь-яка зміна рядка створює
+                                        новий об'єкт у "String Pool". Це навантажує Garbage Collector (GC) при
+                                        інтенсивних операціях.</p>
+                                    <pre><code class="language-csharp">string s = "Hello";
+s += " World"; // Створено новий рядок у пам'яті</code></pre>
+                                    <p class="small"><strong>Interpolation ($):</strong> Найзручніший спосіб
+                                        читабельного об'єднання.</p>
+                                    <pre><code class="language-csharp">string msg = $"User {name} (ID: {id}) logged in.";</code></pre>
+                                </div>
+                                <div class="col-md-6 ps-md-4">
+                                    <h6 class="fw-bold">StringBuilder (Mutable)</h6>
+                                    <p class="small text-muted"><strong>Змінний:</strong> Працює з внутрішнім буфером,
+                                        не створюючи нових об'єктів при кожній зміні. Ідеально для циклів та великої
+                                        кількості конкатенацій.</p>
+                                    <pre><code class="language-csharp">var sb = new StringBuilder();
+for(int i = 0; i < 1000; i++) {
+    sb.Append("Line ").Append(i).Append("\n");
+}
+string final = sb.ToString();</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-3 bg-light rounded border">
+                                <h6 class="fw-bold text-success"><i class="bi bi-info-circle me-2"></i>Практика Logging
+                                    (Serilog)</h6>
+                                <p class="small mb-2">Для логів краще використовувати <strong>Structured
+                                        Logging</strong>. Це дозволяє зберігати параметри окремо від тексту, що полегшує
+                                    пошук в ElasticSearch/Seq.</p>
+                                <pre class="mb-0"><code class="language-csharp">// Приклад логування помилки (Serilog)
+Serilog.Log.Logger.Warning("AmplitudeCopilotHelper. SendEvent. Error. " +
+    "user_id and device_id is null. eventType: {eventType}", eventType);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OOP Section -->
+        <!-- OOP Section -->
+        <!-- OOP Section -->
+        <section id="oop" class="mb-5">
+            <h2 class="section-title">OOP (Object-Oriented Programming)</h2>
+
+            <!-- Access Modifiers Block -->
+            <div class="card mb-5 shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-primary mb-4">Access Modifiers (Модифікатори доступу)</h4>
+                    <p>Керують видимістю членів класу. Це основа <strong>Інкапсуляції</strong> — вони визначають
+                        "публічний контракт" об'єкта та приховують внутрішню реалізацію.</p>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="p-3 border rounded h-100 bg-white border-success border-top border-4">
+                                <h6 class="fw-bold text-success mb-2">Public</h6>
+                                <p class="small text-muted mb-2">Доступний звідусіль (в межах проекту та з інших
+                                    проектів). Використовуйте для методів, що складають інтерфейс об'єкта.</p>
+                                <pre
+                                    class="mb-0 small"><code class="language-csharp">public string UserName;</code></pre>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="p-3 border rounded h-100 bg-white border-danger border-top border-4">
+                                <h6 class="fw-bold text-danger mb-2">Private</h6>
+                                <p class="small text-muted mb-2">Доступний лише всередині свого класу. Забезпечує
+                                    найвищий рівень захисту даних. (Default рівень для членів).</p>
+                                <pre class="mb-0 small"><code class="language-csharp">private int _dbId;</code></pre>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="p-3 border rounded h-100 bg-white border-warning border-top border-4">
+                                <h6 class="fw-bold text-warning mb-2">Protected</h6>
+                                <p class="small text-muted mb-2">Доступний у вихідному класі та всіх класах-нащадках.
+                                    Дозволяє дітям розширювати логіку батька.</p>
+                                <pre
+                                    class="mb-0 small"><code class="language-csharp">protected void InternalInit();</code></pre>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded h-100 bg-white border-primary border-top border-4">
+                                <h6 class="fw-bold text-primary mb-2">Internal</h6>
+                                <p class="small text-muted mb-2">Видимий лише в межах поточної збірки (DLL/EXE). Для
+                                    класів, що є "приватними" для цілого проекту.</p>
+                                <pre
+                                    class="mb-0 small"><code class="language-csharp">internal class EngineCore { }</code></pre>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded h-100 bg-white border-info border-top border-4">
+                                <h6 class="fw-bold text-info mb-2">Protected Internal / Private Protected</h6>
+                                <p class="small text-muted mb-2"><strong>Prot. Int:</strong> Спадкоємці АБО будь-хто в
+                                    збірці. <br><strong>Priv. Prot:</strong> Тільки спадкоємці В ЦІЙ ЖЕ збірці.</p>
+                                <pre
+                                    class="mb-0 small"><code class="language-csharp">private protected void Sync();</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed OOP Concepts (Full Width) -->
+            <div class="row g-4">
+                <!-- Encapsulation -->
+                <div class="col-12">
+                    <div class="card border-start border-primary border-5 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary border-bottom pb-2 mb-3">1. Encapsulation (Інкапсуляція)
+                            </h4>
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <p>Це об'єднання даних та методів в одному класі з обмеженням прямого доступу до
+                                        стану об'єкта.</p>
+                                    <ul class="small">
+                                        <li><strong>Навіщо:</strong> Захист від некоректних даних та приховування
+                                            складності. Об'єкт стає "чорним ящиком".</li>
+                                        <li><strong>Приклад:</strong> Клас <code>User</code> не дозволяє встановити
+                                            від'ємний вік через <code>Age { get; set; }</code> з логікою.</li>
+                                        <li><strong>Результат:</strong> Можна змінити як зберігаються дані всередині, не
+                                            змінюючи код, який використовує клас.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
+                                    <pre class="mb-0"><code class="language-csharp">public class Account {
+    private decimal _balance;
+    public void Deposit(decimal sum) {
+        if(sum > 0) _balance += sum;
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inheritance -->
+                <div class="col-12">
+                    <div class="card border-start border-success border-5 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-success border-bottom pb-2 mb-3">2. Inheritance (Наслідування)
+                            </h4>
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <p>Створення нового класу на основі вже існуючого для повторного використання коду
+                                        та розширення функціоналу.</p>
+                                    <ul class="small">
+                                        <li><strong>Принцип:</strong> "IS-A" (Співробітник — це Людина).</li>
+                                        <li><strong>Переваги:</strong> Скорочення дублювання (DRY) та створення ієрархій
+                                            об'єктів.</li>
+                                        <li><strong>C# Особливість:</strong> Клас може мати лише <strong>одного</strong>
+                                            батька, але реалізувати багато інтерфейсів.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
+                                    <pre class="mb-0"><code class="language-csharp">public class User { public string Email; }
+public class Admin : User { 
+    public void Delete() { } 
+} // Admin має і Email, і Delete()</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polymorphism -->
+                <div class="col-12">
+                    <div class="card border-start border-warning border-5 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-warning border-bottom pb-2 mb-3">3. Polymorphism (Поліморфізм)
+                            </h4>
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <p>Здатність об'єктів з різними типами реалізації оброблятися через спільний
+                                        інтерфейс (базовий клас/інтерфейс).</p>
+                                    <ul class="small">
+                                        <li><strong>Статичний:</strong> Перевантаження методів (overloading) — різні
+                                            параметри одного методу.</li>
+                                        <li><strong>Динамічний:</strong> Перевизначення (overriding) —
+                                            <code>virtual</code> методи батька замінюються на <code>override</code> у
+                                            дітей.
+                                        </li>
+                                        <li><strong>Суть:</strong> Ви викликаєте <code>Draw()</code> у списку фігур, і
+                                            кожна малюється по-своєму.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
+                                    <pre class="mb-0"><code class="language-csharp">public virtual void Fix(); 
+// В нащадку:
+public override void Fix() { /* реалізація */ }</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstraction -->
+                <div class="col-12">
+                    <div class="card border-start border-info border-5 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-info border-bottom pb-2 mb-3">4. Abstraction (Абстракція)</h4>
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <p>Виділення лише найважливіших рис об'єкта та відкидання несуттєвих деталей
+                                        реалізації.</p>
+                                    <ul class="small">
+                                        <li><strong>Мета:</strong> Керувати складністю. Ми визначаємо
+                                            <strong>ЩО</strong> об'єкт робить, а не <strong>ЯК</strong>.
+                                        </li>
+                                        <li><strong>Інструменти:</strong> <code>abstract</code> класи та
+                                            <code>interfaces</code>.
+                                        </li>
+                                        <li><strong>Приклад:</strong> Користувач смартфона знає як натиснути іконку, але
+                                            не знає як ОС обробляє цей дотик.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
+                                    <pre class="mb-0"><code class="language-csharp">public abstract class Shape {
+    public abstract double GetArea();
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keywords Block -->
+            <div class="card my-5 shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-primary border-bottom pb-2 mb-4">Важливі ключові слова</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Virtual & Override</h6>
+                            <p class="small text-muted"><code>virtual</code> дає дозвіл на зміну логіки в нащадках.
+                                <code>override</code> підтверджує, що ми свідомо міняємо логіку батька.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Abstract vs Interface</h6>
+                            <p class="small text-muted"><code>abstract</code> може мати поля та часткову реалізацію.
+                                <code>interface</code> — лише контракт.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Static</h6>
+                            <p class="small text-muted">Член належить самому класу, а не його екземплярам. Спільне
+                                сховище для всіх об'єктів.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">Readonly vs Const</h6>
+                            <p class="small text-muted"><code>const</code> — запікається при компіляції.
+                                <code>readonly</code> — можна встановити в конструкторі.
+                            </p>
+                        </div>
+                        <div class="col-12 border-top pt-3">
+                            <h6 class="fw-bold text-danger">Sealed</h6>
+                            <p class="small text-muted">Забороняє успадкування від класу або переозначення методу.</p>
+                            <pre
+                                class="mb-0 small"><code class="language-csharp">public sealed class FinalController { }</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLID Section -->
+        <section id="solid" class="mb-5">
+            <h2 class="section-title">SOLID Principles</h2>
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-success">S – Single Responsibility</h4>
+                            <p>Клас повинен мати лише одну причину для зміни.</p>
+                            <pre><code class="language-csharp">// GOOD: Логіка розділена
+public class UserRepository { public void Save(User user) { } }
+public class EmailService { public void SendWelcome(User user) { } }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-success">O – Open/Closed</h4>
+                            <p>Код відкритий для розширення, але закритий для модифікації.</p>
+                            <pre><code class="language-csharp">public interface IShape { double Area(); }
+public class Circle : IShape { public double Area() => Math.PI * R * R; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-success">L – Liskov Substitution</h4>
+                            <p>Об'єкти підкласу повинні замінювати базовий клас без порушення логіки.</p>
+                            <pre><code class="language-csharp">public abstract class Polygon { }
+public class Rectangle : Polygon { }
+public class Square : Polygon { }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-success">I – Interface Segregation</h4>
+                            <p>Інтерфейси мають бути маленькими і специфічними.</p>
+                            <pre><code class="language-csharp">public interface IPrinter { void Print(); }
+public interface IScanner { void Scan(); }</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-success">D – Dependency Inversion</h4>
+                            <p>Залежності на рівні абстракцій, а не реалізацій.</p>
+                            <pre><code class="language-csharp">public class OrderService {
+    private readonly ILogger _logger;
+    public OrderService(ILogger logger) => _logger = logger;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KISS & DRY Section -->
+        <section class="mb-5">
+            <div class="row">
+                <div id="kiss" class="col-md-6">
+                    <h2 class="section-title">KISS (Keep it simple)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="text-danger">BAD Implementation</h6>
+                            <pre><code class="language-csharp">public bool IsAdult(User user) {
+    return user.Age >= 18 ? true : false;
+}</code></pre>
+                            <h6 class="text-success mt-3">GOOD Implementation</h6>
+                            <pre><code class="language-csharp">public bool IsAdult(User user) => user.Age >= 18;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div id="dry" class="col-md-6">
+                    <h2 class="section-title">DRY (Don’t Repeat Yourself)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Уникайте дублювання коду. Виносьте спільну логіку в методи, класи або базові реалізації.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REST API Section -->
+        <section id="rest" class="mb-5">
+            <h2 class="section-title">REST API</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>Набір правил для HTTP-запитів до сервера.</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="badge bg-success">GET</span></td>
+                                    <td>Отримання даних</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-primary">POST</span></td>
+                                    <td>Створення нових даних</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-warning text-dark">PUT</span></td>
+                                    <td>Оновлення існуючих даних (повна заміна)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-info text-dark">PATCH</span></td>
+                                    <td>Часткове оновлення даних</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-danger">DELETE</span></td>
+                                    <td>Видалення даних</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Async/Sync Section -->
+        <section id="async" class="mb-5">
+            <h2 class="section-title">Синхронні та Асинхронні операції</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Synchronous (Синхронно)</h4>
+                            <p>Код виконується послідовно. Потік (thread) блокується, поки операція не завершиться.</p>
+                            <pre><code class="language-csharp">public void DoWork() {
+    var data = ReadFromFile("file.txt"); // Блокує потік
+    Console.WriteLine(data);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Asynchronous (Асинхронно)</h4>
+                            <p>Дозволяє виконувати тривалі операції без блокування головного потоку (UI або запиту).</p>
+                            <pre><code class="language-csharp">public async Task DoWorkAsync() {
+    var data = await ReadFromFileAsync("file.txt"); // Не блокує
+    Console.WriteLine(data);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5>Ключові поняття:</h5>
+                    <ul>
+                        <li><strong>Task</strong> — репрезентація асинхронної операції.</li>
+                        <li><strong>async / await</strong> — ключові слова для зручної роботи з тасками.</li>
+                        <li><strong>Task.WhenAll</strong> — очікування завершення кількох тасок паралельно.</li>
+                        <li><strong>Deadlock</strong> — ситуація, коли два потоки блокують один одного (зазвичай через
+                            неправильний `.Wait()` або `.Result`).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Middleware Section -->
+        <section id="middleware" class="mb-5">
+            <h2 class="section-title">Middleware</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>Проміжний шар, який перехоплює запити. Може змінити, перевірити, зупинити або передати далі.</p>
+                    <div class="middleware-flow mb-4 shadow-sm">
+                        Request &rarr; Middleware 1 &rarr; Middleware 2 &rarr; Controller &rarr; Response
+                    </div>
+                    <h5>Типові задачі Бекена:</h5>
+                    <div class="row text-center mt-3">
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">Auth</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">Logging</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">Validation</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">Errors</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">CORS</div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="p-3 border bg-white rounded shadow-sm">Caching</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dependency Injection Section -->
+        <section id="di" class="mb-5">
+            <h2 class="section-title">Dependency Injection (DI) Lifecycles</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded h-100">
+                                <h5 class="text-primary">Transient</h5>
+                                <p class="small text-muted">Створюється щоразу, коли запитується.</p>
+                                <code>services.AddTransient&lt;IKey, Key&gt;();</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded h-100">
+                                <h5 class="text-primary">Scoped</h5>
+                                <p class="small text-muted">Створюється один раз на кожен HTTP-запит.</p>
+                                <code>services.AddScoped&lt;IKey, Key&gt;();</code>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded h-100">
+                                <h5 class="text-primary">Singleton</h5>
+                                <p class="small text-muted">Створюється один раз при запуску додатка.</p>
+                                <code>services.AddSingleton&lt;IKey, Key&gt;();</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EF Core Section -->
+        <section id="efcore" class="mb-5">
+            <h2 class="section-title">Entity Framework Core</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">LINQ (Querying)</h4>
+                            <pre><code class="language-csharp">// Deferred Execution (Відкладене виконання)
+var users = _context.Users.Where(u => u.IsActive); 
+// Виконається лише при ToList(), First(), etc.
+var list = await users.ToListAsync();</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Migrations</h4>
+                            <p>Інструмент для синхронізації БД з моделями коду.</p>
+                            <ul class="small">
+                                <li><code>dotnet ef migrations add Name</code></li>
+                                <li><code>dotnet ef database update</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Databases Section -->
+        <section id="databases" class="mb-5">
+            <h2 class="section-title">Databases (SQL & NoSQL)</h2>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="text-primary">Relational vs Non-relational</h4>
+                    <div class="row">
+                        <div class="col-md-6 border-end">
+                            <h6><strong>SQL (Relational)</strong></h6>
+                            <p class="small">Дані зберігаються у таблицях із чіткою схемою. Акцент на цілісність (ACID):
+                            </p>
+                            <ul class="small mb-3">
+                                <li><strong>A (Atomicity):</strong> Транзакція виконується повністю або ніяк.</li>
+                                <li><strong>C (Consistency):</strong> БД переходить з одного валідного стану в інший.
+                                </li>
+                                <li><strong>I (Isolation):</strong> Паралельні транзакції не заважають одна одній.</li>
+                                <li><strong>D (Durability):</strong> Після коміту дані зберігаються навіть при збої.
+                                </li>
+                            </ul>
+                            <ul class="small">
+                                <li><strong>Переваги:</strong> Транзакції, сильні зв'язки (Joins), стандартизація.</li>
+                                <li><strong>Приклади:</strong> PostgreSQL, SQL Server, MySQL.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><strong>NoSQL (Non-relational)</strong></h6>
+                            <p class="small">Різні формати (документи, ключ-значення, графи). Гнучка схема,
+                                горизонтальне масштабування.</p>
+                            <ul class="small">
+                                <li><strong>Переваги:</strong> Швидкість розробки, обробка великих об'ємів даних, висока
+                                    доступність.</li>
+                                <li><strong>Приклади:</strong> MongoDB, Cassandra, Redis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQL Block -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="text-primary">SQL (Structured Query Language)</h4>
+                    <p>Реляційні БД використовують SQL для маніпуляції даними та визначення структур.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Проста квері (Фільтрація та проекція)</h6>
+                            <pre><code class="language-sql">SELECT Name, Email 
+FROM Users 
+WHERE IsActive = 1 AND Age > 18;</code></pre>
+                            <h6>Приклад на .NET (EF Core)</h6>
+                            <pre><code class="language-csharp">var users = await _context.Users
+    .Where(u => u.IsActive && u.Age > 18)
+    .Select(u => new { u.Name, u.Email })
+    .ToListAsync();</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Складна квері (JOIN та Групування)</h6>
+                            <pre><code class="language-sql">SELECT u.Name, COUNT(o.Id) as OrderCount
+FROM Users u
+LEFT JOIN Orders o ON u.Id = o.UserId
+WHERE o.Status = 'Completed'
+GROUP BY u.Name
+HAVING COUNT(o.Id) > 5;</code></pre>
+                            <h6>Приклад на .NET (EF Core)</h6>
+                            <pre><code class="language-csharp">var stats = await _context.Users
+    .Select(u => new {
+        u.Name,
+        OrderCount = u.Orders.Count(o => o.Status == "Completed")
+    })
+    .Where(x => x.OrderCount > 5)
+    .ToListAsync();</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MongoDB Block -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="text-primary">MongoDB (Document-Oriented)</h4>
+                    <p>Зберігає дані у форматі BSON (схожий на JSON). Немає фіксованої схеми таблиць.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Проста квері (find)</h6>
+                            <pre><code class="language-javascript">// Знайти активних користувачів, повернути лише Name та Email
+db.users.find(
+  { isActive: true }, 
+  { name: 1, email: 1, _id: 0 }
+);</code></pre>
+                            <h6>Приклад на .NET (MongoDB Driver)</h6>
+                            <pre><code class="language-csharp">var filter = Builders&lt;User&gt;.Filter.Eq(u => u.IsActive, true);
+var projection = Builders&lt;User&gt;.Projection.Include(u => u.Name).Include(u => u.Email).Exclude(u => u._id);
+var users = await _collection.Find(filter).Project(projection).ToListAsync();</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Складна квері (Aggregation framework / $lookup)</h6>
+                            <pre><code class="language-javascript">// "JOIN" користувачів з їхніми замовленнями
+db.users.aggregate([
+  { $match: { isActive: true } },
+  { $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "userId",
+      as: "user_orders"
+  }},
+  { $project: { name: 1, orderCount: { $size: "$user_orders" } } }
+]);</code></pre>
+                            <h6>Приклад на .NET (LINQ approach)</h6>
+                            <pre><code class="language-csharp">var query = from u in _collection.AsQueryable()
+            where u.IsActive
+            join o in _ordersCollection on u.Id equals o.UserId into userOrders
+            select new { u.Name, OrderCount = userOrders.Count() };
+var result = await query.ToListAsync();</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elasticsearch Block -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="text-primary">Elasticsearch (Search Engine)</h4>
+                    <p>Побудований на Apache Lucene. Використовується для повнотекстового пошуку та аналітики в
+                        реальному часі.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Проста квері (Match)</h6>
+                            <pre><code class="language-json">GET /products/_search
+{
+  "query": {
+    "match": { "description": "iphone" }
+  },
+  "_source": ["name", "price"]
+}</code></pre>
+                            <h6>Приклад на .NET (NEST / Client)</h6>
+                            <pre><code class="language-csharp">var response = await _client.SearchAsync&lt;Product&gt;(s => s
+    .Query(q => q.Match(m => m.Field(f => f.Description).Query("iphone")))
+    .Source(src => src.Includes(i => i.Fields(f => f.Name, f => f.Price)))
+);</code></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Складна квері (Bool & Aggregations)</h6>
+                            <pre><code class="language-json">GET /orders/_search
+{
+  "query": {
+    "bool": {
+      "must": [{ "match": { "status": "shipped" } }],
+      "filter": [{ "range": { "date": { "gte": "now-30d" } } }]
+    }
+  },
+  "aggs": {
+    "avg_price": { "avg": { "field": "total_amount" } }
+  }
+}</code></pre>
+                            <h6>Приклад на .NET (NEST / Client)</h6>
+                            <pre><code class="language-csharp">var response = await _client.SearchAsync&lt;Order&gt;(s => s
+    .Query(q => q.Bool(b => b
+        .Must(m => m.Match(mt => mt.Field(f => f.Status).Query("shipped")))
+        .Filter(f => f.DateRange(r => r.Field(fd => fd.Date).GreaterThanOrEquals("now-30d")))
+    ))
+    .Aggregations(a => a.Average("avg_price", av => av.Field(f => f.TotalAmount)))
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auth Section -->
+        <section id="auth" class="mb-5">
+            <h2 class="section-title">Authentication vs Authorization</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="alert alert-primary mb-0 h-100">
+                        <strong>Authentication (Автентифікація):</strong>
+                        <p class="mb-0">Хто ви такий? (Логін/Пароль, JWT, Cookies)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-success mb-0 h-100">
+                        <strong>Authorization (Авторизація):</strong>
+                        <p class="mb-0">Що вам дозволено робити? (Ролі, Policy)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Config Section -->
+        <section id="config" class="mb-5">
+            <h2 class="section-title">Configuration & Environments</h2>
+            <div class="card text-white bg-dark">
+                <div class="card-body">
+                    <p class="mb-2">ASP.NET Core завантажує налаштування з різних джерел у такому порядку:</p>
+                    <ol class="small mb-0">
+                        <li><code>appsettings.json</code></li>
+                        <li><code>appsettings.{Environment}.json</code></li>
+                        <li>User Secrets (Development only)</li>
+                        <li>Environment Variables</li>
+                        <li>Command-line arguments</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- C# & .NET Basics Section -->
+        <section id="csharp-basics" class="mb-5">
+            <h2 class="section-title">C# & .NET Basics</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Value vs Reference Types</h4>
+                            <div class="row">
+                                <div class="col-6 shadow-sm p-2 border-end">
+                                    <h6 class="fw-bold">Value Types (Stack)</h6>
+                                    <ul class="small list-unstyled">
+                                        <li>int, bool, float, char</li>
+                                        <li>struct, enum</li>
+                                        <li>Копіюється значення</li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 shadow-sm p-2">
+                                    <h6 class="fw-bold">Reference (Heap)</h6>
+                                    <ul class="small list-unstyled">
+                                        <li>class, interface, delegate</li>
+                                        <li>string, object</li>
+                                        <li>Копіюється посилання</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">String vs StringBuilder</h4>
+                            <ul class="small">
+                                <li><strong>String:</strong> Immutable (незмінний). Кожна зміна створює новий об'єкт у
+                                    пам'яті.</li>
+                                <li><strong>StringBuilder:</strong> Mutable (змінний). Використовуйте для великої
+                                    кількості маніпуляцій з текстом.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Garbage Collector (GC)</h4>
+                            <p class="small">Автоматично керує пам'яттю, звільняючи її від об'єктів, які більше не
+                                використовуються. Працює на Heap.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title text-primary">Boxing/Unboxing</h4>
+                            <p class="small">Перетворення Value Type на Reference Type (Boxing) і навпаки (Unboxing).
+                                Може впливати на продуктивність.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASP.NET Advantages Section -->
+        <section id="aspnet-advantages" class="mb-5">
+            <h2 class="section-title">ASP.NET Core Advantages</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Cross-platform:</strong> Працює на Windows, macOS, Linux.
+                        </li>
+                        <li class="list-group-item"><strong>High Performance:</strong> Швидкий фреймворк, оптимізований
+                            для хмарних додатків.</li>
+                        <li class="list-group-item"><strong>Open-source:</strong> Відкритий вихідний код, активна
+                            спільнота.</li>
+                        <li class="list-group-item"><strong>Unified Framework:</strong> Єдина модель для Web UI та Web
+                            APIs.</li>
+                        <li class="list-group-item"><strong>Dependency Injection:</strong> Вбудована підтримка DI.</li>
+                        <li class="list-group-item"><strong>Modular Architecture:</strong> Гнучка архітектура з
+                            Middleware.</li>
+                        <li class="list-group-item"><strong>Asynchronous Programming:</strong> Вбудована підтримка
+                            async/await.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">Interview Prep Page &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Highlight.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
