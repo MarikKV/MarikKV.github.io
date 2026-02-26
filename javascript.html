@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep - JavaScript & Frontend</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Highlight.js for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            border-bottom: 3px solid #f5576c;
+            display: inline-block;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+        }
+
+        code {
+            border-radius: 8px;
+        }
+
+        /* Sidebar & Toggle Button Styles */
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            background: #f5576c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+            background: #f093fb;
+            transform: scale(1.1);
+        }
+
+        .offcanvas-body .nav-link {
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .offcanvas-body .nav-link:hover {
+            background: #fef1f2;
+            color: #f5576c;
+            padding-left: 20px;
+        }
+
+        .offcanvas-body .sub-nav {
+            padding-left: 20px;
+            border-left: 2px solid #e9ecef;
+            margin-left: 10px;
+        }
+
+        .offcanvas-body .sub-nav .nav-link {
+            font-size: 0.9rem;
+            padding: 5px 15px;
+        }
+    </style>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- Global Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Interview Prep</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dotnet.html"><i class="bi bi-dot-net me-1"></i> .NET Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript.html"><i class="bi bi-filetype-js me-1"></i> JS
+                            Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="react.html"><i class="bi bi-react me-1"></i> React Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu" style="top: 70px;">
+        <i class="bi bi-list fs-3"></i>
+    </button>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header bg-light">
+            <h5 class="offcanvas-title fw-bold text-danger" id="sidebarMenuLabel">Зміст - JavaScript</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <a class="nav-link" href="#basics"><i class="bi bi-braces me-2"></i>JS Основи</a>
+                <a class="nav-link" href="#arrays"><i class="bi bi-list-columns me-2"></i>Array Methods</a>
+                <a class="nav-link" href="#scopes"><i class="bi bi-shutter me-2"></i>Scopes & Closures</a>
+                <a class="nav-link d-flex justify-content-between align-items-center" href="#async">
+                    <span><i class="bi bi-clock-history me-2"></i>Asynchronous JS</span>
+                </a>
+                <div class="sub-nav">
+                    <a class="nav-link" href="#async-callbacks">Callbacks</a>
+                    <a class="nav-link" href="#async-promises">Promises</a>
+                    <a class="nav-link" href="#async-await">Async / Await</a>
+                    <a class="nav-link" href="#event-loop">Event Loop</a>
+                </div>
+                <a class="nav-link" href="#objects"><i class="bi bi-box me-2"></i>Objects & Prototypes</a>
+                <a class="nav-link" href="#modules"><i class="bi bi-diagram-3 me-2"></i>Modules (ESM/CJS)</a>
+                <a class="nav-link" href="#browser"><i class="bi bi-browser-chrome me-2"></i>DOM & Browser API</a>
+                <a class="nav-link text-primary fw-bold" href="#typescript"><i
+                        class="bi bi-ts-circle me-2"></i>TypeScript Intro</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="header-section text-center" style="margin-top: 56px;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">JavaScript Interview Guide</h1>
+            <p class="lead">From Basics to Advanced Concepts</p>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+
+        <!-- JS Engine Section -->
+        <section id="engine" class="mb-5">
+            <h2 class="section-title">JS Runtime & V8 Engine</h2>
+            <div class="card bg-dark text-white shadow-sm border-0">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-7">
+                            <h4 class="text-warning mb-3">Як працює JavaScript?</h4>
+                            <p class="small">JavaScript — це інтерпретована (або JIT-компільована) мова. Найпопулярніший
+                                рушій — <strong>V8</strong> (Chrome, Node.js). Він перетворює JS-код безпосередньо в
+                                машинний код для швидкодії.</p>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded bg-secondary bg-opacity-25 small">
+                                        <strong>Memory Heap:</strong> де зберігаються об'єкти.
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 border border-secondary rounded bg-secondary bg-opacity-25 small">
+                                        <strong>Call Stack:</strong> де виконуються функції.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mt-3 mt-md-0">
+                            <div class="alert alert-warning border-0 mb-0 small">
+                                <strong>Global Info:</strong>
+                                <ul class="mb-0">
+                                    <li><strong>Single-threaded:</strong> один потік виконання.</li>
+                                    <li><strong>Non-blocking:</strong> асинхронність через Event Loop.</li>
+                                    <li><strong>JIT Compilation:</strong> компиляція "на льоту".</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JS Basics Section -->
+        <section id="basics" class="mb-5">
+            <h2 class="section-title">JavaScript Basics</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-top border-danger border-4">
+                        <div class="card-body">
+                            <h4 class="text-danger">Типи даних</h4>
+                            <p class="small">У JavaScript є 8 основних типів даних:</p>
+                            <ul class="small mb-3">
+                                <li><strong>Primitives:</strong> string, number, bigint, boolean, undefined, symbol,
+                                    null.</li>
+                                <li><strong>Objects:</strong> Об'єкти, масиви, функції.</li>
+                            </ul>
+
+                            <div class="bg-light p-2 rounded mb-3 small">
+                                <strong>BigInt:</strong> Для роботи з цілими числами довільної довжини.
+                                <code class="d-block mt-1">const bigValue = 9007199254740991n;</code>
+                            </div>
+
+                            <div class="bg-light p-2 rounded mb-3 small">
+                                <strong>Symbol:</strong> Унікальні та незмінні ідентифікатори.
+                                <code class="d-block mt-1">const sysID = Symbol("id");</code>
+                            </div>
+
+                            <pre class="mb-0"><code class="language-javascript">typeof null; // "object" (bug)
+typeof undefined; // "undefined"
+typeof function(){} // "function"</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card border-top border-danger border-4">
+                        <div class="card-body">
+                            <h4 class="text-danger">var vs let vs const</h4>
+                            <p class="small text-muted">Ключова різниця полягає у <strong>Scope</strong> (області
+                                видимості) та <strong>Hoisting</strong> (піднятті).</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered small">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Особливість</th>
+                                            <th>var</th>
+                                            <th>let</th>
+                                            <th>const</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Scope</td>
+                                            <td>Function</td>
+                                            <td>Block <code>{ }</code></td>
+                                            <td>Block <code>{ }</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hoisting</td>
+                                            <td>Так (<code>undefined</code>)</td>
+                                            <td>Так (TDZ*)</td>
+                                            <td>Так (TDZ*)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reassign</td>
+                                            <td>Так</td>
+                                            <td>Так</td>
+                                            <td>Ні</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="small"><em>*TDZ (Temporal Dead Zone): період від початку блоку до оголошення
+                                    змінної, коли доступ до неї заборонений.</em></p>
+
+                            <div class="row g-3 mt-2">
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small">Hoisting Example:</h6>
+                                    <pre class="mb-0 overflow-hidden"><code class="language-javascript">console.log(a); // undefined
+var a = 10;
+
+console.log(b); // ReferenceError
+let b = 20;</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small">Scope Example:</h6>
+                                    <pre class="mb-0 overflow-hidden"><code class="language-javascript">if(true) {
+    var x = 1;
+    let y = 2;
+}
+console.log(x); // 1
+console.log(y); // ReferenceError</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Array Methods Section -->
+        <section id="arrays" class="mb-5">
+            <h2 class="section-title">Common Array Methods</h2>
+            <div class="card border-0 shadow-sm bg-body-tertiary">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <!-- forEach & Map -->
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded h-100 bg-white">
+                                <h6 class="fw-bold text-danger">forEach vs map</h6>
+                                <p class="small"><code>forEach</code> просто ітерує, <code>map</code> створює
+                                    <strong>новий</strong> масив.
+                                </p>
+                                <pre><code class="language-javascript">const nums = [1, 2, 3];
+nums.forEach(n => console.log(n));
+
+const squared = nums.map(n => n * n); // [1, 4, 9]</code></pre>
+                            </div>
+                        </div>
+                        <!-- Filter & Sort -->
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded h-100 bg-white">
+                                <h6 class="fw-bold text-danger">filter & sort</h6>
+                                <p class="small"><code>filter</code> відсіює елементи. <code>sort</code> мутує
+                                    оригінальний масив!</p>
+                                <pre><code class="language-javascript">const filtered = [1, 5, 10].filter(n => n > 4); // [5, 10]
+
+const sorted = [10, 2, 5].sort((a, b) => a - b); // [2, 5, 10]</code></pre>
+                            </div>
+                        </div>
+                        <!-- Reduce -->
+                        <div class="col-12">
+                            <div class="p-3 border rounded bg-white">
+                                <h6 class="fw-bold text-danger">reduce</h6>
+                                <p class="small">Зводить весь масив до одного значення (сума, об'єкт тощо).</p>
+                                <pre><code class="language-javascript">const sum = [1, 2, 3, 4].reduce((acc, curr) => acc + curr, 0); // 10</code></pre>
+                                <div class="alert alert-light border small mt-2 mb-0 py-1">
+                                    <code>acc</code> — акумулятор (накопичений результат), <code>curr</code> — поточний
+                                    елемент.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scopes & Closures -->
+        <section id="scopes" class="mb-5">
+            <h2 class="section-title">Scopes & Closures</h2>
+            <div class="card shadow-sm border-start border-danger border-5">
+                <div class="card-body">
+                    <h4 class="text-danger mb-3">Замикання (Closure)</h4>
+                    <div class="row align-items-center">
+                        <div class="col-md-7">
+                            <p>Це функція, яка "пам'ятає" своє лексичне оточення, навіть коли вона виконується поза ним.
+                            </p>
+                            <ul class="small">
+                                <li><strong>Навіщо:</strong> Приватні змінні, інкапсуляція даних, фабрики функцій.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <pre class="mb-0"><code class="language-javascript">function createCounter() {
+    let count = 0;
+    return () => ++count;
+}
+const counter = createCounter();
+counter(); // 1
+counter(); // 2</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Asynchronous JS -->
+        <section id="async" class="mb-5">
+            <h2 class="section-title">Asynchronous JavaScript</h2>
+
+            <div class="row g-4">
+                <div class="col-12" id="async-promises">
+                    <div class="card border-top border-warning border-4">
+                        <div class="card-body">
+                            <h4 class="text-warning">Promises (Проміси)</h4>
+                            <p class="small">Об'єкт, що представляє результат асинхронної операції, який буде доступний
+                                у майбутньому.</p>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <div class="p-2 border rounded bg-light h-100">
+                                        <h6 class="small fw-bold">Стани (States):</h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Pending:</strong> очікування.</li>
+                                            <li><strong>Fulfilled:</strong> успішно (викликано <code>resolve</code>).
+                                            </li>
+                                            <li><strong>Rejected:</strong> помилка (викликано <code>reject</code>).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="small fw-bold">Створення промісу (Constructor):</h6>
+                                    <pre class="mb-0"><code class="language-javascript">const myPromise = new Promise((resolve, reject) => {
+    const success = true;
+    if (success) resolve("Дані отримано!");
+    else reject("Помилка запиту.");
+});</code></pre>
+                                </div>
+                            </div>
+
+                            <h6 class="fw-bold mb-2">Методи для групи промісів:</h6>
+                            <div class="table-responsive small">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Метод</th>
+                                            <th>Опис</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>Promise.all([p1, p2])</code></td>
+                                            <td>Чекає на <strong>всі</strong>. Якщо хоч один впаде — падає весь.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>Promise.allSettled([p1, p2])</code></td>
+                                            <td>Чекає на завершення <strong>всіх</strong> (успіх або помилка).</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>Promise.race([p1, p2])</code></td>
+                                            <td>Повертає результат <strong>першого</strong> завершеного (будь-якого).
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>Promise.any([p1, p2])</code></td>
+                                            <td>Чекає на <strong>перший успішний</strong>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h6 class="fw-bold mt-3">Приклад обробки ланцюжком (Chaining):</h6>
+                            <pre class="mb-0"><code class="language-javascript">fetchData()
+    .then(data => process(data))    // викликається при успіху
+    .catch(error => console(error)) // викликається при помилці
+    .finally(() => stopLoader());   // в будь-якому випадку</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="async-await">
+                    <div class="card h-100 border-top border-success border-4">
+                        <div class="card-body">
+                            <h4 class="text-success">Async / Await</h4>
+                            <p class="small">Синтаксичний цукор над промісами, що дозволяє писати асинхронний код як
+                                синхронний.</p>
+                            <pre><code class="language-javascript">async function getData() {
+    try {
+        const data = await fetch('url');
+        return await data.json();
+    } catch (err) {
+        // handle error
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="event-loop">
+                    <div class="card h-100 border-top border-info border-4">
+                        <div class="card-body">
+                            <h4 class="text-info">Event Loop</h4>
+                            <p class="small">Механізм, що дозволяє JS виконувати неблокуючі операції, попри те, що він
+                                однопотоковий.</p>
+                            <ul class="small">
+                                <li><strong>Call Stack:</strong> де виконується код.</li>
+                                <li><strong>Microtasks:</strong> (Promises) мають пріоритет.</li>
+                                <li><strong>Macrotasks:</strong> (setTimeout, I/O).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objects & Prototypes -->
+        <section id="objects" class="mb-5">
+            <h2 class="section-title">Objects & Prototypes</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-danger mb-3">Прототипне успадкування</h4>
+                    <p>У JavaScript успадкування працює через об'єкти-прототипи. Кожен об'єкт має посилання на свій
+                        прототип (<code>__proto__</code>).</p>
+                    <pre><code class="language-javascript">const animal = { eats: true };
+const rabbit = Object.create(animal);
+console.log(rabbit.eats); // true (взято з прототипу)</code></pre>
+                    <div class="alert alert-light border mt-3 small">
+                        <strong>Класи в ES6:</strong> Це лише "синтаксичний цукор" над прототипами, вони не створюють
+                        нову модель успадкування.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TypeScript Section -->
+        <section id="typescript" class="mb-5">
+            <h2 class="section-title">TypeScript Overview</h2>
+            <div class="card border-primary shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-primary mb-3">Що таке TypeScript?</h4>
+                    <p>Це сувора надбудова (superset) над JavaScript, яка додає <strong>статичну типізацію</strong>. Код
+                        TS компілюється в чистий JS.</p>
+
+                    <div class="row g-4">
+                        <!-- Basic Types -->
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">1. Базові типи</h6>
+                            <pre><code class="language-typescript">let isDone: boolean = false;
+let count: number = 42;
+let name: string = "User";
+let list: number[] = [1, 2, 3];
+let tuple: [string, number] = ["hello", 10];</code></pre>
+                        </div>
+
+                        <!-- Interfaces -->
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">2. Interfaces & Types</h6>
+                            <pre><code class="language-typescript">interface User {
+    id: number;
+    name: string;
+    role?: string; // Optional property
+}
+const user: User = { id: 1, name: "Admin" };</code></pre>
+                        </div>
+
+                        <!-- Enums -->
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">3. Enums</h6>
+                            <pre><code class="language-typescript">enum Status { 
+    Active, 
+    Inactive, 
+    Pending 
+}
+let current: Status = Status.Active;</code></pre>
+                        </div>
+
+                        <!-- Generics -->
+                        <div class="col-md-6">
+                            <h6 class="fw-bold">4. Generics (Узагальнення)</h6>
+                            <pre><code class="language-typescript">function identity<T>(arg: T): T {
+    return arg;
+}
+let output = identity<string>("myString");</code></pre>
+                        </div>
+
+                        <!-- Union & Intersection -->
+                        <div class="col-12">
+                            <div class="p-3 bg-light rounded border">
+                                <h6 class="fw-bold text-primary">Union & Intersection Types</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mb-1"><strong>Union (|):</strong> Змінна може бути одного з
+                                            кількох типів.</p>
+                                        <pre
+                                            class="mb-0"><code class="language-typescript">let padding: string | number;</code></pre>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mb-1"><strong>Intersection (&):</strong> Об'єднання кількох
+                                            типів в один.</p>
+                                        <pre
+                                            class="mb-0"><code class="language-typescript">type Admin = User & { permissions: string[] };</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Utility Types -->
+                        <div class="col-12 mt-4">
+                            <h6 class="fw-bold text-success">Корисні Utility Types</h6>
+                            <ul class="small">
+                                <li><code>Partial&lt;T&gt;</code> — робить всі поля опціональними.</li>
+                                <li><code>Readonly&lt;T&gt;</code> — робить об'єкт незмінним.</li>
+                                <li><code>Pick&lt;T, K&gt;</code> — обирає лише вказані поля.</li>
+                                <li><code>Omit&lt;T, K&gt;</code> — видаляє вказані поля.</li>
+                            </ul>
+                            <pre><code class="language-typescript">type UserPreview = Pick<User, "id" | "name">;
+const preview: UserPreview = { id: 2, name: "Guest" };</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">JS Interview Prep &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Highlight.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Close offcanvas when a link is clicked
+        const sidebar = document.getElementById('sidebarMenu');
+        sidebar.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebar);
+                if (bsOffcanvas) bsOffcanvas.hide();
+            });
+        });
+    </script>
+</body>
+
+</html>

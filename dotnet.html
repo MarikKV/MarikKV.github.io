@@ -108,9 +108,32 @@
 
 <body>
 
+    <!-- Global Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Interview Prep</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dotnet.html"><i class="bi bi-dot-net me-1"></i> .NET Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript.html"><i class="bi bi-filetype-js me-1"></i> JS Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="react.html"><i class="bi bi-react me-1"></i> React Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Sidebar Toggle Button -->
     <button class="sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu"
-        aria-controls="sidebarMenu">
+        aria-controls="sidebarMenu" style="top: 70px;">
         <i class="bi bi-list fs-3"></i>
     </button>
 
@@ -147,7 +170,7 @@
         </div>
     </div>
 
-    <header class="header-section text-center">
+    <header class="header-section text-center" style="margin-top: 56px;">
         <div class="container">
             <h1 class="display-4 fw-bold">Interview Prep Guide</h1>
             <p class="lead">OOP, SOLID, Patterns, and .NET Basics</p>
@@ -160,32 +183,48 @@
         <section id="clr" class="mb-5">
             <h2 class="section-title">CLR & ASP.NET Overview</h2>
             <div class="row g-4">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="text-primary">CLR (Common Language Runtime)</h4>
-                            <p>Середовище виконання, що керує IL-кодом, пам'яттю (GC) та безпекою.</p>
-                            <div class="alert alert-info py-2 small">
+                            <p class="small">Середовище виконання, що керує IL-кодом, пам'яттю (GC) та безпекою.</p>
+                            <div class="alert alert-info py-2 small mb-0">
                                 <strong>Переваги ASP.NET Core:</strong>
                                 <ul class="mb-0">
-                                    <li>Кросплатформенність (Windows, Linux, macOS).</li>
-                                    <li>Висока продуктивність (Kestrel).</li>
-                                    <li>Вбудована Dependency Injection.</li>
-                                    <li>Модульність (Middleware).</li>
+                                    <li>Кросплатформенність (Linux/Windows).</li>
+                                    <li>Kestrel (висока продуктивність).</li>
+                                    <li>Вбудована DI та Middleware.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="card h-100 border-start border-primary border-4">
+                        <div class="card-body">
+                            <h4 class="text-primary">Threads & Concurrency</h4>
+                            <p class="small">.NET — багатопотокова платформа. CLR використовує
+                                <strong>ThreadPool</strong> для ефективного керування потоками.
+                            </p>
+                            <ul class="small mb-0">
+                                <li><strong>Thread:</strong> одиниця виконання в ОС.</li>
+                                <li><strong>ThreadPool:</strong> пул готових потоків, що економить ресурси на їх
+                                    створення.</li>
+                                <li><strong>Context Switching:</strong> затратна операція переключення між потоками.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="text-primary">MVC Pattern</h4>
-                            <p>Розділення логіки на три компоненти:</p>
-                            <ul class="small">
-                                <li><strong>Model:</strong> Дані та бізнес-логіка.</li>
-                                <li><strong>View:</strong> Відображення (HTML/Razor).</li>
-                                <li><strong>Controller:</strong> Обробка запитів та зв'язок M та V.</li>
+                            <p class="small">Розділення логіки на компоненти:</p>
+                            <ul class="small mb-0">
+                                <li><strong>Model:</strong> Дані та логіка.</li>
+                                <li><strong>View:</strong> Інтерфейс (HTML).</li>
+                                <li><strong>Controller:</strong> Обробка запитів.</li>
                             </ul>
                         </div>
                     </div>
@@ -906,6 +945,46 @@ var list = await users.ToListAsync();</code></pre>
                 <div class="card-body">
                     <h4 class="text-primary">SQL (Structured Query Language)</h4>
                     <p>Реляційні БД використовують SQL для маніпуляції даними та визначення структур.</p>
+
+                    <!-- New JOINS Info -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-12">
+                            <h5 class="text-dark border-bottom pb-2">SQL JOINS (Види зв'язків)</h5>
+                            <p class="small text-muted">Використовуються для об'єднання даних з двох або більше таблиць
+                                на основі зв'язаного стовпця.</p>
+                            <div class="row g-2">
+                                <div class="col-md-3">
+                                    <div class="p-2 border rounded bg-light small h-100">
+                                        <strong class="text-primary">INNER JOIN</strong>
+                                        <p class="mb-0">Повертає лише ті записи, де є <strong>збіги в обох</strong>
+                                            таблицях.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="p-2 border rounded bg-light small h-100">
+                                        <strong class="text-primary">LEFT JOIN</strong>
+                                        <p class="mb-0">Всі записи з <strong>лівої</strong> таблиці + збіги з правої.
+                                            Якщо немає збігу — <code>NULL</code>.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="p-2 border rounded bg-light small h-100">
+                                        <strong class="text-primary">RIGHT JOIN</strong>
+                                        <p class="mb-0">Всі записи з <strong>правої</strong> таблиці + збіги з лівої.
+                                            Аналогічно до Left Join навпаки.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="p-2 border rounded bg-light small h-100">
+                                        <strong class="text-primary">FULL OUTER</strong>
+                                        <p class="mb-0">Всі записи з <strong>обох</strong> таблиць. Де немає збігів —
+                                            там <code>NULL</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <h6>Проста квері (Фільтрація та проекція)</h6>
@@ -920,19 +999,17 @@ WHERE IsActive = 1 AND Age > 18;</code></pre>
                         </div>
                         <div class="col-md-6">
                             <h6>Складна квері (JOIN та Групування)</h6>
-                            <pre><code class="language-sql">SELECT u.Name, COUNT(o.Id) as OrderCount
+                            <pre><code class="language-sql">-- Отримати всіх користувачів та кількість їх замовлень (навіть якщо 0)
+SELECT u.Name, COUNT(o.Id) as OrderCount
 FROM Users u
 LEFT JOIN Orders o ON u.Id = o.UserId
-WHERE o.Status = 'Completed'
-GROUP BY u.Name
-HAVING COUNT(o.Id) > 5;</code></pre>
+GROUP BY u.Name;</code></pre>
                             <h6>Приклад на .NET (EF Core)</h6>
                             <pre><code class="language-csharp">var stats = await _context.Users
     .Select(u => new {
         u.Name,
-        OrderCount = u.Orders.Count(o => o.Status == "Completed")
+        OrderCount = u.Orders.Count()
     })
-    .Where(x => x.OrderCount > 5)
     .ToListAsync();</code></pre>
                         </div>
                     </div>
