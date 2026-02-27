@@ -388,32 +388,74 @@ Serilog.Log.Logger.Warning("AmplitudeCopilotHelper. SendEvent. Error. " +
 
             <!-- Detailed OOP Concepts (Full Width) -->
             <div class="row g-4">
+
                 <!-- Encapsulation -->
                 <div class="col-12">
                     <div class="card border-start border-primary border-5 shadow-sm">
                         <div class="card-body">
                             <h4 class="card-title text-primary border-bottom pb-2 mb-3">1. Encapsulation (Інкапсуляція)
                             </h4>
-                            <div class="row align-items-center">
-                                <div class="col-md-7">
-                                    <p>Це об'єднання даних та методів в одному класі з обмеженням прямого доступу до
-                                        стану об'єкта.</p>
-                                    <ul class="small">
-                                        <li><strong>Навіщо:</strong> Захист від некоректних даних та приховування
-                                            складності. Об'єкт стає "чорним ящиком".</li>
-                                        <li><strong>Приклад:</strong> Клас <code>User</code> не дозволяє встановити
-                                            від'ємний вік через <code>Age { get; set; }</code> з логікою.</li>
-                                        <li><strong>Результат:</strong> Можна змінити як зберігаються дані всередині, не
-                                            змінюючи код, який використовує клас.</li>
-                                    </ul>
+                            <p>Об'єднання даних та методів в одному класі з <strong>обмеженням прямого доступу</strong>
+                                до внутрішнього стану. Об'єкт стає "чорним ящиком" — зовні видно лише те, що потрібно.
+                            </p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold text-danger small">❌ Без інкапсуляції (небезпечно)</h6>
+                                    <pre class="mb-0"><code class="language-csharp">public class BankAccount {
+    public decimal Balance; // Публічне поле — катастрофа!
+    public string Owner;
+}
+
+// Хтось може написати:
+var acc = new BankAccount();
+acc.Balance = -99999; // Недійсний стан — жодного контролю!</code></pre>
                                 </div>
-                                <div class="col-md-5">
-                                    <pre class="mb-0"><code class="language-csharp">public class Account {
-    private decimal _balance;
-    public void Deposit(decimal sum) {
-        if(sum > 0) _balance += sum;
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold text-success small">✅ З інкапсуляцією (безпечно)</h6>
+                                    <pre class="mb-0"><code class="language-csharp">public class BankAccount {
+    private decimal _balance;           // Приховано
+    private readonly List&lt;string&gt; _log = new();
+
+    public string Owner { get; }        // Лише читання
+    public decimal Balance => _balance; // Лише читання ззовні
+
+    public BankAccount(string owner, decimal initial) {
+        if (string.IsNullOrWhiteSpace(owner))
+            throw new ArgumentException("Owner required");
+        if (initial &lt; 0)
+            throw new ArgumentException("Initial balance can't be negative");
+
+        Owner = owner;
+        _balance = initial;
+        _log.Add($"Account created with {initial:C}");
     }
-}</code></pre>
+
+    public void Deposit(decimal amount) {
+        if (amount &lt;= 0)
+            throw new ArgumentException("Deposit must be positive");
+
+        _balance += amount;
+        _log.Add($"+{amount:C} | Balance: {_balance:C}");
+    }
+
+    public void Withdraw(decimal amount) {
+        if (amount &lt;= 0) throw new ArgumentException("Amount must be positive");
+        if (amount > _balance) throw new InvalidOperationException("Insufficient funds");
+
+        _balance -= amount;
+        _log.Add($"-{amount:C} | Balance: {_balance:C}");
+    }
+
+    // Зовнішній код отримує копію, а не посилання на реальний список
+    public IReadOnlyList&lt;string&gt; GetHistory() => _log.AsReadOnly();
+}
+
+// Використання:
+var acc = new BankAccount("Alice", 1000m);
+acc.Deposit(500m);
+acc.Withdraw(200m);
+// acc._balance = -99999; // ❌ Помилка компіляції — поле приватне!
+Console.WriteLine(acc.Balance); // 1300</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -426,25 +468,74 @@ Serilog.Log.Logger.Warning("AmplitudeCopilotHelper. SendEvent. Error. " +
                         <div class="card-body">
                             <h4 class="card-title text-success border-bottom pb-2 mb-3">2. Inheritance (Наслідування)
                             </h4>
-                            <div class="row align-items-center">
-                                <div class="col-md-7">
-                                    <p>Створення нового класу на основі вже існуючого для повторного використання коду
-                                        та розширення функціоналу.</p>
-                                    <ul class="small">
-                                        <li><strong>Принцип:</strong> "IS-A" (Співробітник — це Людина).</li>
-                                        <li><strong>Переваги:</strong> Скорочення дублювання (DRY) та створення ієрархій
-                                            об'єктів.</li>
-                                        <li><strong>C# Особливість:</strong> Клас може мати лише <strong>одного</strong>
-                                            батька, але реалізувати багато інтерфейсів.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-5">
-                                    <pre class="mb-0"><code class="language-csharp">public class User { public string Email; }
-public class Admin : User { 
-    public void Delete() { } 
-} // Admin має і Email, і Delete()</code></pre>
-                                </div>
-                            </div>
+                            <p>Створення нових класів на основі існуючих. Нащадок автоматично отримує всі члени батька і
+                                може їх <strong>розширювати або перевизначати</strong>. Принцип <em>"IS-A"</em>: Manager
+                                IS-A Employee.</p>
+                            <pre class="mb-0"><code class="language-csharp">// Базовий клас
+public class Employee {
+    public int Id { get; }
+    public string Name { get; }
+    protected decimal BaseSalary { get; }  // protected — доступно нащадкам
+
+    public Employee(int id, string name, decimal baseSalary) {
+        Id = id;
+        Name = name;
+        BaseSalary = baseSalary;
+    }
+
+    // virtual — нащадок МОЖЕ перевизначити
+    public virtual decimal CalculateSalary() => BaseSalary;
+
+    public virtual string GetInfo() =>
+        $"[Employee] {Name} | Salary: {CalculateSalary():C}";
+}
+
+// Нащадок 1 – успадковує Employee, додає бонус
+public class SalesEmployee : Employee {
+    private decimal _salesBonus;
+
+    public SalesEmployee(int id, string name, decimal baseSalary, decimal bonus)
+        : base(id, name, baseSalary)   // виклик конструктора батька
+    {
+        _salesBonus = bonus;
+    }
+
+    // override — замінює логіку батька
+    public override decimal CalculateSalary() => BaseSalary + _salesBonus;
+
+    public override string GetInfo() =>
+        $"[Sales] {Name} | Base: {BaseSalary:C} + Bonus: {_salesBonus:C} = {CalculateSalary():C}";
+}
+
+// Нащадок 2 – Manager керує командою
+public class Manager : Employee {
+    private List&lt;Employee&gt; _team = new();
+    private decimal _managementAllowance;
+
+    public Manager(int id, string name, decimal baseSalary, decimal allowance)
+        : base(id, name, baseSalary)
+    {
+        _managementAllowance = allowance;
+    }
+
+    public void AddToTeam(Employee emp) => _team.Add(emp);
+
+    public override decimal CalculateSalary() => BaseSalary + _managementAllowance;
+
+    public override string GetInfo() =>
+        $"[Manager] {Name} | Salary: {CalculateSalary():C} | Team size: {_team.Count}";
+}
+
+// Демонстрація:
+var emp  = new Employee(1, "Alice", 3000m);
+var sales = new SalesEmployee(2, "Bob", 2500m, 800m);
+var mgr  = new Manager(3, "Carol", 5000m, 1500m);
+mgr.AddToTeam(emp);
+mgr.AddToTeam(sales);
+
+Console.WriteLine(emp.GetInfo());   // [Employee] Alice | Salary: $3,000.00
+Console.WriteLine(sales.GetInfo()); // [Sales] Bob | Base: $2,500.00 + Bonus: $800.00 = $3,300.00
+Console.WriteLine(mgr.GetInfo());   // [Manager] Carol | Salary: $6,500.00 | Team size: 2</code></pre>
                         </div>
                     </div>
                 </div>
@@ -455,25 +546,82 @@ public class Admin : User {
                         <div class="card-body">
                             <h4 class="card-title text-warning border-bottom pb-2 mb-3">3. Polymorphism (Поліморфізм)
                             </h4>
-                            <div class="row align-items-center">
-                                <div class="col-md-7">
-                                    <p>Здатність об'єктів з різними типами реалізації оброблятися через спільний
-                                        інтерфейс (базовий клас/інтерфейс).</p>
-                                    <ul class="small">
-                                        <li><strong>Статичний:</strong> Перевантаження методів (overloading) — різні
-                                            параметри одного методу.</li>
-                                        <li><strong>Динамічний:</strong> Перевизначення (overriding) —
-                                            <code>virtual</code> методи батька замінюються на <code>override</code> у
-                                            дітей.
-                                        </li>
-                                        <li><strong>Суть:</strong> Ви викликаєте <code>Draw()</code> у списку фігур, і
-                                            кожна малюється по-своєму.</li>
-                                    </ul>
+                            <p>Здатність об'єктів різних типів оброблятися через <strong>єдиний інтерфейс</strong>. Один
+                                виклик — різна поведінка залежно від реального типу об'єкта.</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small text-muted">Статичний поліморфізм — перевантаження
+                                        (Overloading)</h6>
+                                    <pre class="mb-0"><code class="language-csharp">// Один метод — різні сигнатури (визначається при КОМПІЛЯЦІЇ)
+public class Logger {
+    public void Log(string message) =>
+        Console.WriteLine($"[INFO] {message}");
+
+    public void Log(string message, Exception ex) =>
+        Console.WriteLine($"[ERROR] {message}: {ex.Message}");
+
+    public void Log(string message, LogLevel level) =>
+        Console.WriteLine($"[{level}] {message}");
+}
+
+var log = new Logger();
+log.Log("Server started");               // перша версія
+log.Log("DB failed", new Exception("timeout")); // друга версія</code></pre>
                                 </div>
-                                <div class="col-md-5">
-                                    <pre class="mb-0"><code class="language-csharp">public virtual void Fix(); 
-// В нащадку:
-public override void Fix() { /* реалізація */ }</code></pre>
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small text-muted">Динамічний поліморфізм — перевизначення
+                                        (Overriding)</h6>
+                                    <pre class="mb-0"><code class="language-csharp">// Вирішується в RUNTIME за реальним типом об'єкта
+public abstract class Notification {
+    public string Recipient { get; }
+    protected Notification(string recipient) => Recipient = recipient;
+
+    public abstract Task SendAsync(string message); // контракт
+}
+
+public class EmailNotification : Notification {
+    public EmailNotification(string email) : base(email) { }
+
+    public override async Task SendAsync(string message) {
+        await Task.Delay(10); // Simulate SMTP call
+        Console.WriteLine($"📧 Email → {Recipient}: {message}");
+    }
+}
+
+public class SmsNotification : Notification {
+    public SmsNotification(string phone) : base(phone) { }
+
+    public override async Task SendAsync(string message) {
+        await Task.Delay(10); // Simulate SMS gateway
+        Console.WriteLine($"📱 SMS → {Recipient}: {message}");
+    }
+}
+
+public class PushNotification : Notification {
+    public PushNotification(string deviceToken) : base(deviceToken) { }
+
+    public override async Task SendAsync(string message) {
+        await Task.Delay(10);
+        Console.WriteLine($"🔔 Push → {Recipient}: {message}");
+    }
+}
+
+// Магія поліморфізму:
+// Різні типи — одна змінна типу List&lt;Notification&gt;
+var channels = new List&lt;Notification&gt; {
+    new EmailNotification("user@example.com"),
+    new SmsNotification("+380991234567"),
+    new PushNotification("device-token-abc")
+};
+
+// Один цикл — кожен об'єкт поводиться по-своєму
+foreach (var ch in channels)
+    await ch.SendAsync("Your order has been shipped! 🚀");
+
+// Output:
+// 📧 Email → user@example.com: Your order has been shipped! 🚀
+// 📱 SMS → +380991234567: Your order has been shipped! 🚀
+// 🔔 Push → device-token-abc: Your order has been shipped! 🚀</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -485,25 +633,118 @@ public override void Fix() { /* реалізація */ }</code></pre>
                     <div class="card border-start border-info border-5 shadow-sm">
                         <div class="card-body">
                             <h4 class="card-title text-info border-bottom pb-2 mb-3">4. Abstraction (Абстракція)</h4>
-                            <div class="row align-items-center">
-                                <div class="col-md-7">
-                                    <p>Виділення лише найважливіших рис об'єкта та відкидання несуттєвих деталей
-                                        реалізації.</p>
-                                    <ul class="small">
-                                        <li><strong>Мета:</strong> Керувати складністю. Ми визначаємо
-                                            <strong>ЩО</strong> об'єкт робить, а не <strong>ЯК</strong>.
-                                        </li>
-                                        <li><strong>Інструменти:</strong> <code>abstract</code> класи та
-                                            <code>interfaces</code>.
-                                        </li>
-                                        <li><strong>Приклад:</strong> Користувач смартфона знає як натиснути іконку, але
-                                            не знає як ОС обробляє цей дотик.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-5">
-                                    <pre class="mb-0"><code class="language-csharp">public abstract class Shape {
-    public abstract double GetArea();
+                            <p>Визначаємо <strong>ЩО</strong> об'єкт робить (контракт), а не <strong>ЯК</strong> він це
+                                робить (реалізацію). Споживач коду не знає деталей — він просто викликає метод.</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small text-muted">Abstract Class — часткова реалізація + контракт
+                                    </h6>
+                                    <pre class="mb-0"><code class="language-csharp">// abstract клас: може мати готову логіку + абстрактні методи
+public abstract class PaymentProcessor {
+    // Готова логіка — однакова для всіх провайдерів
+    public async Task&lt;PaymentResult&gt; ProcessAsync(Order order) {
+        Console.WriteLine($"Validating order #{order.Id}...");
+        Validate(order); // спільна валідація
+
+        Console.WriteLine($"Charging {order.Amount:C} via {ProviderName}...");
+        var result = await ChargeAsync(order.Amount, order.Currency);
+
+        Console.WriteLine($"Logging transaction...");
+        LogTransaction(order, result); // спільне логування
+
+        return result;
+    }
+
+    public abstract string ProviderName { get; }
+
+    // ЯК саме списати гроші — знає ТІЛЬКИ нащадок
+    protected abstract Task&lt;PaymentResult&gt; ChargeAsync(decimal amount, string currency);
+
+    private void Validate(Order order) {
+        if (order.Amount &lt;= 0) throw new ArgumentException("Invalid amount");
+        if (string.IsNullOrEmpty(order.Currency)) throw new ArgumentException("Currency required");
+    }
+
+    private void LogTransaction(Order order, PaymentResult result) =>
+        Console.WriteLine($"[LOG] Order {order.Id}: {result.Status}");
+}
+
+public class StripeProcessor : PaymentProcessor {
+    private readonly string _apiKey;
+    public StripeProcessor(string apiKey) => _apiKey = apiKey;
+    public override string ProviderName => "Stripe";
+
+    protected override async Task&lt;PaymentResult&gt; ChargeAsync(decimal amount, string currency) {
+        await Task.Delay(100); // симуляція HTTP до Stripe API
+        return new PaymentResult("stripe_txn_123", "Success");
+    }
+}
+
+public class PayPalProcessor : PaymentProcessor {
+    public override string ProviderName => "PayPal";
+
+    protected override async Task&lt;PaymentResult&gt; ChargeAsync(decimal amount, string currency) {
+        await Task.Delay(150); // симуляція HTTP до PayPal API
+        return new PaymentResult("paypal_txn_456", "Completed");
+    }
 }</code></pre>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="fw-bold small text-muted">Interface — чистий контракт (використання з DI)
+                                    </h6>
+                                    <pre class="mb-0"><code class="language-csharp">// Інтерфейс — ТІЛЬКИ "що", ніякого "як"
+public interface IRepository&lt;T&gt; where T : class {
+    Task&lt;T?&gt;       GetByIdAsync(int id);
+    Task&lt;IEnumerable&lt;T&gt;&gt; GetAllAsync();
+    Task           AddAsync(T entity);
+    Task           UpdateAsync(T entity);
+    Task           DeleteAsync(int id);
+}
+
+// Реальна реалізація через EF Core
+public class UserRepository : IRepository&lt;User&gt; {
+    private readonly AppDbContext _db;
+    public UserRepository(AppDbContext db) => _db = db;
+
+    public async Task&lt;User?&gt; GetByIdAsync(int id) =>
+        await _db.Users.FindAsync(id);
+
+    public async Task&lt;IEnumerable&lt;User&gt;&gt; GetAllAsync() =>
+        await _db.Users.ToListAsync();
+
+    public async Task AddAsync(User user) {
+        await _db.Users.AddAsync(user);
+        await _db.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(User user) {
+        _db.Users.Update(user);
+        await _db.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(int id) {
+        var user = await GetByIdAsync(id);
+        if (user != null) {
+            _db.Users.Remove(user);
+            await _db.SaveChangesAsync();
+        }
+    }
+}
+
+// Реєстрація в DI — легко замінити реалізацію
+// builder.Services.AddScoped&lt;IRepository&lt;User&gt;, UserRepository&gt;();
+
+// Сервіс залежить від АБСТРАКЦІЇ, а не від конкретного класу
+public class UserService {
+    private readonly IRepository&lt;User&gt; _repo;
+    public UserService(IRepository&lt;User&gt; repo) => _repo = repo;
+
+    public async Task&lt;User?&gt; FindAsync(int id) => await _repo.GetByIdAsync(id);
+}
+
+// Абстрактний клас vs Interface:
+// abstract class — коли є спільна (готова) логіка для нащадків
+// interface     — коли потрібен лише контракт (зазвичай з DI)</code></pre>
                                 </div>
                             </div>
                         </div>
