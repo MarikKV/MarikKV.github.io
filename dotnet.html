@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interview Prep - .NET & Architecture</title>
+    <link rel="shortcut icon" href="/images/dotnet.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Highlight.js for code blocks -->
@@ -1253,6 +1254,99 @@ GROUP BY u.Name;</code></pre>
     })
     .ToListAsync();</code></pre>
                         </div>
+                    </div>
+
+                    <!-- UPDATE & DELETE -->
+                    <h5 class="text-dark border-bottom pb-2 mt-4">UPDATE — Оновлення даних</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <h6>SQL</h6>
+                            <pre><code class="language-sql">-- Оновити email у конкретного користувача
+UPDATE Users
+SET Email = 'new@mail.com',
+    UpdatedAt = GETDATE()
+WHERE Id = 42;</code></pre>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>ADO.NET (параметризований запит)</h6>
+                            <pre><code class="language-csharp">using var cmd = new SqlCommand(
+    "UPDATE Users SET Email=@Email, UpdatedAt=@Now WHERE Id=@Id",
+    connection);
+cmd.Parameters.AddWithValue("@Email", "new@mail.com");
+cmd.Parameters.AddWithValue("@Now", DateTime.UtcNow);
+cmd.Parameters.AddWithValue("@Id", 42);
+await cmd.ExecuteNonQueryAsync();</code></pre>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>EF Core</h6>
+                            <pre><code class="language-csharp">// Варіант 1: завантажити → змінити → зберегти
+var user = await _context.Users.FindAsync(42);
+if (user != null) {
+    user.Email = "new@mail.com";
+    user.UpdatedAt = DateTime.UtcNow;
+    await _context.SaveChangesAsync();
+}
+
+// Варіант 2: ExecuteUpdateAsync (EF Core 7+)
+await _context.Users
+    .Where(u => u.Id == 42)
+    .ExecuteUpdateAsync(s => s
+        .SetProperty(u => u.Email, "new@mail.com")
+        .SetProperty(u => u.UpdatedAt, DateTime.UtcNow));</code></pre>
+                        </div>
+                    </div>
+
+                    <h5 class="text-dark border-bottom pb-2 mt-4">DELETE — Видалення даних</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <h6>SQL</h6>
+                            <pre><code class="language-sql">-- Видалити конкретного користувача
+DELETE FROM Users
+WHERE Id = 42;
+
+-- Видалити всіх неактивних (Bulk Delete)
+DELETE FROM Users
+WHERE IsActive = 0
+  AND CreatedAt < DATEADD(DAY, -365, GETDATE());</code></pre>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>ADO.NET (параметризований запит)</h6>
+                            <pre><code class="language-csharp">using var cmd = new SqlCommand(
+    "DELETE FROM Users WHERE Id = @Id",
+    connection);
+cmd.Parameters.AddWithValue("@Id", 42);
+int rowsAffected = await cmd.ExecuteNonQueryAsync();
+
+// rowsAffected — кількість видалених рядків</code></pre>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>EF Core</h6>
+                            <pre><code class="language-csharp">// Варіант 1: завантажити → видалити → зберегти
+var user = await _context.Users.FindAsync(42);
+if (user != null) {
+    _context.Users.Remove(user);
+    await _context.SaveChangesAsync();
+}
+
+// Варіант 2: ExecuteDeleteAsync (EF Core 7+)
+// Один SQL-запит без завантаження в пам'ять
+await _context.Users
+    .Where(u => u.Id == 42)
+    .ExecuteDeleteAsync();</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-3 small mb-0">
+                        <strong>💡 Порада:</strong>
+                        <ul class="mb-0 mt-1">
+                            <li><code>ExecuteUpdateAsync</code> / <code>ExecuteDeleteAsync</code> — виконують
+                                <strong>один SQL-запит</strong> без завантаження сутностей у пам'ять. Ідеальні для
+                                масових операцій.</li>
+                            <li>Завжди використовуйте <strong>параметризовані запити</strong> в ADO.NET — це захист від
+                                SQL Injection.</li>
+                            <li>Для критичних операцій загортайте UPDATE/DELETE у <strong>транзакцію</strong>:
+                                <code>using var tx = await _context.Database.BeginTransactionAsync();</code></li>
+                        </ul>
                     </div>
                 </div>
             </div>
